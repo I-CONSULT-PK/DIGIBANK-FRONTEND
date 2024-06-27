@@ -1,0 +1,32 @@
+// component css goes here
+.otp-field {
+    margin: auto;
+  }
+  
+  .OtpH2 {
+    font-weight: normal;
+    margin: auto;
+  }
+  
+  .otp-field input {
+    width: 55px;
+    font-size: 32px;
+    padding: 17px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 6px;
+    border: 2px solid #000;
+    background: none;
+    font-weight: bold;
+    color: #000;
+    outline: none;
+    transition: all 0.1s;
+  }
+  
+  .otp-field input:focus {
+    transition: 0.6s ease;
+    transform: scale(1.1);
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.541);
+    // box-shadow: 0 0 2px 2px #1EBBD7;
+  }

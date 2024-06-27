@@ -1,0 +1,115 @@
+<!--component html goes here -->
+<div class="main-content pb-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 Main-SecondRow">
+                <h2 class="card-title text-center">Pay Order</h2>
+            </div>
+        </div>
+        <div class="row" style="height: 115px;">
+            <accounts-section></accounts-section>
+        </div>
+        <div class="row p-3">
+            <label for="">Beneficiary Detail</label>
+            <div class="card card-profile CustomRow m-0">
+                <div class="row">
+                    <div class="col-md-12 p-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Enter Beneficiary Name (to be printed on Pay Order)</mat-label>
+                                        <input matInput placeholder="Search">
+                                    </mat-form-field>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Beneficiary Address</mat-label>
+                                        <input matInput placeholder="Search">
+                                    </mat-form-field>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Beneficiary Mobile Number</mat-label>
+                                        <input matInput placeholder="Search">
+                                    </mat-form-field>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Beneficiary CNIC (Incaseof corporate enter NTN)</mat-label>
+                                        <input matInput placeholder="Search">
+                                    </mat-form-field>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card card-profile CustomRow m-0" style="margin-top: 15px !important;">
+                <div class="row">
+                    <div class="col-md-12 p-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Self Pickup</mat-label>
+                                        <input matInput>
+                                    </mat-form-field>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label> Mobile Number</mat-label>
+                                        <input matInput>
+                                    </mat-form-field>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label> Amount</mat-label>
+                                        <input matInput>
+                                    </mat-form-field>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label> Purpose of Payment</mat-label>
+                                        <input matInput>
+                                    </mat-form-field>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div style="padding-right: 9px; padding-bottom: 9px;">
+                    <button mat-raised-button type="submit" class="btn btn-danger pull-right CustomButton">
+                        Accept Terms & Continue
+                    </button>
+                    <button mat-raised-button type="submit" class="btn btn-danger pull-right CustomButton">
+                        Reset
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add SubAccount</title>
+    <!-- Include SweetAlert CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+
+<body>
+    <div class="card card-profile" style="margin-top: 65px;">
+        <div class="card-body" style="align-content: center; margin-top: 20px;">
+            <h4 class="card-title">Add SubAccount</h4>
+            <p class="vertical-text">
+                <strong>NAME</strong> : Meer Hamza<br>
+                <strong>IBAN</strong> : ZNBL52300***139**<br>
+                <strong>ACCOUNT</strong> : 738**1268**
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="myForm">
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div data-mdb-input-init class="form-outline">
+                                <input type="text" id="form3Example1" class="form-control" />
+                                <label class="form-label" for="form3Example1">First name</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div data-mdb-input-init class="form-outline">
+                                <input type="text" id="form3Example2" class="form-control" />
+                                <label class="form-label" for="form3Example2">Last name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="email" id="form3Example3" class="form-control" />
+                        <label class="form-label" for="form3Example3">IBAN & Account</label>
+                    </div>
+                    <!-- Password input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="form3Example4" class="form-control" />
+                        <label class="form-label" for="form3Example4">Address</label>
+                    </div>
+                    <!-- Submit button -->
+                    <button data-mdb-ripple-init type="button" class="btn btn-primary btn-block mb-4"
+                        onclick="submitForm()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSuccessAlert() {
+            // Display SweetAlert alert
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: 'You have successfully added a child account!',
+                confirmButtonText: 'OK'
+            });
+        }
+
+        function submitForm() {
+            // Simulating form submission
+            // You should replace this with your actual form submission logic
+            // For now, we'll just show the success alert
+            showSuccessAlert();
+        }
+    </script>
+
+</body>
+
+</html>

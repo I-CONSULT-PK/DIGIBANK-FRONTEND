@@ -1,0 +1,82 @@
+
+// component css goes here
+.SearchMain {
+    height: auto;
+    border-bottom: 1px solid #ddddddad;
+
+    .input-group {
+        padding-top: 33px;
+        padding-left: 36px;
+    }
+
+    .col-md-4 {
+        padding-top: 34px;
+        padding-left: 43px;
+    }
+}
+
+.mat-mdc-radio-button~.mat-mdc-radio-button {
+    margin-left: 16px;
+}
+
+.mat-radio-group {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 1fr;
+}
+
+.radioButtonSection {
+    label {
+        color: green;
+        font-size: 13px;
+        padding-bottom: 6px;
+    }
+}
+
+.TableMain {
+    overflow: scroll;
+    max-height: 45vh;
+
+    tr {
+        th {
+            font-weight: bold;
+            color: black;
+            font-size: 15px;
+        }
+
+        td:nth-child(3) {
+            color: red;
+            font-weight: 400;
+        }
+
+        td:nth-child(4) {
+            font-weight: 400;
+            color: green;
+        }
+
+        td:nth-child(5) {
+            font-weight: bold;
+        }
+    }
+}
+
+.CustomButton {
+    padding: 8px;
+    font-size: 10px;
+}
+
+.DateDiv {
+    padding-top: 43px;
+    padding-right: 30px;
+    display: flex;
+
+    p {
+        margin-left: 10px;
+    }
+
+    button {
+        height: 45px;
+        margin-left: 13px;
+        margin-top: 7px;
+    }
+}
+

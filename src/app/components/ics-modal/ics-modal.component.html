@@ -1,0 +1,138 @@
+<modal #myModal [ngStyle]="{ 'z-index': zindex }">
+  <modal-header *ngIf="!hideHeader">
+    <h5 class="modal-title">
+      <i class="fa fa-bars mr-1"></i> {{ Caption }}
+    </h5>
+    <!-- <span class="" (click)="closeModalonCross()"></span> -->
+    <!-- <button type="button" class="NewCloseBtn" accesskey="x" (click)="closeModal()">×</button> -->
+  </modal-header>
+  <modal-content>
+    <div class="row" *ngIf="!hideModalToolbar">
+      <div class="col-lg-12 col-md-12 px-8">
+        <div [ngClass]="
+              mode === 0 || mode === 1 || mode === 3
+                ? 'action-button div-toolbar div-toolbar-header'
+                : 'action-button'
+            ">
+          <div (appClickOutside)="outsideClick()">
+            <ul #modalsidemenu *ngIf="isShown" class="addtional-button dropdown-menu dropdown-menu-left show"
+              style="top: 20px; left: 10px; padding: 0px">
+              <div *ngFor="let grp of groups" class="panel panel-default"
+                style="border: none !important; margin-top: 0px !important">
+                <div class="panel-heading px-2 py-1">
+                  <h4 class="panel-title">
+                    {{ grp }}
+                  </h4>
+                </div>
+                <div class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <div *ngFor="let x of filterData(grp)">
+                      <a class="dropdown-item px-2 py-1" id="{{ x.name }}" type="button"
+                        (click)="screen.customNavClickBase(x); outsideClick()">
+                        {{ x.caption }}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+          </div>
+          <button *ngIf="
+                (mode === 0 || mode === 1 || mode === 3) && showList === true
+              " type="button" class="btn-group pull-left" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" style="min-width: 0" (click)="dropdownToggle($event)">
+            <i class="fa fa-bars"></i>
+          </button>
+          <button *ngIf="!hideNew && (mode == 0 || mode == 1)" type="button" class="btn-group toolbar-action"
+            accesskey="n" (click)="screen.clear()">
+            <i class="fa fa-plus"></i> <abbr title="Alt+n">New</abbr>
+          </button>
+          <button *ngIf="!hideSave && (mode == 0 || mode == 1 || mode == 3)" type="button"
+            class="btn-group toolbar-action" accesskey="s" (click)="Saveonly()">
+            <i class="fa fa-save"></i>
+            <abbr title="Alt+s">Save</abbr>
+          </button>
+          <button [disabled]="disabledAction" *ngIf="!hideSaveClose && (mode == 0 || mode == 1 || mode == 3)"
+            type="button" class="btn-group toolbar-action" accesskey="c" (click)="saveAndClose()">
+            <i class="fa fa-save"></i>
+            <abbr title="Alt+c">Save &amp; Close</abbr>
+          </button>
+          <button *ngIf="!hideprint && (mode == 0 || mode == 3)" type="button" class="btn-group toolbar-action"
+            accesskey="r" (click)="printrecord()">
+            <i class="fa fa-print"></i> <abbr title="Alt+r">Print</abbr>
+          </button>
+          <button *ngIf="!hideClose && (mode == 0 || mode == 1 || mode == 3)" type="button"
+            class="btn-group toolbar-action" accesskey="x" (click)="closeModal()">
+            <i class="fa fa-remove"></i> <abbr title="Alt+x">Close</abbr>
+          </button>
+          <button *ngIf="mode == 0" type="button" class="btn-group toolbar-action" (click)="deleteModalData()">
+            <i class="fa fa-times"></i> Delete
+          </button>
+          <button *ngIf="mode == 0" type="button" class="btn-group toolbar-action" (click)="screen.moveFirst()">
+            <i class="fa fa-angle-double-left"></i> First
+          </button>
+          <button *ngIf="mode == 0" type="button" class="btn-group toolbar-action" (click)="screen.movePrevious()">
+            <i class="fa fa-angle-left"></i> Previous
+          </button>
+          <button *ngIf="mode == 0" type="button" class="btn-group toolbar-action" (click)="screen.moveNext()">
+            Next <i class="fa fa-angle-right"></i>
+          </button>
+          <button *ngIf="mode == 0" type="button" class="btn-group toolbar-action" (click)="screen.moveLast()">
+            Last <i class="fa fa-angle-double-right"></i>
+          </button>
+          <button *ngIf="mode == 0" type="button" class="btn-group toolbar-action" accesskey="h"
+            (click)="showModalLister()">
+            <i class="fa fa-search"></i> Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-body-content">
+      <ng-content></ng-content>
+    </div>
+  </modal-content>
+
+  <modal-footer *ngIf="!hideFooter" style="padding: 0;">
+    <div class="row" style="padding-right: 10px;">
+      <button mat-raised-button type="button" (click)="closeModal()" class="btn btn-danger pull-right CustomButton" style="padding-right: 20px;">
+        Close
+      </button>
+      <button mat-raised-button type="button" class="btn btn-danger pull-right CustomButton" style="padding-right: 20px;" (click)="SaveandClose()">
+        Save & Close
+      </button>
+    </div>
+  </modal-footer>
+</modal>
+
+<style>
+  /* Dont remove */
+  .docfield {
+    position: absolute;
+    right: 22px;
+    font-size: 10px;
+    top: -22px;
+    z-index: 9;
+    border-right: 1px solid #ddd;
+    padding-right: 6px;
+    padding-top: 2px;
+    cursor: pointer;
+  }
+
+  .docfield i {
+    color: #2e9bcf
+  }
+
+  .NewCloseBtn {
+    position: absolute;
+    top: 3px;
+    right: 0px;
+    font-size: 17px;
+    color: #2088b0 !important;
+    font-weight: 900;
+    text-shadow: 0 1px 0 #fff;
+    font-weight: 800;
+    line-height: 1;
+    cursor: pointer;
+    border: navajowhite;
+    background: transparent;
+  }
+</style>

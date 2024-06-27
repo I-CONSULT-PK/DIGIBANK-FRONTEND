@@ -1,0 +1,339 @@
+<!--component html goes here -->
+<div class="main-content pb-0">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 Main-SecondRow">
+        <h2 class="card-title text-center">Bank Statement</h2>
+      </div>
+    </div>
+    <div class="row" style="height: 90px;">
+      <accounts-section></accounts-section>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-profile">
+
+          <div class="SearchMain">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row ml-0 radioButtonSection">
+                  <label>Search Period</label>
+                  <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">1 Week</mat-radio-button>
+                    <mat-radio-button value="2">1 Month</mat-radio-button>
+                    <mat-radio-button value="3">3 Month</mat-radio-button>
+                    <mat-radio-button value="6">6 Month</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="row" style="padding-top: 37px;">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <p>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Your Bank Statement</mat-label>
+                            <input matInput placeholder="Search">
+                            <mat-icon matSuffix>search</mat-icon>
+                          </mat-form-field>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8" style="padding-left: 73px;">
+                <div class="row" style="flex-direction: row-reverse;">
+                  <div class="DateDiv">
+                    <p>
+                      <mat-form-field appearance="outline">
+                        <mat-label>From Date</mat-label>
+                        <input matInput type="date" placeholder="Search">
+                      </mat-form-field>
+                    </p>
+                    <p>
+                      <mat-form-field appearance="outline">
+                        <mat-label>To Date</mat-label>
+                        <input matInput type="date" placeholder="Search">
+                      </mat-form-field>
+                    </p>
+                    <button mat-raised-button type="submit" class="btn btn-danger pull-right CustomButton">
+                      Search
+                    </button>
+                  </div>
+                </div>
+                <div class="row" style="padding-top: 2px;">
+                  <!-- <button id="downloadBtn" class="btn btn-danger pull-right CustomButton">
+                    Download in PDF
+                  </button> -->
+                  <!-- bank-statement.component.html -->
+                  <button id="downloadBtn" class="btn btn-danger pull-right CustomButton" (click)="generatePDF()">
+                    Download in PDF
+                  </button>
+                  <button mat-raised-button type="submit" class="btn btn-danger pull-right CustomButton">
+                    Download in Excel
+                  </button>
+                  <button mat-raised-button type="submit" class="btn btn-danger pull-right CustomButton">
+                    Print Statement
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="TableMain">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Transaction Date</th>
+                  <th>Description</th>
+                  <th>Debit</th>
+                  <th>Credit</th>
+                  <th class="text-right">Available Balance</th>
+                  <!--   <th class="Debitext-right">Actions</th> -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>20/11/23</td>
+                  <td>Opening Balance</td>
+                  <td>1,500</td>
+                  <td> 99,225</td>
+                  <td class="text-right">&euro; 199,225</td>
+                  <!-- <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                      <i class="fa fa-user"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </td> -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

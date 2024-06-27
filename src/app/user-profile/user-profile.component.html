@@ -1,0 +1,364 @@
+<!-- ACCOUNTS DETAILS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<style>
+  .uploadOuter {
+    text-align: center;
+    padding: 20px;
+
+    strong {
+      padding: 0 10px;
+    }
+  }
+
+  .dragBox {
+    width: 250px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    line-height: 95px;
+    color: #999;
+    border: 2px dashed #ccc;
+    display: inline-block;
+    transition: transform 0.3s;
+
+    input[type="file"] {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .draging {
+    transform: scale(1.1);
+  }
+
+  #preview {
+    text-align: center;
+
+    img {
+      max-width: 100%;
+    }
+  }
+</style>
+<div class="main-content">
+  <div class="row">
+    <div class="container-fluid text-center">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card card-profile" style="margin-top: 2pc">
+            <div class="card-avatar">
+              <a href="javascript:void(0)">
+                <img class="img" src="../../assets/img/faces/marc.png">
+              </a>
+            </div>
+            <div class="card-body" style="align-content: center; margin-top: -50px">
+              <ul style="text-align: center; list-style: none; padding: 0">
+                <li style="
+                    margin-top: 50px;
+                    margin-bottom: 20px;
+                    color: black;
+                    font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                      'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+                      sans-serif;
+                    font-size: larger;
+                  ">
+                  Meer Hamza
+                </li>
+                <li style="
+                    color: grey;
+                    font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                      'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+                      sans-serif;
+                  ">
+                  Internet Banking User
+                </li>
+              </ul>
+
+
+              <!-- <h6 class="card-title">{{ (userData && userData.firstName ? userData.firstName : '')
+                                + ' ' +
+                                (userData && userData.lastName ? userData.lastName : '') }}</h6> -->
+              <!-- <h6 class="card-title" style="font-size:medium ;"><i class="fa fa-users"></i>&nbsp;Account
+                                Details</h6> -->
+
+
+              <div class="card-header card-header-danger" style="margin-top: 20px; width: 400px; margin-left: -20px">
+                <h6 class="card-title" style="font-size: medium">
+                  <i class="fa fa-users"></i>
+                  &nbsp;Contact Information
+                </h6>
+              </div>
+              <ul style="
+                  text-align: left;
+                  list-style: none;
+                  padding: 0;
+                  margin-top: 22px;
+                ">
+                <li style="margin-bottom: 20px; color: grey">
+                  <strong>Mobile:</strong>
+                  <span class="num" style="margin: 88px">
+                    +1234567890
+                  </span>
+                </li>
+                <li style="margin-bottom: 20px; color: grey">
+                  <strong>Address:</strong>
+                  <span class="num" style="margin: 88px">
+                    North Karachi
+                  </span>
+                </li>
+                <li style="margin-bottom: 20px; color: grey">
+                  <strong>City:</strong>
+                  <span class="num" style="margin: 115px">
+                    Karachi
+                  </span>
+                </li>
+                <li style="margin-bottom: 20px; color: grey">
+                  <strong>Country:</strong>
+                  <span class="num" style="margin: 85px">
+                    Pakistan
+                  </span>
+                </li>
+                <li style="margin-bottom: 20px; color: grey">
+                  <strong>Expiry Date:</strong>
+                  <span class="num" style="margin: 65px">
+                    02/02/2027
+                  </span>
+                </li>
+              </ul>
+
+
+              <!-- {{ (userData && userData.firstName ? userData.firstName : '')
+                                + ' ' +
+                                (userData && userData.lastName ? userData.lastName : '') }} -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-danger">
+                <h6 class="card-title">
+                  <i class="fa fa-bell-o"></i>
+                  &nbsp;My Notification
+                </h6>
+              </div>
+              <p class="activity-feeds" style="
+                  padding: 20px;
+                  margin: 20px;
+                  line-height: 1.6;
+                  color: lightgreen;
+                ">
+                <i class="fa fa-clock-o"></i>
+                &nbsp;Successfully added complaint
+              </p>
+              <!-- <p class="activity-feeds" style=" padding: 40px;color: red;">
+                                <i class="fa fa-clock-o"></i>&nbsp;Complaint not lodge
+                            </p> -->
+            </div>
+          </div>
+          <div class="col-md-12" style="margin-top: 160px">
+            <div class="card" style="margin-top: -40px">
+              <div class="card-header card-header-danger">
+                <h6 class="card-title">
+                  <i class="fa fa-bolt"></i>
+                  &nbsp;Activity Feeds
+                </h6>
+              </div>
+              <p class="activity-feeds" style="padding: 20px; margin: 20px; margin-top: 35px">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+                ipsam, iusto cum nulla illo Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Magni ipsam, iusto cum nulla
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-danger">
+                <h6 class="card-title">
+                  <i class="fa fa-cog"></i>
+                  &nbsp;Settings
+                </h6>
+              </div>
+              <div class="drop-down" style="margin: 10px">
+                <select class="form-select dropdown-toggle" style="color: #1ebbd7; border-color: white">
+                  <option selected>--Select Homepage--</option>
+                  <option value="1">Dashboard 1</option>
+                  <option value="1">Dashboard 2</option>
+                  <option value="1">Dashboard 3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12" style="margin-top: 115px">
+            <div class="card">
+              <!-- <div class="card-header card-header-danger">
+                                <h6 class="card-title"><i class="fa fa-cog"></i>&nbsp;Settings</h6>
+                            </div> -->
+              <button (click)="OpenBeneficiaryModal()" mat-raised-button type="button"
+                class="btn btn-danger pull-right CustomButton">
+                <i class="fa fa-lock"></i>
+                &nbsp;Change Password
+              </button>
+              <ics-modal #BeneficiaryModal Caption="Change Password">
+                <div class="row">
+                  <form>
+                    <div class="mb-3">
+                      <label for="oldpass" class="form-label" style="font-family: 'Courier New', Courier, monospace">
+                        Old Password
+                      </label>
+                      <div class="input-group">
+                        <input type="password" class="form-control" id="oldpass" name="oldpass">
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">
+                        Type New Password
+                      </label>
+                      <input type="password" class="form-control" id="tnewpass">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">
+                        Re-Type Password
+                      </label>
+                      <input type="password" class="form-control" id="rtypepass">
+                    </div>
+                  </form>
+                </div>
+              </ics-modal>
+              <button (click)="OpenSecurityImageModal()" mat-raised-button type="button"
+                class="btn btn-danger pull-right CustomButton">
+                <i class="fa fa-user-circle-o"></i>
+                &nbsp;Change Security Picture
+              </button>
+              <ics-modal #SecurityImageModal Caption="Change Security Picture">
+                <div class="row">
+                  <form>
+                    <!-- <div class="mb-3">
+                                            <label for="oldpass" class="form-label"
+                                                style="font-family: 'Courier New', Courier, monospace;">Old
+                                                Password</label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control" id="oldpass" name="oldpass">
+                                            </div>
+                                        </div> -->
+                    <div class="uploadOuter">
+                      <label for="uploadFile" class="btn btn-primary">
+                        Upload Image
+                      </label>
+                      <strong>OR</strong>
+                      <span class="dragBox">
+                        Darg and Drop image here
+                        <input type="file" onChange="dragNdrop(event)" ondragover="drag()" ondrop="drop()"
+                          id="uploadFile">
+                      </span>
+                    </div>
+                    <div id="preview"></div>
+                  </form>
+                </div>
+              </ics-modal>
+              <button (click)="OpenChangespasscodeModal()" mat-raised-button type="button"
+                class="btn btn-danger pull-right CustomButton">
+                <i class="fa fa-key"></i>
+                &nbsp;Change Passcode Options
+              </button>
+              <ics-modal #ChangespasscodeModal Caption="Change Passcode">
+                <div class="row">
+                  <form>
+                    <div class="mb-3">
+                      <label for="oldpass" class="form-label" style="font-family: 'Courier New', Courier, monospace">
+                        Reset Passcode
+                      </label>
+                      <div class="input-group">
+                        <input type="password" class="form-control" id="oldpass" name="oldpass">
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">
+                        Set New Passcode
+                      </label>
+                      <input type="password" class="form-control" id="tnewpass">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">
+                        Re-Type Passcode
+                      </label>
+                      <input type="password" class="form-control" id="rtypepass">
+                    </div>
+                  </form>
+                </div>
+              </ics-modal>
+              <button (click)="OpenTrustedDevicesModal()" mat-raised-button type="button"
+                class="btn btn-danger pull-right CustomButton">
+                <i class="fa fa-desktop"></i>
+                &nbsp;Trusted Devices
+              </button>
+              <ics-modal #TrustedDevicesModal Caption="Tursted Devices">
+                <div class="row">
+                  <form>
+                    <div class="mb-3" style="color: red">
+                      𝒯𝓇𝓊𝓈𝓉𝑒𝒹 𝒟𝑒𝓋𝒾𝒸𝑒 𝒶𝓊𝓉𝒽𝑒𝓃𝓉𝒾𝒸𝒶𝓉𝒾𝑜𝓃 𝒾𝓈 𝒶 𝓉𝑒𝒸𝒽𝓃𝑜𝓁𝑜𝑔𝓎 𝓉𝒽𝒶𝓉
+                      𝒶𝓁𝓁𝑜𝓌𝓈
+                      𝓈𝑒𝒸𝓊𝓇𝑒 𝒶𝓊𝓉𝒽𝑒𝓃𝓉𝒾𝒸𝒶𝓉𝒾𝑜𝓃 𝓉𝑜 𝒶 𝓊𝓈𝑒𝓇 𝓉𝑜 𝒽𝒾𝓈 𝒹𝑒𝓋𝒾𝒸𝑒 𝓌𝒾𝓉𝒽𝑜𝓊𝓉
+                      𝓊𝓉𝓉𝒾𝓃𝑔 𝓅𝒶𝓈𝓈𝓌𝑜𝓇𝒹𝓈 𝑜𝓃 𝑒𝒶𝒸𝒽 𝓁𝑜𝑔𝒾𝓃 𝑜𝒸𝒸𝒶𝓈𝒾𝑜𝓃. 𝒯𝒽𝒾𝓈
+                      𝓉𝑒𝒸𝒽𝓃𝑜𝓁𝑜𝑔𝓎
+                      𝒾𝓈 𝒷𝑒𝓃𝑒𝒻𝒾𝒸𝒾𝒶𝓁 𝒻𝑜𝓇 𝓅𝒶𝓈𝓈𝓌𝑜𝓇𝒹𝓁𝑒𝓈𝓈 𝒶𝓊𝓉𝒽𝑒𝓃𝓉𝒾𝒸𝒶𝓉𝒾𝑜𝓃 𝒶𝓈 𝒾𝓉
+                      𝓈𝒶𝓋𝑒𝓈
+                      𝒶 𝓁𝑜𝓉 𝑜𝒻 𝓉𝒾𝓂𝑒 𝓌𝒽𝒾𝓁𝑒 𝓎𝑜𝓊 𝒶𝓇𝑒 𝒾𝓃 𝒶 𝓇𝓊𝓈𝒽 𝒶𝓃𝒹 𝒽𝒶𝓋𝑒 𝓉𝑜 𝓊𝓈𝑒
+                      𝓎𝑜𝓊𝓇
+                      𝒹𝑒𝓋𝒾𝒸𝑒 𝒻𝓇𝑒𝓆𝓊𝑒𝓃𝓉𝓁𝓎. 𝒜𝓁𝓈𝑜, 𝓉𝒽𝒾𝓈 𝓉𝑒𝒸𝒽𝓃𝑜𝓁𝑜𝑔𝓎 𝒾𝓈
+                      𝒷𝑒𝓃𝑒𝒻𝒾𝒸𝒾𝒶𝓁 𝓉𝑜
+                      𝓉𝒽𝑜𝓈𝑒 𝓊𝓈𝑒𝓇𝓈 𝓌𝒽𝑜 𝒽𝒶𝓋𝑒 𝓉𝑜 𝓌𝑜𝓇𝓀 𝑜𝓃 𝓉𝒽𝑒𝒾𝓇 𝒹𝑒𝓋𝒾𝒸𝑒𝓈 𝒻𝑜𝓇
+                      𝓆𝓊𝒾𝓉𝑒 𝒶𝓃
+                      𝑒𝓍𝓉𝑒𝓃𝒹𝑒𝒹 𝓅𝑒𝓇𝒾𝑜𝒹 𝓌𝒾𝓉𝒽𝑜𝓊𝓉 𝒶 𝓈𝒾𝓃𝑔𝓁𝑒 𝒷𝒾𝓉 𝑜𝒻 𝒾𝓃𝒶𝒸𝓉𝒾𝓋𝒾𝓉𝓎.
+                      𝒲𝑒
+                      𝓀𝓃𝑜𝓌 𝓉𝒽𝒶𝓉 𝒾𝓃𝒶𝒸𝓉𝒾𝓋𝒾𝓉𝓎 𝓌𝒾𝓁𝓁 𝓁𝑜𝑔 𝓉𝒽𝑒 𝓊𝓈𝑒𝓇 𝑜𝓊𝓉 𝑜𝒻 𝓉𝒽𝑒
+                      𝒹𝑒𝓋𝒾𝒸𝑒
+                      𝒶𝒻𝓉𝑒𝓇 𝒶 𝓈𝓅𝑒𝒸𝒾𝒻𝒾𝒸 𝓉𝒾𝓂𝑒, 𝒷𝓊𝓉 𝓌𝒾𝓉𝒽 𝓉𝒽𝑒 𝒯𝓇𝓊𝓈𝓉𝑒𝒹 𝒟𝑒𝓋𝒾𝒸𝑒
+                      𝒶𝓊𝓉𝒽𝑒𝓃𝓉𝒾𝒸𝒶𝓉𝒾𝑜𝓃, 𝓉𝒽𝒾𝓈 𝓅𝓇𝑜𝒷𝓁𝑒𝓂 𝑔𝑒𝓉𝓈 𝑒𝓁𝒾𝓂𝒾𝓃𝒶𝓉𝑒𝒹.
+                    </div>
+                  </form>
+                </div>
+              </ics-modal>
+              <button (click)="OpenCutomerInfoupdateModal()" mat-raised-button type="button"
+                class="btn btn-danger pull-right CustomButton">
+                <i class="fa fa-info-circle"></i>
+                &nbsp;Customer Information
+                Updates
+              </button>
+              <ics-modal #CutomerInfoupdateModal Caption="Customer Information Updates">
+                <div class="row">
+                  <form>
+                    𝒜 𝒷𝒶𝓃𝓀 𝒞𝐼𝐹 𝒸𝑜𝓃𝓉𝒶𝒾𝓃𝓈 𝒾𝓃𝒻𝑜𝓇𝓂𝒶𝓉𝒾𝑜𝓃 𝓈𝓊𝒸𝒽 𝒶𝓈 𝒶𝒸𝒸𝑜𝓊𝓃𝓉
+                    𝒶𝒹𝒹𝓇𝑒𝓈𝓈𝑒𝓈
+                    𝒶𝓃𝒹 𝓅𝒽𝑜𝓃𝑒 𝓃𝓊𝓂𝒷𝑒𝓇𝓈, 𝒶𝒸𝒸𝑜𝓊𝓃𝓉 𝓃𝓊𝓂𝒷𝑒𝓇𝓈, 𝓉𝓎𝓅𝑒𝓈 𝑜𝒻 𝒶𝒸𝒸𝑜𝓊𝓃𝓉𝓈
+                    𝑜𝓅𝑒𝓃𝑒𝒹, 𝒶𝓃𝒹 𝒸𝓊𝓇𝓇𝑒𝓃𝓉 𝒸𝓇𝑒𝒹𝒾𝓉𝑜𝓇𝓈. 𝒜𝓃 𝑜𝓃𝓁𝒾𝓃𝑒 𝓇𝑒𝓉𝒶𝒾𝓁𝑒𝓇'𝓈 𝒞𝐼𝐹
+                    𝒾𝓈
+                    𝒷𝒶𝓈𝑒𝒹 𝑜𝓃 𝓉𝒽𝑒 𝒾𝓃𝒹𝒾𝓋𝒾𝒹𝓊𝒶𝓁 𝒸𝓊𝓈𝓉𝑜𝓂𝑒𝓇'𝓈 𝑜𝓃𝓁𝒾𝓃𝑒 𝓅𝓇𝑜𝒹𝓊𝒸𝓉
+                    𝓈𝑒𝒶𝓇𝒸𝒽𝑒𝓈
+                    𝒶𝓃𝒹 𝓅𝓊𝓇𝒸𝒽𝒶𝓈𝑒𝓈.
+                  </form>
+                </div>
+              </ics-modal>
+            </div>
+            <!-- <div class="class">
+                            <button mat-raised-button type="button" (click)="OpenBeneficiaryModal()"
+                                 class="btn btn-danger pull-right CustomButton" style="margin-top: 26px; width: 98%;">
+                                Block Internet Banking
+                            </button>
+                        </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

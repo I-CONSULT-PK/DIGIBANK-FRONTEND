@@ -1,0 +1,51 @@
+// component css goes here
+$primary-color: #1EBBD7;
+$secondary-color: #6c757d;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.remittance-form {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid $secondary-color;
+  border-radius: 5px;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: $primary-color;
+  }
+
+  form {
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid $secondary-color;
+      border-radius: 3px;
+    }
+
+    button {
+      background-color: $primary-color;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}

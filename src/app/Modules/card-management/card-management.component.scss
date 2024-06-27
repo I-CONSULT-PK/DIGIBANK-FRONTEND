@@ -1,0 +1,17 @@
+// component css goes here
+.ImgDivMain {
+    display: flex;
+    position: relative;
+    top: 20px;
+
+    div {
+        margin-left: 10px;
+    }
+}
+
+.CardButtonActivate {
+    display: flex;
+    margin: auto;
+    width: 40%;
+    margin-top: 45px;
+} 

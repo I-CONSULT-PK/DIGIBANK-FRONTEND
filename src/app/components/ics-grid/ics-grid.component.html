@@ -1,0 +1,573 @@
+<!--component html goes here -->
+<div>
+    <div class="row ngStart" *ngIf="hidetoolbar === true" (click)="ClickOnMenu = true">
+        <div *ngIf="
+          _type !== 1 ||
+          (customButton && customButton.length > 0) ||
+          filter ||
+          pagination
+        " class="col-lg-12 col-md-12 col-sm-12 col-xs-12 height-30">
+            <div class="grid-toolbar grid-tolbar-height-auto">
+                <button *ngIf="showButtonList" type="button" class="btn-group pull-right" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" style="min-width: 0">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <ul class="addtional-button dropdown-menu dropdown-menu-right">
+                    <div *ngFor="let grp of groups" class="panel panel-default"
+                        style="border: none !important; margin-top: 0px !important">
+                        <div class="panel-heading px-2 py-1">
+                            <h4 class="panel-title">
+                                {{ grp }}
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div *ngFor="let x of filterData(grp)">
+                                    <a class="dropdown-item px-2 py-1" id="{{ x.name }}" (click)="moodclickevent(x)">
+                                        {{ x.caption }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+
+                <button *ngIf="Gridmenu === true" type="button" class="btn-group pull-left" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" (click)="dropdownToggle($event)" style="min-width: 0">
+                    <i *ngIf="!customGridMenuDetails" class="fa fa-bars"></i>
+                    <span *ngIf="customGridMenuDetails"><i [ngClass]="
+                  customGridMenuDetails.icon
+                    ? customGridMenuDetails.icon
+                    : 'fa fa-bars'
+                "></i>
+                        {{ customGridMenuDetails.caption }}</span>
+                </button>
+                <ul #sidemenu *ngIf="isShown" class="
+              addtional-button
+              dropdown-menu
+              show
+              dropdown-menu-left
+              grid-menu-mood
+            ">
+                    <div *ngFor="let grp of gridmenugroup" class="panel panel-default"
+                        style="border: none !important; margin-top: 0px !important">
+                        <div class="panel-heading px-2 py-1">
+                            <h4 class="panel-title">
+                                {{ grp }}
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div *ngFor="let x of filterGridMenu(grp)">
+                                    <a class="dropdown-item px-2 py-1" id="{{ x.name }}" type="button"
+                                        (click)="onMenuclickevent(x)">
+                                        {{ x.caption }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+
+                <!-- ========= aggrid side option end ================= -->
+
+                <div *ngIf="ExportCombo === true">
+                    <span class="select-title">Export Type :</span>
+                    <button type="button" class="btn-groupcust">
+                        <select class="btn-select" (change)="typesvalue($event)">
+                            <option class="optio" value="0">None</option>
+                            <option class="optio" value="2">Excel</option>
+                        </select>
+                    </button>
+                    <button *ngIf="btnexport === true" type="button" class="btn-group toolbar-action"
+                        style="float: right" (click)="Export()">
+                        <i class="fa fa-arrow-up"></i> Export
+                    </button>
+                    <button *ngIf="btnimport === true" type="button" class="btn-group toolbar-action"
+                        style="float: right" (click)="fileselect()">
+                        <i class="fa fa-file-import"></i> Import
+                    </button>
+                </div>
+                <button *ngIf="!hideAdd && _type === 0 && InventoryMood === false" type="button"
+                    class="btn-group toolbar-action" accesskey="a" (click)="addRow()">
+                    <i class="fa fa-plus"></i> New
+                </button>
+                <button *ngIf="!hideAdd && _type === 0 && InventoryMood === true" type="button"
+                    class="btn-group toolbar-action" accesskey="a" (click)="addRow()">
+                    <i class="fa fa-plus"></i> Add
+                </button>
+                <button *ngIf="!hideDelete && _type === 0  && InventoryMood === false" type="button"
+                    class="btn-group toolbar-action" accessKey="d" (click)="deleteRow()">
+                    <i class="fa fa-times"></i> Delete
+                </button>
+                <button *ngIf="!hideDelete && _type === 0  && InventoryMood === true" type="button"
+                    class="btn-group toolbar-action" accessKey="d" (click)="deleteRow()">
+                    <i class="fa fa-times"></i> Delete
+                </button>
+
+                <button *ngIf="!hideNewBtn && _type === 3" type="button" accesskey="n" class="btn-group"
+                    (click)="openScreen()">
+                    <i class="fa fa-plus"></i>
+                    <abbr title="Alt+n">{{ tblButtonCaption }}</abbr>
+                </button>
+
+                <button *ngIf="_type === 2 && hideSelect" type="button" class="btn-group" accesskey="l"
+                    (click)="selectAll()">
+                    <i class="fa fa-check"></i> Select All
+                </button>
+                <button *ngIf="_type === 2 && hideUnSelect" type="button" class="btn-group" accesskey="u"
+                    (click)="unselectAll()">
+                    <i class="fa fa-times"></i> Unselect All
+                </button>
+
+                <span *ngFor="let item of customButton">
+                    <button *ngIf="item.type === 0 || item.type === undefined" type="button"
+                        [ngClass]="item.customButtonClass ? item.customButtonClass : ''" class="btn-group"
+                        [name]="item.name" (click)="customButtonClick(item)" [disabled]="item.disabled">
+                        <i [ngClass]="item.icon ? 'fa ' + item.icon : 'fa fa-gear'"></i>
+                        {{ item.caption }}
+                    </button>
+
+                    <span *ngIf="item.type === 1" class="grid-toolbar-dropdown">
+
+                        <span *ngIf="!item.hideCaption" class="select-title">{{ item.caption }} :</span>
+                        <button type="button" class="btn-groupcust"
+                            [ngClass]="item.customButtonClass ? item.customButtonClass : ''">
+                            <dcs-dropdown (change)="customButtonClick(item)" [fieldName]="item.value"
+                                (ngModelChange)="onModelChange(item)" [(ngModel)]="item.value"
+                                [disabled]="item.disabled" [data]="item.dropDownData"
+                                [displayMember]="item.displayMember" showCaption="false"
+                                [valueMember]="item.valueMember" [config]="item.config" magnifierPosition="right"
+                                [caption]="item.caption">
+                            </dcs-dropdown>
+                            <!-- class="btn-select" (change)="customButtonClick(item)" (ngModelChange)="onModelChange(item)"
+                [(ngModel)]="item.value" [disabled]="item.disabled">
+                <option *ngFor="let data of item.dropDownData" class="optio" [value]="data[item.valueMember]">
+                  {{ data[item.displayMember] }}
+                </option> -->
+                        </button>
+                    </span>
+
+                    <span *ngIf="item.type === 2">
+                        <span *ngIf="!item.hideCaption" class="select-title">{{ item.caption }} :</span>
+                        <button type="button" class="btn-groupcust">
+                            <!-- remove ((change)="customButtonClick(item)") ye mouse click pr chalta ha aur ab sir ne keyup enter pr krwa diya ha -->
+                            <input type="text" class="btn-select aggrid-textfield"
+                                (keyup.enter)="customButtonClick(item)" (ngModelChange)="onModelChange(item)"
+                                [(ngModel)]="item.value" (change)="customButtonClick(item)"
+                                [placeholder]="item.placeHolder ? item.placeHolder : ''" [disabled]="item.disabled" />
+                        </button>
+                    </span>
+
+                    <span *ngIf="item.type === 3">
+                        <span *ngIf="!item.hideCaption" class="select-title">{{ item.caption }} :</span>
+                        <button type="button" class="btn-groupcust" [ngClass]="{ 'my-class': step === 'step1' }">
+                            <input type="number" class="btn-select" (change)="customButtonClick(item)"
+                                (ngModelChange)="onModelChange(item)" [(ngModel)]="item.value"
+                                [placeholder]="item.placeHolder ? item.placeHolder : ''" [disabled]="item.disabled" />
+                        </button>
+                    </span>
+
+                    <span *ngIf="item.type === 4">
+                        <button type="button" class="btn-groupcust">
+                            <span class="icheck-primary" [ngStyle]="{ 'margin-left': '15px' }">
+                                <input [id]="item.name" class="ixsControl btn-select" type="checkbox"
+                                    (ngModelChange)="onModelChange(item)" [(ngModel)]="item.value"
+                                    (change)="customButtonClick(item)" [disabled]="item.disabled" />
+                                <label class="select-title check-label" [for]="item.name">{{ item.caption }}
+                                </label>
+                            </span>
+                        </button>
+                    </span>
+
+                    <span *ngIf="item.type === 6">
+                        <span *ngIf="!item.hideCaption" class="select-title">{{ item.caption }} :</span>
+                        <button type="button" class="btn-groupcust">
+                            <input type="date" class="btn-select" (ngModelChange)="onModelChange(item)"
+                                [(ngModel)]="item.value" (change)="customButtonClick(item)"
+                                [disabled]="item.disabled" />
+                        </button>
+                    </span>
+
+                    <span *ngIf="item.type === 7">
+                        <span *ngIf="!item.hideCaption" class="select-title">{{ item.caption }} :</span>
+                        <button type="button" class="btn-groupcust">
+                            <input type="time" class="btn-select" (ngModelChange)="onModelChange(item)"
+                                [(ngModel)]="item.value" (change)="customButtonClick(item)" class="{{item.ngClass}}"
+                                [disabled]="item.disabled" />
+                        </button>
+                    </span>
+                </span>
+                <button
+                    *ngIf="(ExtraDelete == true) && !hideDelete && (_type === 0 || _type === 2) && InventoryMood === false"
+                    type="button" class="btn-group toolbar-action" accessKey="d" (click)="deleteRow()">
+                    <i class="fa fa-times"></i> Delete
+                </button>
+
+
+                <!-- Grid Lift Helper -->
+                <div class="GridControlsHelper" style="float: right;"
+                    *ngIf="hideAllControlBtn === true && ShowLiftControlBtn === true">
+                    <div style="border: 1px solid #ddd; border-top: none; border-bottom: none;">
+                        <abbr title="Expand More Options">
+                            <button type="button" class="btn-group" style="min-width: 20px !important;"
+                                (click)="ShowLiftGrid()">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                        </abbr>
+                    </div>
+                </div>
+                <!-- End -->
+                <!-- Grid Lift Mood Refresh Button -->
+                <div class="GridControlsHelper" style="float: right;"
+                    *ngIf="hideAllControlBtn === true && ShowLiftControlBtn === true && refresh === true">
+                    <div style="border: 1px solid #ddd; border-top: none; border-bottom: none;">
+                        <abbr title="Refresh">
+                            <button *ngIf="refresh === true" type="button" class="btn-group" type="button"
+                                (click)="RefreshData()" style="min-width: 20px !important">
+                                <i class="fa fa-refresh" [ngClass]="{ 'fa-spin': isClicked }"></i>
+                            </button>
+                        </abbr>
+                    </div>
+                </div>
+                <!-- End -->
+                <!-- Lift Grid Control Component -->
+                <div class="LiftGridControl"
+                    *ngIf="hideAllControlBtn === true && ShowLiftControlBtn === true && LiftGrid == true">
+                    <div *ngIf="pagination === true && paginationTop === true" style="
+                border: 1px solid #ddd;
+                border-top: none;
+                border-bottom: none;
+              ">
+                        <button type="button" class="btn-group filter-button" (click)="firstpage()"
+                            style="min-width: 20px !important; border-left: 1px solid #fff">
+                            <i class="fa fa-angle-double-left"></i>
+                        </button>
+                        <button type="button" class="btn-group filter-button" (click)="previouspage()"
+                            style="min-width: 20px !important; border-right: none">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+                        <Label class="pageSizeLable">Page: {{ firstpagecount }} to {{ lastpagecount }}</Label>
+                        <button type="button" class="btn-group filter-button" (click)="nextpage()"
+                            style="min-width: 20px !important">
+                            <i class="fa fa-angle-right"></i>
+                        </button>
+
+                        <button type="button" class="btn-group filter-button" (click)="lastpage()"
+                            style="min-width: 20px !important">
+                            <i class="fa fa-angle-double-right"></i>
+                        </button>
+                    </div>
+                    <div style="
+                border: 1px solid #ddd;
+                border-top: none;
+                border-bottom: none;
+              ">
+                        <button *ngIf="filter === true" type="button" class="btn-group filter-button" type="button"
+                            (click)="Filtershow(); changePageSize()" style="min-width: 20px !important">
+                            <i class="fa fa-filter"></i>
+                        </button>
+                        <!-- Start Column Work -->
+                        <button *ngIf="columnPanel" class="btn-group filter-button"
+                            style="min-width: 20px !important; border-right: none" type="button"
+                            (click)="ColumnToggle($event)">
+                            <i class="fa fa-columns"></i>
+                        </button>
+                        <ul *ngIf="_openedColumn" #columnpath style="
+                  padding-top: 0;
+                  right: 11px !important;
+                  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important;
+                " class="
+                  addtional-button
+                  dropdown-menu
+                  show
+                  dropdown-menu-right
+                  grid-menu-mood
+                ">
+                            <div class="panel-heading" style="background: none">
+                                <h4 class="panel-title" style="border-bottom: 1px solid #ddd; font-weight: 700">
+                                    Columns
+                                </h4>
+                            </div>
+                            <div style="
+                    max-height: 290px;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                  ">
+                                <div *ngFor="let grp of leftcolumns"
+                                    style="width: 230px; margin-top: 5px; padding: 0 5px">
+                                    <div class="panel-heading"
+                                        style="color: var(--edpmain); padding: 2px 7px !important">
+                                        <a class="panel-title" style="font-size: 12px">
+                                            <input type="checkbox" [checked]="grp.Visible == true"
+                                                (click)="ColumnHide(grp.field)"
+                                                style="cursor: pointer; margin-right: 5px" />
+                                            <b style="vertical-align: top">{{ grp.headerName }}</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                        <!-- End Column Work -->
+                        <!-- Start Summary Buttons -->
+                        <button type="button" class="btn-group filter-button" style="cursor: pointer"
+                            (click)="summaryModal()" *ngIf="enableSummary">
+                            <i class="fa fa-cogs"></i>
+                        </button>
+                        <!-- END Summary Buttons -->
+                        <!-- Start Export Buttons Group -->
+                        <button *ngIf="isExport" class="btn-group filter-button"
+                            style="min-width: 20px !important; border-right: none" type="button"
+                            (click)="exportToggle($event)">
+                            <i class="fa fa-download"></i>
+                        </button>
+                        <ul *ngIf="isShowClick" style="
+                  min-width: 72px;
+                  right: 60px;
+                  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important;
+                  padding-left: 3px;
+                " class="
+                  addtional-button
+                  dropdown-menu
+                  show
+                  dropdown-menu-right
+                  grid-menu-mood
+                ">
+                            <div>
+                                <button *ngIf="isExport" type="button" class="btn-group filter-button"
+                                    style="min-width: 20px !important; border-right: none" (click)="Export(1)">
+                                    <img src="assets/images/Excel_icon.png" style="width: 15px; height: 15px" />
+                                    Excel
+                                </button>
+                            </div>
+                            <div>
+                                <button *ngIf="isExport" type="button" class="btn-group filter-button"
+                                    style="min-width: 20px !important; border-right: none" (click)="onBtnExport()">
+                                    <img src="assets/images/csv.png" style="width: 15px; height: 15px" />
+                                    CSV
+                                </button>
+                            </div>
+                            <div>
+                                <button *ngIf="isExport" type="button" class="btn-group filter-button"
+                                    style="min-width: 20px !important; border-right: none" (click)="Export(3)">
+                                    <!-- <img src="assets/images/csv.png" style="width: 15px; height: 15px" /> -->
+                                    <i class="fa fa-file-pdf" style="font-size: 13px; color: rgb(223, 79, 79)"></i>
+                                    PDF
+                                </button>
+                            </div>
+                        </ul>
+                        <!-- End Exports Buttons Group -->
+                        <button *ngIf="refresh === true" type="button" class="btn-group" type="button"
+                            (click)="RefreshData()" style="min-width: 20px !important">
+                            <i class="fa fa-refresh" [ngClass]="{ 'fa-spin': isClicked }"></i>
+                        </button>
+                    </div>
+                    <select #recordselect *ngIf="hideRecord === true" [(ngModel)]="pageSize"
+                        class="btn-group pageSizeCombo" style="border-left: 1px solid #fff" (change)="changePageSize()">
+                        <option *ngFor="let item of recordsvalue" [value]="item.value">
+                            {{ item.value }}
+                        </option>
+                    </select>
+                </div>
+                <!-- End -->
+                <!-- Normal Mood Grid Control Component -->
+                <div class="GridControls" style="float: right; display: flex"
+                    *ngIf="hideAllControlBtn === true && ShowLiftControlBtn === false">
+                    <div *ngIf="pagination === true && paginationTop === true" style="
+                border: 1px solid #ddd;
+                border-top: none;
+                border-bottom: none;
+              ">
+                        <button type="button" class="btn-group filter-button" (click)="firstpage()"
+                            style="min-width: 20px !important; border-left: 1px solid #fff">
+                            <i class="fa fa-angle-double-left"></i>
+                        </button>
+                        <button type="button" class="btn-group filter-button" (click)="previouspage()"
+                            style="min-width: 20px !important; border-right: none">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+                        <Label class="pageSizeLable">Page: {{ firstpagecount }} to {{ lastpagecount }}</Label>
+                        <button type="button" class="btn-group filter-button" (click)="nextpage()"
+                            style="min-width: 20px !important">
+                            <i class="fa fa-angle-right"></i>
+                        </button>
+
+                        <button type="button" class="btn-group filter-button" (click)="lastpage()"
+                            style="min-width: 20px !important">
+                            <i class="fa fa-angle-double-right"></i>
+                        </button>
+                    </div>
+                    <div style="
+                border: 1px solid #ddd;
+                border-top: none;
+                border-bottom: none;
+              ">
+                        <button *ngIf="filter === true" type="button" class="btn-group filter-button" type="button"
+                            (click)="Filtershow(); changePageSize()" style="min-width: 20px !important">
+                            <i class="fa fa-filter"></i>
+                        </button>
+                        <!-- Start Column Work -->
+                        <button *ngIf="columnPanel" class="btn-group filter-button"
+                            style="min-width: 20px !important; border-right: none" type="button"
+                            (click)="ColumnToggle($event)">
+                            <i class="fa fa-columns"></i>
+                        </button>
+                        <ul *ngIf="_openedColumn" #columnpath style="
+                  padding-top: 0;
+                  right: 11px !important;
+                  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important;
+                " class="
+                  addtional-button
+                  dropdown-menu
+                  show
+                  dropdown-menu-right
+                  grid-menu-mood
+                ">
+                            <div class="panel-heading" style="background: none">
+                                <h4 class="panel-title" style="border-bottom: 1px solid #ddd; font-weight: 700">
+                                    Columns
+                                </h4>
+                            </div>
+                            <div style="
+                    max-height: 290px;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                  ">
+                                <div *ngFor="let grp of leftcolumns"
+                                    style="width: 230px; margin-top: 5px; padding: 0 5px">
+                                    <div class="panel-heading"
+                                        style="color: var(--edpmain); padding: 2px 7px !important">
+                                        <a class="panel-title" style="font-size: 12px">
+                                            <input type="checkbox" [checked]="grp.Visible == true"
+                                                (click)="ColumnHide(grp.field)"
+                                                style="cursor: pointer; margin-right: 5px" />
+                                            <b style="vertical-align: top">{{ grp.headerName }}</b>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                        <!-- End Column Work -->
+                        <!-- Start Summary Buttons -->
+                        <button type="button" class="btn-group filter-button" style="cursor: pointer"
+                            (click)="summaryModal()" *ngIf="enableSummary">
+                            <i class="fa fa-cogs"></i>
+                        </button>
+                        <!-- END Summary Buttons -->
+                        <!-- Start Export Buttons Group -->
+                        <button *ngIf="isExport" class="btn-group filter-button"
+                            style="min-width: 20px !important; border-right: none" type="button"
+                            (click)="exportToggle($event)">
+                            <i class="fa fa-download"></i>
+                        </button>
+                        <ul *ngIf="isShowClick" style="
+                  min-width: 72px;
+                  right: 60px;
+                  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important;
+                  padding-left: 3px;
+                " class="
+                  addtional-button
+                  dropdown-menu
+                  show
+                  dropdown-menu-right
+                  grid-menu-mood
+                ">
+                            <div>
+                                <button *ngIf="isExport" type="button" class="btn-group filter-button"
+                                    style="min-width: 20px !important; border-right: none" (click)="Export(1)">
+                                    <img src="assets/img/Excel_icon.png" style="width: 15px; height: 15px" />
+                                    Excel
+                                </button>
+                            </div>
+                            <div>
+                                <button *ngIf="isExport" type="button" class="btn-group filter-button"
+                                    style="min-width: 20px !important; border-right: none" (click)="onBtnExport()">
+                                    <img src="assets/img/csv.png" style="width: 15px; height: 15px" />
+                                    CSV
+                                </button>
+                            </div>
+                            <div>
+                                <button *ngIf="isExport" type="button" class="btn-group filter-button"
+                                    style="min-width: 20px !important; border-right: none" (click)="Export(3)">
+                                    <!-- <img src="assets/images/csv.png" style="width: 15px; height: 15px" /> -->
+                                    <img src="assets/img/pdf.png" style="width: 15px; height: 15px" />
+
+                                    <!-- <i class="fa fa-file-pdf" style="font-size: 13px; color: rgb(223, 79, 79)"></i> -->
+                                    PDF
+                                </button>
+                            </div>
+                        </ul>
+                        <!-- End Exports Buttons Group -->
+                        <button *ngIf="refresh === true" type="button" class="btn-group" type="button"
+                            (click)="RefreshData()" style="min-width: 20px !important">
+                            <i class="fa fa-refresh" [ngClass]="{ 'fa-spin': isClicked }"></i>
+                        </button>
+                    </div>
+                    <select #recordselect *ngIf="hideRecord === true" [(ngModel)]="pageSize"
+                        class="btn-group pageSizeCombo" style="border-left: 1px solid #fff" (change)="changePageSize()">
+                        <option *ngFor="let item of recordsvalue" [value]="item.value">
+                            {{ item.value }}
+                        </option>
+                    </select>
+                </div>
+                <!-- End -->
+            </div>
+        </div>
+    </div>
+    <div class="MainGridDiv" style="display: flex" [ngClass]="scrollable ? 'grid-scrollable' : ''">
+        <ag-grid-angular #agGrid [paginationPageSize]="paginationPageSize" [ngStyle]="{ height: height}"
+            style="width: 100%" class="ag-theme-balham" [gridOptions]="options" [pagination]="pagination"
+            [headerHeight]="headerHeight" [columnDefs]="_columns" [rowData]="rowData"
+            (rowClicked)="onRowClickedInner($event)" (rowDoubleClicked)="onRowDoubleClickedInner($event)"
+            (filterChanged)="filterchanges()" (cellValueChanged)="calculateSummary($event)"
+            [overlayNoRowsTemplate]="overlayNoRowsTemplate" (componentStateChanged)="calculateSummaryInternal()"
+            (cellDoubleClicked)="editMode($event)" (cellClicked)="onCellClicked($event)" [rowHeight]="rowHeight"
+            (cellValueChanged)="onCellValueChanged($event)" [rowSelection]="rowSelection"
+            (cellEditingStopped)="onCellEditingStopped($event)" (focusout)="onCellFocusOut($event)"
+            (cellButtonClicked)="cellButtonClickEvent($event)" (rowSelected)="onRowSelected($event)"
+            [tabToNextCell]="tabToNextCell" [rowMultiSelectWithClick]="true">
+        </ag-grid-angular>
+    </div>
+    <div class="Table-Total" *ngIf="IsSumField == true">
+        <div *ngFor="let a of finalarray" [style.width.px]="a.size">
+            <div [style.width.px]="a.width">{{a.value}}</div>
+        </div>
+    </div>
+    <style>
+        .Table-Total {
+            width: 100%;
+            max-width: 1177px;
+            height: 39px;
+            overflow-y: hidden;
+            display: flex;
+            border: 1px solid #ddd;
+            overflow-x: scroll;
+        }
+
+        .Table-Total div {
+            float: left;
+            padding: 4px;
+        }
+
+        .Table-Total div div {
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            font-size: 11px;
+            color: #6a6464;
+            padding: 0;
+            text-align: center;
+            padding-left: 7px;
+            font-weight: 900;
+            text-align: right;
+            padding-right: 7px;
+        }
+
+        .Table-Total div:nth-child(1) div {
+            /* border-left: none !important; */
+            padding-left: 7px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        /* .Table-Total div:nth-last-child(1) div {
+              border-right: none !important;
+          } */
+    </style>

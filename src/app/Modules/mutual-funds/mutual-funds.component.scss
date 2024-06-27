@@ -1,0 +1,6 @@
+// component css goes here
+@import '../../../assets/scss/core/variables/colors';
+.nav-item.nav-link.active {
+    background-color: $PrimaryWebOrient !important;
+    color: white;
+}

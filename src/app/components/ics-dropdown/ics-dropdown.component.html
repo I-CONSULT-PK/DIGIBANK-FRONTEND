@@ -1,0 +1,9 @@
+<!--component html goes here -->
+<div class="card">
+    <label>{{caption}}</label>
+    <i class="fa" [ngClass]="changeIcon == true ? 'fa-caret-down' :'fa-caret-up'"></i>
+    <select class="form-select" (change)="ChangeEVent()" [(ngModel)]="value" (click)="ChnagePos()">
+        <option selected value="0">None</option>
+        <option *ngFor="let x of data" value="{{x[valueMember]}}">{{x[displayMember]}}</option>
+    </select>
+</div>

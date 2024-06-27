@@ -1,0 +1,126 @@
+<!--component html goes here -->
+<div class="main-content pb-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 Main-SecondRow">
+                <h2 class="card-title text-center">Cheque Management</h2>
+            </div>
+        </div>
+        <div class="row" style="height: 115px;">
+            <accounts-section></accounts-section>
+        </div>
+        <div class="row p-3">
+            <label for="">Instrument Inquiry</label>
+            <div class="card card-profile CustomRow m-0">
+                <div class="row">
+                    <div class="col-md-12 p-4">
+                        <div class="SearchMain">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="row ml-0 radioButtonSection">
+                                        <label style="display: flex;">Search By</label>
+                                        <mat-radio-group aria-label="Select an option">
+                                            <mat-radio-button value="1">Account</mat-radio-button>
+                                            <mat-radio-button value="2">Date</mat-radio-button>
+                                            <mat-radio-button value="3">Cheque</mat-radio-button>
+                                        </mat-radio-group>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <button mat-raised-button type="submit"
+                                        class="btn btn-danger pull-right CustomButton">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-3">
+            <label for="">Cheque Book Request</label>
+            <div class="card card-profile CustomRow m-0">
+                <div class="row">
+                    <div class="col-md-12 p-4">
+                        <div class="SearchMain">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <select class="form-select">
+                                            <option selected>From Account</option>
+                                            <option value="1">xxxxxxxxxxxx</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <input type="text" class="form-select" value="Self" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-11"> <button mat-raised-button type="submit"
+                                        class="btn btn-danger pull-right CustomButton">
+                                        Reset
+                                    </button></div>
+                                <div class="col-md-1"><button mat-raised-button type="submit"
+                                        style="padding-right: 23px;" class="btn btn-danger pull-right CustomButton">
+                                        Submit
+                                    </button></div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-3">
+            <label for="">Stop Cheque</label>
+            <div class="card card-profile CustomRow m-0">
+                <div class="row">
+                    <div class="col-md-12 p-4">
+                        <div class="SearchMain">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="" style="display: flex;">Select Reason For Blocking</label>
+                                    <div class="card m-0">
+                                        <select class="form-select">
+                                            <option selected>From Account</option>
+                                            <option value="1">xxxxxxxxxxxx</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <input type="text" class="form-select" value="Self" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <input type="text" class="form-select" value="Self" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-11"> <button mat-raised-button type="submit"
+                                        class="btn btn-danger pull-right CustomButton">
+                                        Reset
+                                    </button></div>
+                                <div class="col-md-1"><button mat-raised-button type="submit"
+                                        style="padding-right: 23px;" class="btn btn-danger pull-right CustomButton">
+                                        Submit
+                                    </button></div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

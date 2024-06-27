@@ -1,0 +1,54 @@
+// component css goes here
+@import "../../../assets/scss/core/variables/colors";
+
+.CustomRow {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+
+    div {
+        margin-left: 80px;
+        display: flex;
+        padding: 12px;
+
+        span {
+            background-color: $PrimaryWebOrient;
+            width: 30px;
+            height: 30px;
+            color: white;
+            padding-top: 3px;
+            font-size: 18px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        h3 {
+            font-size: 13px;
+            margin: 0;
+            padding: 0;
+            padding-top: 7px;
+            padding-left: 9px;
+            font-weight: 500;
+        }
+    }
+
+    .CustomButton {
+        padding: 10px;
+        font-size: 10px;
+        position: absolute;
+        top: 5px;
+        right: 12px;
+    }
+}
+
+.StatusCurr {
+    font-size: 10px;
+    font-weight: 600;
+    color: white;
+    background: #33b133;
+    padding: 6px 14px 6px 14px;
+    margin: 0;
+    position: absolute;
+    right: 17%;
+    border-radius: 20px;
+}

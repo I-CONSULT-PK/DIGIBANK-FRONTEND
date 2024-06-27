@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="remittance-form">
+        <h1 class="text-center">Zanbeel Remittance Details</h1>
+        <form id="remittance-form" action="/submit-remittance" method="post">
+            <label for="applicant">Applicant Name:</label>
+            <input type="text" id="applicant" name="applicant" required>
+
+            <label for="amount">Amount:</label>
+            <input type="text" id="amount" name="amount" required>
+
+            <label for="bank">Bank:</label>
+            <input type="text" id="bank" name="bank" required>
+
+            <label for="account-number">Account Number:</label>
+            <input type="text" id="account-number" name="account-number" required>
+
+            <button class="center" type="submit">Next</button>
+        </form>
+
+        <div id="beneficiary-details" style="display: none;">
+            <label for="beneficiary-bank">Beneficiary Bank Name:</label>
+            <input type="text" id="beneficiary-bank" name="beneficiary-bank" required>
+
+            <label for="beneficiary-address">Beneficiary Address:</label>
+            <input type="text" id="beneficiary-address" name="beneficiary-address" required>
+
+            <button class="center" onclick="showRegulatoryReporting()">Next</button>
+        </div>
+
+        <div id="regulatory-reporting" style="display: none;">
+            <!-- Regulatory reporting fields -->
+            <button class="center" onclick="showRemittanceCity()">Next</button>
+        </div>
+
+        <div id="remittance-city" style="display: none;">
+            <!-- Remittance city fields -->
+            <button class="center" onclick="showPaymentDetails()">Next</button>
+        </div>
+
+        <div id="payment-details" style="display: none;">
+            <!-- Payment details fields -->
+            <button class="center" onclick="showDocumentAttachment()">Next</button>
+        </div>
+
+        <div id="document-attachment" style="display: none;">
+            <!-- Document attachment field -->
+            <button class="center" type="submit">Submit</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    document.getElementById('remittance-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+        showBeneficiaryDetails(); // Show the next section
+    });
+
+    function showBeneficiaryDetails() {
+        document.getElementById('beneficiary-details').style.display = 'block';
+    }
+
+    function showRegulatoryReporting() {
+        document.getElementById('beneficiary-details').style.display = 'none';
+        document.getElementById('regulatory-reporting').style.display = 'block';
+    }
+
+    function showRemittanceCity() {
+        document.getElementById('regulatory-reporting').style.display = 'none';
+        document.getElementById('remittance-city').style.display = 'block';
+    }
+
+    function showPaymentDetails() {
+        document.getElementById('remittance-city').style.display = 'none';
+        document.getElementById('payment-details').style.display = 'block';
+    }
+
+    function showDocumentAttachment() {
+        document.getElementById('payment-details').style.display = 'none';
+        document.getElementById('document-attachment').style.display = 'block';
+    }
+</script>

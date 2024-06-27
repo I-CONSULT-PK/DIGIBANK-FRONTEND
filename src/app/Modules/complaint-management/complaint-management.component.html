@@ -1,0 +1,437 @@
+<div class="main-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 Main-SecondRow">
+				<h2 class="card-title text-center">
+					Complaint Management
+				</h2>
+			</div>
+			<div class="col-md-12">
+				<div class="row"
+					style="height: 115px;">
+					<accounts-section></accounts-section>
+				</div>
+				<div class="container-fluid card">
+					<div class="row"
+						style="padding-top: 37px;">
+						<div class="col-md-12">
+							<div class="row">
+								<!-- <div class="col-lg-12">
+                                    <img src="images/registration.jpeg">
+                                    <h6 class="text-center mb-3"
+                                        style="color: grey; font-family: 'Times New Roman', Times, serif; font-size:x-large">
+                                        Do you want to register complaint</h6>
+                                    <form action="#" class="signup-form">
+                                        <div class="form-group mb-2">
+                                            <h6 class="text-center mb-3"
+                                                style="color: grey; font-family: 'Times New Roman', Times, serif;font-size:x-large">
+                                                From Account</h6>
+                                            <h6 class="text-center mb-3"
+                                                style="color: black;font-family: 'Times New Roman', Times, serif;font-size:x-large">
+                                                xxxx xxxxx xxxxx</h6>
+                                        </div>
+                                        <div class="form-group mb-2">
+                                            <h6 class="text-center mb-3"
+                                                style="color: grey;font-family: 'Times New Roman', Times, serif;font-size:x-large">
+                                                +92 123 45689</h6>
+                                            <h6 class="text-center mb-3"
+                                                style="color: grey;font-family: 'Times New Roman', Times, serif;font-size:x-large">
+                                                Internet Banking</h6>
+                                        </div>
+                                        <div class="form-group mb-2">
+                                            <h6 class="text-center mb-3"
+                                                style="color: grey;font-family: 'Times New Roman', Times, serif;font-size:x-large">
+                                                zanbeel@gmail.com</h6>
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <h6 class="text-center mb-3"
+                                                style="color: grey;font-family: 'Times New Roman', Times, serif;font-size:x-large">
+                                                New</h6>
+                                        </div>
+                                    </form>
+                                </div> -->
+								<div class="col-md-2">
+									<button (click)="OpenModal()"
+										type="button"
+										class="btn btn-danger float-right">
+										Add Complaint
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="row">
+						<div class="TableMain col-md-12">
+							<table class="table">
+								<thead>
+									<tr>
+										<th></th>
+										<th>Complainer Name</th>
+										<th>Complainer Type</th>
+										<th>Complainer Contact</th>
+										<th>Complainer Date</th>
+										<th class="text-right">Fee</th>
+										<!-- <th class="Debitext-right">Actions</th> -->
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="td-actions text-right">
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-star"></i>
+											</button>
+										</td>
+										<td>
+											Muhammad Asghar Khan
+										</td>
+										<td>
+											Alfalah Bank Limited
+										</td>
+										<td>33422343432342</td>
+										<td>11/12/2023</td>
+										<td class="text-right">&euro; 199,225</td>
+										<td class="td-actions text-right">
+											<!-- <button type="button" rel="tooltip" title="View Profile"
+                                                class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-user"></i>
+                                            </button> -->
+											<button type="button"
+												rel="tooltip"
+												title="Edit Profile"
+												class="btn btn-success btn-simple btn-xs">
+												<i class="fa fa-pencil "></i>
+											</button>
+											<!-- Button trigger modal -->
+											<!-- <button type="button"
+												class="btn btn-primary"
+												data-bs-toggle="modal"
+												data-bs-target="#exampleModal">
+												Launch demo modal
+											</button> -->
+
+
+											<!-- Modal -->
+											<div class="modal fade"
+												id="exampleModal"
+												tabindex="-1"
+												aria-labelledby="exampleModalLabel"
+												aria-hidden="true">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h1 class="modal-title fs-5"
+																id="exampleModalLabel">
+																Modal title
+															</h1>
+															<button type="button"
+																class="btn-close"
+																data-bs-dismiss="modal"
+																aria-label="Close"></button>
+														</div>
+														<div class="modal-body">...</div>
+														<div class="modal-footer">
+															<button type="button"
+																class="btn btn-secondary"
+																data-bs-dismiss="modal">
+																Close
+															</button>
+															<button type="button"
+																class="btn btn-primary">
+																Save changes
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-trash"></i>
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td class="td-actions text-right">
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-star"></i>
+											</button>
+										</td>
+										<td>
+											Muhammad Asghar Khan
+										</td>
+										<td>
+											Alfalah Bank Limited
+										</td>
+										<td>33422343432342</td>
+										<td>11/12/2023</td>
+										<td class="text-right">&euro; 199,225</td>
+										<td class="td-actions text-right">
+											<!-- <button type="button" rel="tooltip" title="View Profile"
+                                                class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-user"></i>
+                                            </button> -->
+											<button type="button"
+												rel="tooltip"
+												title="Edit Profile"
+												class="btn btn-success btn-simple btn-xs">
+												<i class="fa fa-pencil"></i>
+											</button>
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-trash"></i>
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td class="td-actions text-right">
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-star"></i>
+											</button>
+										</td>
+										<td>
+											Muhammad Asghar Khan
+										</td>
+										<td>
+											Alfalah Bank Limited
+										</td>
+										<td>33422343432342</td>
+										<td>11/12/2023</td>
+										<td class="text-right">&euro; 199,225</td>
+										<td class="td-actions text-right">
+											<!-- <button type="button" rel="tooltip" title="View Profile"
+                                                class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-user"></i>
+                                            </button> -->
+											<button type="button"
+												rel="tooltip"
+												title="Edit Profile"
+												class="btn btn-success btn-simple btn-xs">
+												<i class="fa fa-pencil"></i>
+											</button>
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-trash"></i>
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td class="td-actions text-right">
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-star"></i>
+											</button>
+										</td>
+										<td>
+											Muhammad Asghar Khan
+										</td>
+										<td>
+											Alfalah Bank Limited
+										</td>
+										<td>33422343432342</td>
+										<td>11/12/2023</td>
+										<td class="text-right">&euro; 199,225</td>
+										<td class="td-actions text-right">
+											<!-- <button type="button" rel="tooltip" title="View Profile"
+                                                class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-user"></i>
+                                            </button> -->
+											<button type="button"
+												rel="tooltip"
+												title="Edit Profile"
+												class="btn btn-success btn-simple btn-xs">
+												<i class="fa fa-pencil"></i>
+											</button>
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-trash"></i>
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td class="td-actions text-right">
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-star"></i>
+											</button>
+										</td>
+										<td>
+											Muhammad Asghar Khan
+										</td>
+										<td>
+											Alfalah Bank Limited
+										</td>
+										<td>33422343432342</td>
+										<td>11/12/2023</td>
+										<td class="text-right">&euro; 199,225</td>
+										<td class="td-actions text-right">
+											<!-- <button type="button" rel="tooltip" title="View Profile"
+                                                class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-user"></i>
+                                            </button> -->
+											<button type="button"
+												rel="tooltip"
+												title="Edit Profile"
+												class="btn btn-success btn-simple btn-xs">
+												<i class="fa fa-pencil"></i>
+											</button>
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-trash"></i>
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td class="td-actions text-right">
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-star"></i>
+											</button>
+										</td>
+										<td>
+											Muhammad Asghar Khan
+										</td>
+										<td>
+											Alfalah Bank Limited
+										</td>
+										<td>33422343432342</td>
+										<td>11/12/2023</td>
+										<td class="text-right">&euro; 199,225</td>
+										<td class="td-actions text-right">
+											<!-- <button type="button" rel="tooltip" title="View Profile"
+                                                class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-user"></i>
+                                            </button> -->
+											<button type="button"
+												rel="tooltip"
+												title="Edit Profile"
+												class="btn btn-success btn-simple btn-xs">
+												<i class="fa fa-pencil"></i>
+											</button>
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-trash"></i>
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td class="td-actions text-right">
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-star"></i>
+											</button>
+										</td>
+										<td>
+											Muhammad Asghar Khan
+										</td>
+										<td>
+											Alfalah Bank Limited
+										</td>
+										<td>33422343432342</td>
+										<td>11/12/2023</td>
+										<td class="text-right">&euro; 199,225</td>
+										<td class="td-actions text-right">
+											<!-- <button type="button" rel="tooltip" title="View Profile"
+                                                class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-user"></i>
+                                            </button> -->
+											<button type="button"
+												rel="tooltip"
+												title="Edit Profile"
+												class="btn btn-success btn-simple btn-xs">
+												<i class="fa fa-pencil"></i>
+											</button>
+											<button type="button"
+												rel="tooltip"
+												title="Remove"
+												class="btn btn-danger btn-simple btn-xs">
+												<i class="fa fa-trash"></i>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<ics-modal #Modal1
+	(onSave)="SuccessPopup()"
+	Caption="Add Complaint">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-12">
+					<ics-dropdown [data]="beneficiaryTypeData"
+						caption="Select Compliant Type"
+						displayMember="benname"
+						valueMember="id"></ics-dropdown>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<ics-input caption="Enter Valid Email"></ics-input>
+				</div>
+				<div class="col-md-6">
+					<ics-input caption="Enter Mobile Number"></ics-input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<label>Enter Description</label>
+					<mat-form-field appearance="outline">
+						<mat-label>Enter Your Notes</mat-label>
+						<textarea name
+							id
+							matInput
+							cols="30"
+							rows="10"></textarea>
+					</mat-form-field>
+				</div>
+			</div>
+		</div>
+	</div>
+</ics-modal>
+
+
+<ics-modal #NewModal1
+	[hideHeader]="true"
+	[hideFooter]="true"
+	Caption="Notification">
+	<success-popup></success-popup>
+</ics-modal>

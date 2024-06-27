@@ -1,0 +1,54 @@
+<!--component html goes here -->
+<modal #myModal id="myModal" [ngClass]="
+    type === 4
+      ? 'error'
+      : '' || type === 3
+      ? 'warning'
+      : '' || type === 2
+      ? 'success'
+      : '' || type === 1
+      ? 'info'
+      : ''
+  " style="z-index: 99999">
+  <modal-header>
+    <h5 style="padding: 3px; font-weight: bold; color: white;" class="modal-title">
+      <i *ngIf="type === 4" class="fa fa-exclamation-circle"></i>
+      <i *ngIf="type === 3" class="fa fa-exclamation-triangle"></i>
+      <i *ngIf="type === 2" class="fa fa-check-circle"></i>
+      <i *ngIf="type === 1" class="glyphicon glyphicon-info-sign"></i>
+      <span class="pl-1">{{ title }}</span>
+    </h5>
+  </modal-header>
+
+  <modal-content class="error-modal">
+    <div class="md-form form-sm">
+      <div *ngFor="let item of ErrorArray" class="col-xs-12">
+        <h4 class="pl-3 pt-2">{{ item.Description }}</h4>
+      </div>
+    </div>
+  </modal-content>
+
+  <modal-footer class="error-modal m-0">
+    <button *ngIf="type === 4" class="btn color-btn-error " (click)="innerClose(1)">
+      <a>
+        <i style="margin-top: -2px" class="glyphicon glyphicon-ok-sign"></i>
+        OK</a>
+    </button>
+    <button *ngIf="type === 2" class="btn color-btn-success " (click)="innerClose(1)">
+      <a>
+        <i style="margin-top: -2px" class="glyphicon glyphicon-ok-sign"></i>
+        OK</a>
+    </button>
+    <button *ngIf="type === 1" class="btn color-btn-info " (click)="innerClose(1)">
+      <a>
+        <i style="margin-top: -2px" class="glyphicon glyphicon-ok-sign"></i>
+        OK</a>
+    </button>
+    <button *ngIf="type === 3" class="btn color-btn-warning " (click)="innerClose(1)">
+      <a> <i style="margin-top: -2px" class="fa fa-check"></i> Yes</a>
+    </button>
+    <button *ngIf="type === 3" class="btn color-btn-warning " (click)="innerClose(0)">
+      <a> <i style="margin-top: -2px" class="fa fa-remove"></i> No</a>
+    </button>
+  </modal-footer>
+</modal>

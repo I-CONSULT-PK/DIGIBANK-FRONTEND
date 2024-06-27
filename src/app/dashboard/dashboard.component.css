@@ -1,0 +1,50 @@
+.card-title.debit {
+    color: green;
+}
+
+.card-title.credit {
+    color: red;
+}
+
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arrow::before {
+    content: "\25BC";
+    /* Unicode character for down arrow */
+    display: block;
+    font-size: 24px;
+    color: #333;
+    /* Arrow color */
+}
+
+.debit {
+    color: green;
+    /* Debit value color */
+}
+
+.First_Chart {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.First_Chart span.arrowSpan i {
+    background: #e7e7e7;
+    margin-left: 2px;
+    padding: 8px 10px 8px 10px;
+    font-size: 12px !important;
+    cursor: pointer;
+}
+
+.credited {
+    color: #d84747 !important;
+}
+
+.debited {
+    color: green !important;
+}

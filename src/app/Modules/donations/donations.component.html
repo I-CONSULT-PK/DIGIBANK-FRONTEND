@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zakat Calculator</title>
+  
+</head>
+<body>
+
+<!-- <div class="calculator">
+  <h1>Zakat Calculator</h1>
+  <label for="totalWealth">Total Wealth (in PKR):</label>
+  <input type="number" id="totalWealth">
+  <button onclick="calculateZakat()">Calculate Zakat</button>
+  <div class="result" id="result"></div>
+  <div class="grid-container">
+    <div class="grid-item">Nisab Amount (Minimum Wealth for Zakat): $30,000</div>
+    <div class="grid-item">Zakat Rate: 2.5%</div>
+  </div>
+</div>
+
+<script>
+  function calculateZakat() {
+    var totalWealth = parseFloat(document.getElementById('totalWealth').value);
+    if (isNaN(totalWealth)) {
+      alert("Please enter a valid amount for total wealth.");
+      return;
+    }
+
+    var zakat;
+    if (totalWealth >= 30000) {
+      zakat = totalWealth * 0.025; // Zakat rate is 2.5%
+    } else {
+      zakat = 0;
+    }
+
+    document.getElementById('result').innerText = "Your Zakat Amount: $" + zakat.toFixed(2);
+  }
+</script> -->
+
+<div class="calculator">
+  <h1>Zakat Calculator</h1>
+  <label for="totalWealth">Total Wealth (in PKR):</label>
+  <input type="number" id="totalWealth">
+  <button onclick="calculateZakat()">Calculate Zakat</button>
+  <div class="result" id="result"></div>
+  <div class="grid-container">
+    <div class="grid-item">Nisab Amount (Minimum Wealth for Zakat): $30,000</div>
+    <div class="grid-item">Zakat Rate: 2.5%</div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+  function calculateZakat() {
+    var totalWealth = parseFloat(document.getElementById('totalWealth').value);
+    if (isNaN(totalWealth)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Amount',
+        text: 'Please enter a valid amount for total wealth.'
+      });
+      return;
+    }
+
+    var zakat;
+    if (totalWealth >= 30000) {
+      zakat = totalWealth * 0.025;  
+      zakat = 0;
+    }
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Zakat Calculation',
+      html: `Your Zakat Amount: $${zakat.toFixed(2)}`
+    });
+  }
+</script>
+
+
+
+</body>
+</html>

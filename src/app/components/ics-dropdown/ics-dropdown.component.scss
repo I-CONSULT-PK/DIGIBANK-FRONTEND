@@ -1,0 +1,56 @@
+// component css goes here
+@import "../../../assets/scss/core/variables/colors";
+
+label {
+    background: $PrimaryWebOrient;
+    color: white;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    padding-left: 6px;
+}
+
+.card {
+    margin: 0 !important;
+    border: 0;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 6px;
+    color: #333333;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+}
+
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    // border-radius: 0.375rem;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    appearance: none;
+}
+
+i {
+    position: absolute;
+    top: 31px;
+    right: 11px;
+    color: $PrimaryWebOrient;
+}

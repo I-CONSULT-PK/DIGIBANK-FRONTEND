@@ -1,0 +1,13 @@
+// component css goes here
+@import '../../../assets/scss/core/variables/colors';
+input {
+    border: 2px solid $PrimaryWebOrient;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+label {
+    float: left;
+    padding-left: 4px;
+    margin: 0;
+}
