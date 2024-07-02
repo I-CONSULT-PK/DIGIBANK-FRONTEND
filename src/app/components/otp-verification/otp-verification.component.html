@@ -1,14 +1,12 @@
 <!--component html goes here -->
 <div class="row">
-    <h2 class="OtpH2">Verify Your OTP</h2>
-</div>
-<div class="row">
     <div class="otp-field">
         <input [(ngModel)]="input1" (input)="handleInput($event, 1)" type="text" maxlength="1" style="display:none;">
         <input [(ngModel)]="input2" (input)="handleInput($event, 2)" type="text" maxlength="1">
         <input [(ngModel)]="input3" (input)="handleInput($event, 3)" type="text" maxlength="1">
         <input [(ngModel)]="input4" (input)="handleInput($event, 4)" type="text" maxlength="1">
         <input [(ngModel)]="input5" (input)="handleInput($event, 5)" type="text" maxlength="1">
+        <input [(ngModel)]="input6" (input)="handleInput($event, 6)" type="text" maxlength="1">
     </div>
     <input type="hidden" id="verificationCode">
 </div>

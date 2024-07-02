@@ -2755,7 +2755,7 @@ ol li {
 
 .form-control:disabled,
 .form-control[readonly] {
-    background-color: var(--edpbackgroundsecond) !important;
+    /* background-color: var(--edpbackgroundsecond) !important; */
     opacity: 1;
     cursor: not-allowed;
     border-color: #c3c3c3 !important;
