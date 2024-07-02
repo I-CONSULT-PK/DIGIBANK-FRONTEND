@@ -1,377 +1,129 @@
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
-<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-
-<div #WhiteBannerBox class="WiteBanner BlColor"></div>
-<div #WhiteBannerBox2 class="WiteBanner2 PrimColor"></div>
-
-
-<!-- <body class="login-page sidebar-collapse"> -->
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
-    <div class="container">
-        <div #navigation class="collapse navbar-collapse justify-content-end" id="navigation"
-            style="padding-right: 10px; transition: 0.7s ease;" data-nav-image="../assets/img/blurred-image-1.jpg">
-            <ul class="navbar-nav">
-                <!-- <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom"
-                        href="https://twitter.com/CreativeTim" target="_blank">
-                        <i class="fab fa-twitter"></i>
-                        <p class="d-lg-none d-xl-none">Twitter</p>
-                    </a>
-                </li> -->
-                <!-- <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom"
-                        href="https://www.facebook.com/CreativeTim" target="_blank">
-                        <i class="fab fa-facebook-square"></i>
-                        <p class="d-lg-none d-xl-none">Facebook</p>
-                    </a>
-                </li> -->
-                <!-- <li class="nav-item">
-                    <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom"
-                        href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                        <p class="d-lg-none d-xl-none">Instagram</p>
-                    </a>
-                </li> -->
-                <li #LogButton (click)="ClickToChangeLog()" class="nav-item NewAccount logAccount">
-                    <h6 id="New">
-                        <a class="link">Login Your Account</a>
-                    </h6>
-                </li>
-                <li #SignupButton (click)="ClickToChange()" class="nav-item NewAccount">
-                    <h6 id="New">
-                        <a class="link">Create New Account</a>
-                    </h6>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!-- End Navbar -->
-
-
-<div class="page-header clear-filter" filter-color="orange" style="height: 100vh;">
-    <div #pageheaderimage class="page-header-image">
-        <!-- style="background-image:url('../../assets/img/Frame\ 2.svg')" -->
-        <div class="SideHeading" style="display: none;">
-            <h2>Zanbeel</h2>
-            <h3>
-                Secure Internet Banking
-            </h3>
-        </div>
-    </div>
-    <div #CntrLogin class="content m-0">
-        <div class="container m-0" style="z-index: 999;">
-            <div class="col-md-4" style="margin-left: 120px;">
-                <div class="card card-login card-plain m-0">
-                    <!-- <form class="form" method="" action=""> -->
-                    <div class="card-header text-center">
-                        <div class="logo-container">
-                            <img src="https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/img/now-logo.png"
-                                alt style="transform: rotate(90deg);margin-left: 107px;">
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="input-group no-border input-lg">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="now-ui-icons users_circle-08"></i>
-                                </span>
-                            </div>
-                            <input [(ngModel)]="username" type="text" class="form-control" placeholder="Username...">
-                        </div>
-                        <div class="input-group no-border input-lg">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="now-ui-icons text_caps-small"></i>
-                                </span>
-                                <span class="input-group-text PassIcon" (click)="ShowHideFunc()">
-                                    <i class="fa fa-solid" [ngClass]="ShowHide == true ? 'fa-eye-slash' : 'fa-eye'"></i>
-                                </span>
-                            </div>
-                            <input [(ngModel)]="password" type="{{ShowHide == true ? 'text' :'password'}}"
-                                placeholder="Password" class="form-control">
-                        </div>
-                    </div>
-                    <div class="SecurityImageDiv">
-                        <h3 style="margin: 0;">
-                            Select Security Image
-                        </h3>
-                        <div class="row">
-                            <div class="col" [class.selected]="x.selected == true " *ngFor="let x of SecurityImageArray"
-                                (click)="SelectSecurityImage(x.name)">
-                                <i [ngClass]="x.icon"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-footer text-center">
-                        <a (click)="LoginPost()" class="btn btn-primary btn-round btn-lg btn-block">
-                            Login
-                        </a>
-                    </div>
-                    <div class="pull-left" style="margin: auto;width: 100%;">
-                        <h6>
-                            <a class="link" style="color:white; cursor: pointer;" (click)="forgotPassword()">
-                                Forgot Password ?
-                            </a>
-                        </h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <img class="animationImg" src="../../assets/img/standImg.png">
-    </div>
-
-
-    <div class="content Signup">
-       
-        <!-- <img class="animationImg" src="../../assets/img/standImg2.png" /> -->
-        <div #textContent class="textContent">
-     
-            <h2>Make Your Account</h2>
-            <!-- <img class="animationImg" src="../../assets/img/standImg.png"> -->
-            <p>
-                Access to the Internet Banking of
-                <b>Zanbeel</b>
-                Through the Globe.
-                <br>
-                <b>Signup</b>
-                for Better experience of Banking.
-            </p>
-        </div>
-        <div #CntrLogin2 class="SideHeading">
-            <div class="container pl-0">
-                <div class="col-md-11 pl-0">
-                    <div class="card card-login card-plain" style="margin-left: 14px;">
-                        <!-- <form class="form" method="" action=""> -->
-                        <div class="card-header text-center">
-                            <div class="logo-container">
-                                <img src="https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/img/now-logo.png"
-                                    alt style="transform: rotate(90deg);margin-left: 15px;">
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div [style.display]="stepCounter == 1 ? 'block' : 'none'">
-                                <div class="row" style="width: 92%;">
-                                    <div class="col-lg-6 pl-0">
-                                        <div class="input-group no-border input-lg">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="now-ui-icons users_circle-08"></i>
-                                                </span>
-                                            </div>
-                                            <input [(ngModel)]="UserCnic" type="number" class="form-control"
-                                                placeholder="Enter CNIC Number">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 pl-0">
-                                        <div class="input-group no-border input-lg">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="now-ui-icons text_caps-small"></i>
-                                                </span>
-                                            </div>
-                                            <input [(ngModel)]="UserMobile" type="text" class="form-control"
-                                                placeholder="Enter Mobile Number">
-                                        </div>
-                                    </div>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-4 col-xs-4 Background-Primary">
+                <div class="container" style="margin: auto; display:flex;">
+                    <div class="row" style="height: 100vh;">
+                        <div class="col-lg-6 col-md-6 col-sm-2 col-xs-2 CNT-LFT">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mt-4">
+                                    <img src="../../assets/img/Logo/logo.png" />
                                 </div>
-                                <div class="row" style="visibility: visible; width: 92%;">
-                                    <div class="col-lg-12 pl-0">
-                                        <div class="input-group no-border input-lg">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="now-ui-icons users_circle-08"></i>
-                                                </span>
+                            </div>
+                            <div class="row Content-Sec1">
+                                <div class="col-lg-12 col-md-6 mt-4">
+                                    <p>
+                                        Join the Future of Banking<br /> Simplify Your <span>Finances</span><br />
+                                        Join Us Today!
+                                    </p>
+                                    <p class="mt-4">
+                                        Join Digi-Bank Today
+                                    </p>
+                                    <p class="">Experience the future of banking with Digi-Bank. Sign up now to manage
+                                        your
+                                        finances anytime, anywhere.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-2 col-xs-2 FormModuleDIv">
+                            <div class="row" style="margin: auto;">
+                                <div class="col-lg-12 col-md-6 col-sm-4 col-xs-4">
+                                    <div class="FormDiv">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-6 col-sm-4 col-xs-4">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-6 col-sm-4 col-xs-4 TopUpCnt">
+                                                        <h4>{{tittle}}</h4>
+                                                        <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit
+                                                            amet consectetur. Lorem ipsum dolor sit amet consectetur.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-6 col-sm-4 col-xs-4">
+                                                        <div class="row">
+                                                            <form class="Fourth-Step">
+                                                                <div class="form-row align-items-center">
+                                                                    <div
+                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
+                                                                        <label for="inlineFormInput">User Name *</label>
+                                                                        <div class="input-group mb-2">
+                                                                            <div class="input-group-prepend">
+                                                                                <div class="input-group-text">
+                                                                                    <i class="fa fa-solid fa-user"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <input type="text" class="form-control"
+                                                                                id="inlineFormInputGroup"
+                                                                                placeholder="Enter Your User Name">
+                                                                        </div>
+                                                                        <span class="Fgt" (click)="ForgetNavigate();">Forget Username?</span>
+                                                                    </div>
+                                                                    <div
+                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
+                                                                        <label for="inlineFormInput">Password *</label>
+                                                                        <div class="input-group mb-2">
+                                                                            <div class="input-group-prepend">
+                                                                                <div class="input-group-text">
+                                                                                    <i class="fa fa-solid fa-eye"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                            <input type="text" class="form-control"
+                                                                                id="inlineFormInputGroup"
+                                                                                placeholder="Enter Your User Name">
+                                                                        </div>
+                                                                        <span class="Fgt" (click)="ForgetNavigate();">Forget Password?</span>
+                                                                    </div>
+                                                                    <div
+                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
+                                                                        <div class="SecurityImageDiv mt-1">
+                                                                            <h3 style="margin: 0;">
+                                                                                Select Security Image
+                                                                            </h3>
+                                                                            <div class="row">
+                                                                                <div class="col"
+                                                                                    [class.selected]="x.selected == true "
+                                                                                    *ngFor="let x of SecurityImageArray"
+                                                                                    (click)="SelectSecurityImage(x.name)">
+                                                                                    <i [ngClass]="x.icon"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
+                                                                        style="line-height: 4;">
+                                                                        <button type="button"
+                                                                            class="col-lg-12 btn btn-primary TrnBtn">Login</button>
+                                                                        <button type="button"
+                                                                            class="col-lg-12 btn btn-primary TrnBtn CrtAcnt"
+                                                                            (click)="NavigateToCreate()">Create
+                                                                            New Account</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <input [(ngModel)]="UserAccountno" type="text" class="form-control"
-                                                placeholder="Account Number">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div [style.display]="stepCounter == 2 ? 'block' : 'none'">
-                                <div class="row" style="width: 92%;">
-                                    <div class="col-lg-6 pl-0">
-                                        <div class="input-group no-border input-lg">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="now-ui-icons users_circle-08"></i>
-                                                </span>
-                                            </div>
-                                            <input [(ngModel)]="FirstName" type="text" class="form-control"
-                                                placeholder="First Name...">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 pl-0">
-                                        <div class="input-group no-border input-lg">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="now-ui-icons text_caps-small"></i>
-                                                </span>
-                                            </div>
-                                            <input [(ngModel)]="LastName" type="text" placeholder="Last Name..."
-                                                class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row" style="width: 92%;">
-                                    <div class="col-lg-12 pl-0">
-                                        <div class="input-group no-border input-lg">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="now-ui-icons users_circle-08"></i>
-                                                </span>
-                                            </div>
-                                            <input [(ngModel)]="UserEmail" type="email" class="form-control"
-                                                placeholder="Email">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div [style.display]="stepCounter == 3 ? 'block' : 'none'">
-                                <div class="row" style="width: 92%;">
-                                    <div class="col-lg-12 pl-0">
-                                        <div class="input-group no-border input-lg">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="now-ui-icons users_circle-08"></i>
-                                                </span>
-                                            </div>
-                                            <input [(ngModel)]="Userusername" type="text" class="form-control"
-                                                placeholder="Enter User Name">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row" style="width: 92%;">
-                                    <div class="col-lg-6 pl-0">
-                                        <div class="input-group no-border input-lg">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="now-ui-icons users_circle-08"></i>
-                                                </span>
-                                            </div>
-                                            <input [(ngModel)]="UserPassword" type="password" class="form-control"
-                                                placeholder="Password">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 pl-0">
-                                        <div class="input-group no-border input-lg">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="now-ui-icons text_caps-small"></i>
-                                                </span>
-                                            </div>
-                                            <input [(ngModel)]="UserRetypepass" type="password"
-                                                placeholder="Re-Type Password" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div [style.display]="stepCounter == 4 ? 'block' : 'none'">
-                                <div class="row">
-                                    <h2 class="OtpH2">Verify Your OTP</h2>
-                                    <div class="otp-field">
-                                        <input [(ngModel)]="input1" (input)="handleInput($event, 1)" type="text"
-                                            maxlength="1" style="display:none;">
-                                        <input [(ngModel)]="input2" (input)="handleInput($event, 2)" type="text"
-                                            maxlength="1">
-                                        <input [(ngModel)]="input3" (input)="handleInput($event, 3)" type="text"
-                                            maxlength="1">
-                                        <input [(ngModel)]="input4" (input)="handleInput($event, 4)" type="text"
-                                            maxlength="1">
-                                        <input [(ngModel)]="input5" (input)="handleInput($event, 5)" type="text"
-                                            maxlength="1">
-                                        <input type="text" maxlength="1" [(ngModel)]="input6"
-                                            (input)="handleInput($event,6)" />
-                                        <input type="text" maxlength="1" [(ngModel)]="input7"
-                                            (input)="handleInput($event, 7)" />
-                                    </div>
-                                    <input type="hidden" id="verificationCode">
-                                </div>
-                                <!-- <div class="row" style="width: 92%;">
-                                    <div class="col-lg-12 pl-0">
-                                        <div class="input-group no-border input-lg">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="now-ui-icons users_circle-08"></i>
-                                                </span>
-                                            </div>
-                                            <input type="text" class="form-control" value="{{UserMobile}}" disabled>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            </div>
                         </div>
-                        <div class="row" style="display: flex;position: absolute;top: 90%;">
-                            <h6 [style.display]="stepCounter != 4 ? 'flex' : 'none'" (click)="ClickToChangeLog()" style="margin-top: 42px; cursor: pointer; 
-                                padding-left: 25px;">
-                                <a class="link" style="color:white;" href="#">
-                                    Already Have
-                                    Account
-                                </a>
-                            </h6>
-                            <div [style.left]="stepCounter == 1 ? '215%' :'140%' "
-                                class="card-footer text-center CounterButton" style="position: absolute;">
-                                <a [style.display]="stepCounter > 1 && stepCounter != 4 ? 'flex' : 'none'"
-                                    (click)="StepDown()" class="btn btn-primary btn-round btn-lg btn-block"
-                                    style="background-color: white;">
-                                    Back
-                                </a>
-                                <a [style.display]="stepCounter != 3 && stepCounter != 4 ? 'flex' : 'none'"
-                                    (click)="StepUp()" class="btn btn-primary btn-round btn-lg btn-block"
-                                    style="background-color: white;">
-                                    Next
-                                </a>
-                                <a [style.display]="stepCounter == 3 ? 'flex' : 'none'" (click)="SignupPost()"
-                                    class="btn btn-primary btn-round btn-lg btn-block" style="background-color: white;">
-                                    Done
-                                </a>
-                                <a [style.display]="stepCounter == 4 ? 'flex' : 'none'"
-                                    [style.left]="stepCounter == 4 ? '130%' : '0'" (click)="OPTVerificationPost()"
-                                    class="btn btn-primary btn-round btn-lg btn-block"
-                                    style="background-color: white; margin-top: 20%;">
-                                    Verify
-                                </a>
-                            </div>
-
-
-                        </div>
-                        <div *ngIf="stepCounter == 4" (click)="OPTCreationPost()" class="row AgnSendbtn">
-                            <p>
-                                Send OTP Again to {{UserEmail}}
-                                <i class="fa fa-arrow-right"></i>
-                            </p>
-                        </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="footer  p-0">
-        <div class="container">
+</body>
 
-
-            <div #copyright class="copyright" id="copyright">
-
-
-                <p>
-                    &copy;
-                    Made By
-                    <a href="https://iconsult.com.pk/" target="_blank">
-                        iConsult
-                    </a>
-                    All rigths Reserved
-                </p>
-            </div>
-        </div>
-    </footer>
-    <ics-error #IcsError></ics-error>
-</div>
+</html>

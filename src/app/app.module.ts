@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AppConstants } from './@constant/app.constant';
 import { DefaultInterceptor } from './@core/helper/http.interceptor';
- 
 @NgModule({
   imports: [
     BrowserAnimationsModule,

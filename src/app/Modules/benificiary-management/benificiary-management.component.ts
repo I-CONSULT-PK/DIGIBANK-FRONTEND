@@ -118,7 +118,7 @@ export class BenificiaryManagementComponent implements OnInit {
         },
         {
             id: 0,
-            benname: "Zanbeel Bank"
+            benname: "DIGI-BANK Bank"
         },
         {
             id: 0,

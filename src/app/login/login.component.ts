@@ -30,6 +30,8 @@ export class loginComponent implements OnInit {
 
   @ViewChild('IcsError') dcserror: IcsErrorComponent | any;
 
+  tittle: any = "Sign in to Your Account";
+
   SecurityImageArray: any = [];
   ImageIconsArray: any[] =
     [
@@ -65,7 +67,7 @@ export class loginComponent implements OnInit {
       },
       {
         name: 'lightbulb',
-        icon: 'fa fa-lightbulb',
+        icon: 'fa fa-cutlery',
         selected: false,
       },
       {
@@ -314,10 +316,17 @@ export class loginComponent implements OnInit {
   async ShowHideFunc() {
     this.ShowHide = !this.ShowHide;
   }
+
+  async ForgetNavigate() {
+    this.router.navigate(["/ForgetPassword"]);
+  }
   async forgotPassword() {
-    this.router.navigate(["/ForgetPassword"])
+    this.router.navigate(["/ForgetPassword"]);
   }
   async AddChildAccount() {
     this.router.navigate(["../add-child-account/add-child-account.component.html"])
+  }
+  async NavigateToCreate() {
+    this.router.navigate(["/Signup"])
   }
 }

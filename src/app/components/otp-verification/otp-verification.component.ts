@@ -16,6 +16,7 @@ export class OtpVerificationComponent implements OnInit {
     input3: string = '';
     input4: string = '';
     input5: string = '';
+    input6: string = '';
 
     handleInput(event: any, inputNumber: number) {
 
@@ -24,7 +25,7 @@ export class OtpVerificationComponent implements OnInit {
         // Check if the input value is not empty and if it's a single digit
         if (inputValue && /^\d$/.test(inputValue)) {
             // Move focus to the next input field
-            const nextInputNumber = inputNumber % 6 + 1;
+            const nextInputNumber = inputNumber % 7 + 1;
             const nextInput = document.querySelector(`input:nth-child(${nextInputNumber})`) as HTMLInputElement;
 
             if (nextInput) {
