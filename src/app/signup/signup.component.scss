@@ -6,7 +6,7 @@ $PrimaryColor: $PrimaryWebOrient;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 100vh !important;
 }
 
 .CNT-LFT {
@@ -78,7 +78,7 @@ $PrimaryColor: $PrimaryWebOrient;
 }
 
 .form-row .FieldDiv {
-  padding: 0 20px;
+  padding: 0px 42px 0px 38px;
 }
 
 .form-row label {
@@ -87,7 +87,7 @@ $PrimaryColor: $PrimaryWebOrient;
 }
 
 .form-row input {
-  padding: 12px;
+  padding: 23px;
 }
 
 .form-row .TrnBtn {
@@ -129,48 +129,70 @@ $PrimaryColor: $PrimaryWebOrient;
   }
 
   .CNT-LFT {
+    text-align: center;
+  }
+
+  .CNT-LFT {
     img {
-      height: 99px;
+      height: 60px;
       width: auto;
     }
   }
 
 
   .Content-Sec1 p:nth-of-type(1) {
-   display: none ;
+    display: none;
   }
+
   .Content-Sec1 p:nth-of-type(2) {
-    display: none ;
-   }
-   .Content-Sec1 p:nth-of-type(3) {
-    display: none ;
-   }
+    display: none;
+  }
+
+  .Content-Sec1 p:nth-of-type(3) {
+    display: none;
+  }
 
 
+  .Content-Sec1 {
+    margin-top: 0 !important;
+  }
 
   .FormDiv .TopUpCnt {
     padding: 10px;
 
   }
+
   .FormDiv h4 {
     font-size: 18px;
   }
+
   .FormDiv p {
     font-size: 10px;
   }
-.form-control{
-  font-size: 14px;
-}
-// .blueLable{
-//   color: white;
-// }
-.info{
-  color: white;
-  font-size: 8px;
-}
-.progress {
-  height: 5px;
-}
+
+  .form-control {
+    font-size: 10px;
+  }
+
+  .form-row input {
+    padding: 14px;
+  }
+
+  .form-row .TrnBtn {
+    padding: 3px;
+  }
+
+  // .blueLable{
+  //   color: white;
+  // }
+  .info {
+    color: white;
+    font-size: 8px;
+  }
+
+  .progress {
+    height: 5px;
+  }
 }
 
 
@@ -180,13 +202,21 @@ $PrimaryColor: $PrimaryWebOrient;
     height: 201vh;
   }
 
+  .FormModuleDIv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* Optional: Center align forms in tablet/desktop view */
+  }
+
   .CNT-LFT {
     img {
       height: 99px;
       width: auto;
     }
   }
-  .info{
+
+  .info {
     color: white;
   }
 }

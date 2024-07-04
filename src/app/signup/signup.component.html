@@ -22,27 +22,35 @@
                             <div class="row Content-Sec1">
                                 <div class="col-lg-12 mt-4">
                                     <p>
-                                        Join the Future of Banking<br /> Simplify Your <span>Finances</span><br />
+                                        Join the Future of Banking
+                                        <br>
+                                        Simplify Your
+                                        <span>Finances</span>
+                                        <br>
                                         Join Us Today!
                                     </p>
                                     <p class="mt-4">
                                         Join Digi-Bank Today
                                     </p>
-                                    <p>Experience the future of banking with Digi-Bank. Sign up now to manage
-                                        your finances anytime, anywhere.</p>
+                                    <p>
+                                        Experience the future of banking with Digi-Bank. Sign up now to manage
+                                        your finances anytime, anywhere.
+                                    </p>
                                 </div>
                             </div>
-                            
+
                         </div>
                         <div class="col-lg-6 FormModuleDIv">
                             <div class="FormDiv">
                                 <div class="TopUpCnt">
                                     <h4>{{tittle}}</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
-                                        consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
+                                        consectetur. Lorem ipsum dolor sit amet consectetur.
+                                    </p>
                                 </div>
                                 <!-- Registration Forms -->
-                                <form class="First-Step" *ngIf="activityModemStep == 1">
+                                <form *ngIf="activityModemStep == 1" class="First-Step">
                                     <div class="form-row align-items-center">
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
                                             <label for="inlineFormInput">CNIC Number</label>
@@ -57,8 +65,10 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                            <label for="inlineFormInputGroup">Mobile
-                                                Number</label>
+                                            <label for="inlineFormInputGroup">
+                                                Mobile
+                                                Number
+                                            </label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
@@ -70,8 +80,10 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                            <label for="inlineFormInputGroup">Account
-                                                Number</label>
+                                            <label for="inlineFormInputGroup">
+                                                Account
+                                                Number
+                                            </label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
@@ -84,16 +96,20 @@
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
                                             style="line-height: 6;">
-                                            <button type="button" class="col-lg-12 btn btn-primary TrnBtn"
-                                                (click)="NextActivity(2)">Next</button>
+                                            <button (click)="NextActivity(2)" type="button"
+                                                class="col-lg-12 btn btn-primary TrnBtn">
+                                                Next
+                                            </button>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv AlrAcc">
-                                            <p>Already Have an Account ? <span (click)="gotoLogin()">Login</span>
+                                            <p>
+                                                Already Have an Account ?
+                                                <span (click)="gotoLogin()">Login</span>
                                             </p>
                                         </div>
                                     </div>
                                 </form>
-                                <form class="Second-Step" *ngIf="activityModemStep == 2">
+                                <form *ngIf="activityModemStep == 2" class="Second-Step">
                                     <div class="form-row align-items-center">
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
                                             <label for="inlineFormInput">First Name</label>
@@ -108,8 +124,10 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                            <label for="inlineFormInputGroup">Last
-                                                Name</label>
+                                            <label for="inlineFormInputGroup">
+                                                Last
+                                                Name
+                                            </label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
@@ -121,8 +139,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                            <label for="inlineFormInputGroup">Email
-                                            </label>
+                                            <label for="inlineFormInputGroup">Email</label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
@@ -135,33 +152,42 @@
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
                                             style="line-height: 4;">
-                                            <button type="button" class="col-lg-12 btn btn-primary TrnBtn"
-                                                (click)="NextActivity(3)">Next</button>
-                                            <button type="button" class="col-lg-12 btn btn-primary TrnBtn Back"
-                                                (click)="NextActivity(1)">Back</button>
+                                            <button (click)="NextActivity(3)" type="button"
+                                                class="col-lg-12 btn btn-primary TrnBtn">
+                                                Next
+                                            </button>
+                                            <button (click)="NextActivity(1)" type="button"
+                                                class="col-lg-12 btn btn-primary TrnBtn Back">
+                                                Back
+                                            </button>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv AlrAcc STP2">
-                                            <p class="m-0">Already Have an Account ?
+                                            <p class="m-0">
+                                                Already Have an Account ?
                                                 <span>Login</span>
                                             </p>
                                         </div>
                                     </div>
                                 </form>
-                                <form class="Third-Step" *ngIf="activityModemStep == 3">
+                                <form *ngIf="activityModemStep == 3" class="Third-Step">
                                     <div class="form-row align-items-center">
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
                                             <otp-verification></otp-verification>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
                                             style="line-height: 4;">
-                                            <button type="button" class="col-lg-12 btn btn-primary TrnBtn"
-                                                (click)="NextActivity(4)">Verify</button>
-                                            <button type="button" class="col-lg-12 btn btn-primary TrnBtn Back"
-                                                (click)="NextActivity(1)">Cancel</button>
+                                            <button (click)="NextActivity(4)" type="button"
+                                                class="col-lg-12 btn btn-primary TrnBtn">
+                                                Verify
+                                            </button>
+                                            <button (click)="NextActivity(1)" type="button"
+                                                class="col-lg-12 btn btn-primary TrnBtn Back">
+                                                Cancel
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
-                                <form class="Fourth-Step" *ngIf="activityModemStep == 4">
+                                <form *ngIf="activityModemStep == 4" class="Fourth-Step">
                                     <div class="form-row align-items-center">
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
                                             <label for="inlineFormInput">User Name *</label>
@@ -176,14 +202,16 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                            <!-- Password input-->
+                                            <!-- Password input -->
                                             <div class="form-group">
-                                                <label class="col-md-12 control-label p-0" for="passwordinput">Password
-                                                    <span id="popover-password-top"
-                                                        class="hide pull-right block-help"><i
-                                                            class="fa fa-info-circle text-danger"
-                                                            aria-hidden="true"></i> Enter a
-                                                        strong password</span></label>
+                                                <label class="col-md-12 control-label p-0" for="passwordinput">
+                                                    Password
+                                                    <span id="popover-password-top" class="hide pull-right block-help">
+                                                        <i class="fa fa-info-circle text-danger" aria-hidden="true"></i>
+                                                        Enter a
+                                                        strong password
+                                                    </span>
+                                                </label>
                                                 <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">
@@ -191,31 +219,40 @@
                                                         </div>
                                                     </div>
 
-                                                    <input #pass id="password" name="password" type="password"
-                                                        placeholder="" class="form-control input-md"
-                                                        (keyup)="checkStrength(pass.value)" data-placement="bottom"
+                                                    <input #pass (keyup)="checkStrength(pass.value)" id="password"
+                                                        name="password" type="password" placeholder
+                                                        class="form-control input-md" data-placement="bottom"
                                                         data-toggle="popover" data-container="body" data-html="true">
                                                 </div>
 
                                                 <div id="popover-password">
 
                                                     <ul class="list-unstyled">
-                                                        <li class="info"><span class="eight-character">
-                                                                <i class="fa fa-solid fa-circle-check"></i></span>
+                                                        <li class="info">
+                                                            <span class="eight-character">
+                                                                <i class="fa fa-solid fa-circle-check"></i>
+                                                            </span>
                                                             <span class="blueLable">Length:</span>
                                                             Ensure your password is
                                                             at least 8 characters long
                                                         </li>
-                                                        <li class="info"><span class="one-number"><i
-                                                                    class="fa fa-solid fa-circle-check"></i></span>
+                                                        <li class="info">
+                                                            <span class="one-number">
+                                                                <i class="fa fa-solid fa-circle-check"></i>
+                                                            </span>
                                                             <span class="blueLable">Numbers:</span>
                                                             Include at least one
                                                             number (0-9)
                                                         </li>
-                                                        <li class="info"><span class="low-upper-case"><i
-                                                                    class="fa fa-solid fa-circle-check"></i></span>
-                                                            <span class="blueLable">Case
-                                                                Sensitivity:</span> Use both
+                                                        <li class="info">
+                                                            <span class="low-upper-case">
+                                                                <i class="fa fa-solid fa-circle-check"></i>
+                                                            </span>
+                                                            <span class="blueLable">
+                                                                Case
+                                                                Sensitivity:
+                                                            </span>
+                                                            Use both
                                                             uppercase and lowercase letters
                                                         </li>
                                                     </ul>
@@ -230,8 +267,10 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                            <label for="inlineFormInputGroup">Confirm
-                                                Password</label>
+                                            <label for="inlineFormInputGroup">
+                                                Confirm
+                                                Password
+                                            </label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
@@ -245,20 +284,29 @@
 
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
                                             <div>
-                                                <input class="input" id="checkbox" type="checkbox" />
+                                                <input class="input" id="checkbox" type="checkbox">
                                                 <label for="checkbox">
-                                                    I agree to these<a href="#" class="Link">Terms and
-                                                        Conditions</a>.</label>
+                                                    I agree to these
+                                                    <a href="#" class="Link">
+                                                        Terms and
+                                                        Conditions
+                                                    </a>
+                                                    .
+                                                </label>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
                                             style="line-height: 6;">
-                                            <button type="button" class="col-lg-12 btn btn-primary TrnBtn"
-                                                (click)="NextActivity(5)">Let's Do
-                                                This</button>
+                                            <button (click)="NextActivity(5)" type="button"
+                                                class="col-lg-12 btn btn-primary TrnBtn">
+                                                Let's Do
+                                                This
+                                            </button>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv AlrAcc">
-                                            <p>Already Have an Account ? <span (click)="gotoLogin() ">Login</span>
+                                            <p>
+                                                Already Have an Account ?
+                                                <span (click)="gotoLogin() ">Login</span>
                                             </p>
                                         </div>
                                     </div>
@@ -270,10 +318,7 @@
             </div>
         </div>
     </div>
-    
-   
-    
-    
+
 </body>
 
 </html>
