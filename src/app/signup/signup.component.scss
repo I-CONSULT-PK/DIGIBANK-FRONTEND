@@ -125,7 +125,20 @@ $PrimaryColor: $PrimaryWebOrient;
   align-items: center;
   height: 55px;
 }
-
+.info{
+  font-size: 14px;
+  color: #A7ACB1;
+}
+.progress {
+  height: 4px;
+}
+.blueLable{
+  color: $PrimaryColor;
+}
+.blueLable-case{
+  color: $PrimaryColor;
+  margin-left: -3px;
+}
 
 
 
@@ -207,9 +220,7 @@ $PrimaryColor: $PrimaryWebOrient;
     font-size: 8px;
   }
 
-  .progress {
-    height: 5px;
-  }
+  
 }
 
 
