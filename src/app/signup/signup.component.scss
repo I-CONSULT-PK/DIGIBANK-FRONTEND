@@ -6,7 +6,7 @@ $PrimaryColor: $PrimaryWebOrient;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh !important;
+  height: 100vh;
 }
 
 .CNT-LFT {
@@ -81,6 +81,7 @@ $PrimaryColor: $PrimaryWebOrient;
   padding: 0px 42px 0px 38px;
 }
 
+
 .form-row label {
   color: white;
   font-weight: 600;
@@ -96,11 +97,16 @@ $PrimaryColor: $PrimaryWebOrient;
   padding: 12px;
   margin-right: 10px;
   background: $PrimaryColor;
+  margin-top: 13px;
+
 }
 
 .form-row .TrnBtn.Back {
   background: none;
   border: 1px solid #9f9f9f;
+  line-height: 1.6;
+  margin-top: 20px;
+
 }
 
 .form-row .AlrAcc {
@@ -125,7 +131,12 @@ $PrimaryColor: $PrimaryWebOrient;
 @media (min-width: 320px) and (max-width: 642px) {
 
   .Background-Primary {
-    height: 130vh;
+    height: auto;
+  }
+
+  .container {
+    overflow-y: auto;
+    max-height: 100vh;
   }
 
   .CNT-LFT {
@@ -180,11 +191,15 @@ $PrimaryColor: $PrimaryWebOrient;
 
   .form-row .TrnBtn {
     padding: 3px;
+    bottom: 6px;
   }
 
-  // .blueLable{
-  //   color: white;
-  // }
+  .form-row .TrnBtn.Back {
+    line-height: 1.6;
+    margin-top: 12px;
+
+  }
+
   .info {
     color: white;
     font-size: 8px;
@@ -199,15 +214,15 @@ $PrimaryColor: $PrimaryWebOrient;
 @media (min-width: 768px) {
 
   .Background-Primary {
-    height: 201vh;
+    height: auto;
   }
 
-  .FormModuleDIv {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    /* Optional: Center align forms in tablet/desktop view */
+  .container {
+    overflow-y: auto;
+    max-height: 100vh;
   }
+
+
 
   .CNT-LFT {
     img {
