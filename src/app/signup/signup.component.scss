@@ -6,7 +6,7 @@ $PrimaryColor: $PrimaryWebOrient;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: fit-content;
 }
 
 .CNT-LFT {
@@ -59,7 +59,7 @@ $PrimaryColor: $PrimaryWebOrient;
 }
 
 .FormDiv .TopUpCnt {
-  padding: 45px;
+  padding: 27px;
   text-align: center;
 }
 
@@ -125,6 +125,8 @@ $PrimaryColor: $PrimaryWebOrient;
   align-items: center;
   height: 55px;
 }
+
+
 
 
 

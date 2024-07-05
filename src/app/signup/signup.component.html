@@ -150,7 +150,8 @@
                                                     disabled placeholder="Enter Your Email">
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv" style="">
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
+                                            style="">
                                             <button (click)="NextActivity(3)" type="button"
                                                 class="col-lg-12 btn btn-primary TrnBtn">
                                                 Next
@@ -188,7 +189,7 @@
                                 </form>
                                 <form *ngIf="activityModemStep == 4" class="Fourth-Step">
                                     <div class="form-row align-items-center">
-                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
                                             <label for="inlineFormInput">User Name *</label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
@@ -200,15 +201,13 @@
                                                     placeholder="Enter Your User Name">
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                            <!-- Password input -->
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
                                             <div class="form-group">
                                                 <label class="col-md-12 control-label p-0" for="passwordinput">
                                                     Password
                                                     <span id="popover-password-top" class="hide pull-right block-help">
                                                         <i class="fa fa-info-circle text-danger" aria-hidden="true"></i>
-                                                        Enter a
-                                                        strong password
+                                                        Enter a strong password
                                                     </span>
                                                 </label>
                                                 <div class="input-group mb-2">
@@ -217,15 +216,12 @@
                                                             <i class="fa fa-solid fa-lock"></i>
                                                         </div>
                                                     </div>
-
                                                     <input #pass (keyup)="checkStrength(pass.value)" id="password"
-                                                        name="password" type="password" placeholder
+                                                        name="password" type="password" placeholder="Enter Password"
                                                         class="form-control input-md" data-placement="bottom"
                                                         data-toggle="popover" data-container="body" data-html="true">
                                                 </div>
-
                                                 <div id="popover-password">
-
                                                     <ul class="list-unstyled">
                                                         <li class="info">
                                                             <span class="eight-character">
@@ -265,11 +261,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                            <label for="inlineFormInputGroup">
-                                                Confirm
-                                                Password
-                                            </label>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
+                                            <label for="inlineFormInput">Confirm Password</label>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
@@ -277,10 +270,9 @@
                                                     </div>
                                                 </div>
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                    placeholder="Confirm Password">
+                                                    placeholder="Confirm Your Password">
                                             </div>
                                         </div>
-
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
                                             <div>
                                                 <input class="input" id="checkbox" type="checkbox">
