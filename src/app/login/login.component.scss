@@ -6,7 +6,7 @@ $PrimaryColor: $PrimaryWebOrient;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: fit-content;
 }
 
 .CNT-LFT {
@@ -39,17 +39,15 @@ $PrimaryColor: $PrimaryWebOrient;
 }
 
 .FormDiv {
-  width: 500px;
-  // height: 575px;
-  background-color: #0000005e;
+  max-width: 500px;
+  background-color: rgba(0, 0, 0, 0.36);
   border: 1px solid dimgrey;
   border-radius: 6px;
-  // margin-left: 100px;
   box-shadow: 0px 0px 4px 2px #7f7f7f8f;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: auto;
+  flex-direction: column;
   padding-bottom: 22px;
 
   .row:nth-child(1) {
@@ -73,7 +71,7 @@ $PrimaryColor: $PrimaryWebOrient;
 
 .form-row {
   .FieldDiv {
-    padding: 0px 66px 0px 55px;
+    padding: 0px 50px 0px 50px;
 
     label {
       color: white;
@@ -257,7 +255,7 @@ select:hover {
 
       i {
         border: 2px solid white;
-        font-size: 20px !important;
+        font-size: 20px ;
         color: white;
         border-radius: 5px;
         padding: 10px;
@@ -269,5 +267,161 @@ select:hover {
         transition: cubic-bezier(0.165, 0.84, 0.44, 1);
       }
     }
+  }
+  
+}
+.icon-container {
+  padding: 5px;
+  color: white;
+  border: 1px solid white;
+  text-align: center;
+  margin-bottom: 7px;
+  font-size: 27px;
+  width: 50px;
+  height: 50px;
+}
+.icon-item {
+  flex: 0 0 20%; /* Five items per row */
+  max-width: 20%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.6s ease;
+}
+.icon-item.selected .icon-container{
+  border: 1px solid $PrimaryColor !important;
+}
+@media (max-width: 768px) {
+  .icon-item {
+    flex: 0 0 33.33%; /* Three items per row on small screens */
+    // max-width: 33.33%;
+  }
+  .icon-container {
+    padding: 5px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    /* width: 35px; */
+    height: 35px;
+  }
+}
+@media (max-width: 576px) {
+  .icon-item {
+    flex: 0 0 50%; /* Two items per row on extra small screens */
+    max-width: 25%;
+  }
+}
+
+
+@media (max-width: 1440px)  {
+  .TopUpCnt {
+    padding: 5px 66px 0px 55px !important;
+    text-align: center;
+  }
+}
+@media (max-width: 1024px) {
+  .CNT-LFT .Content-Sec1{
+    margin-top: 1px !important;
+  }
+  // .SecurityImageDiv .row  i{
+  //   font-size: 17px !important;
+  //   padding: 5px !important;
+  //   width: 32px !important;
+  // }
+  .FormDiv .row .TopUpCnt {
+    padding: 5px 66px 0px 55px !important;
+  }
+  .CNT-LFT .Content-Sec1 p:nth-child(1){
+    font-size: 37px !important;
+  }
+
+}
+@media (max-width: 768px) {
+  .CNT-LFT .Content-Sec1 p:nth-child(1){
+    font-size: 29px !important;
+  }
+  .FormDiv .row .TopUpCnt {
+    padding: 5px 30px 0px 30px !important ;
+  }
+  .form-row .FieldDiv {
+    padding: 5px 30px 0px 30px !important ;
+  }
+  .SecurityImageDiv{
+    padding: 8px !important;
+  }
+  // .SecurityImageDiv .row i{
+  //   font-size: 16px !important;
+  //   padding: 3px !important;
+  //   width: 25px !important;
+  // }
+  .SecurityImageDiv .row{
+    margin-top: 0px !important;
+  }
+  .FormDiv{
+    padding-bottom: 6px !important;
+  }
+}
+@media (min-width: 320px) and (max-width: 642px) {
+  .Content-Sec1 p:nth-of-type(1) {
+    display: none ;
+  }
+  .Fourth-Step{
+    width: 18rem;
+  }
+  .Content-Sec1 p:nth-of-type(2) {
+    display: none ;
+  }
+  .Content-Sec1 p:nth-of-type(3) {
+    display: none ;
+  }
+  .TopUpCnt{
+    display: none;
+  }
+  // .Background-Primary {
+  //   height: 130vh;
+  // }
+  .FormDiv .row :nth-child(1) h4[_ngcontent-oat-c68] {
+    font-size: 18px !important;
+  }
+  .FormDiv p{
+    font-size: 10px !important;
+  }
+  .FormDiv .row .TopUpCnt {
+    padding: 5px 20px 0px 20px !important;
+  }
+  .form-row .FieldDiv{
+    padding: 5px 20px 0px 20px !important;
+  }
+  .form-control{
+    font-size: 16px !important;
+  }
+  .form-row .FieldDiv input {
+    padding: 0px 10px 0px 10px !important;
+  }
+  // .SecurityImageDiv .row i{
+  //   font-size: 12px !important;
+  //   padding: 5px !important;
+  //   width: 25px !important;
+  // }
+  .TrnBtn{
+    padding: 8px;  
+  }
+  .CNT-LFT {
+    text-align: center;
+  }
+  .CNT-LFT img{
+    width: 50%;
+  }
+  .icon-container .centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .icon-row {
+    justify-content: center;
+  }
+ 
+}
+@media (min-width: 425px) and (max-width: 642px) {
+  .CNT-LFT img{
+      width: 50%;
   }
 }
