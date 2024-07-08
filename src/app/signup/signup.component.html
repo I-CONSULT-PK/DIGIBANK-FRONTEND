@@ -10,324 +10,297 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-4 col-xs-4 Background-Primary">
-                <div class="container" style="margin: auto; display:flex;">
+            <div class="col-lg-12 Background-Primary">
+                <div class="container">
                     <div class="row" style="height: 100vh;">
-                        <div class="col-lg-6 col-md-6 col-sm-2 col-xs-2 CNT-LFT">
+                        <div class="col-lg-6 CNT-LFT">
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 mt-4">
-                                    <img src="../../assets/img/Logo/logo.png" />
+                                <div class="col-lg-6 mt-4 ">
+                                    <img src="../../assets/img/Logo/logo.png" alt="Digi-Bank Logo" id="logo">
                                 </div>
                             </div>
                             <div class="row Content-Sec1">
-                                <div class="col-lg-12 col-md-6 mt-4">
+                                <div class="col-lg-12 mt-4">
                                     <p>
-                                        Join the Future of Banking<br /> Simplify Your <span>Finances</span><br />
+                                        Join the Future of Banking
+                                        <br>
+                                        Simplify Your
+                                        <span>Finances</span>
+                                        <br>
                                         Join Us Today!
                                     </p>
                                     <p class="mt-4">
                                         Join Digi-Bank Today
                                     </p>
-                                    <p class="">Experience the future of banking with Digi-Bank. Sign up now to manage
-                                        your
-                                        finances anytime, anywhere.</p>
+                                    <p>
+                                        Experience the future of banking with Digi-Bank. Sign up now to manage
+                                        your finances anytime, anywhere.
+                                    </p>
                                 </div>
                             </div>
+
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-2 col-xs-2 FormModuleDIv">
-                            <div class="row" style="margin: auto;">
-                                <div class="col-lg-12 col-md-6 col-sm-4 col-xs-4">
-                                    <div class="FormDiv">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-6 col-sm-4 col-xs-4">
-                                                <div class="row">
-                                                    <div class="col-lg-12 col-md-6 col-sm-4 col-xs-4 TopUpCnt">
-                                                        <h4>{{tittle}}</h4>
-                                                        <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit
-                                                            amet consectetur. Lorem ipsum dolor sit amet consectetur.
-                                                        </p>
+                        <div class="col-lg-6 FormModuleDIv">
+                            <div class="FormDiv">
+                                <div class="TopUpCnt">
+                                    <h4>{{tittle}}</h4>
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
+                                        consectetur. Lorem ipsum dolor sit amet consectetur.
+                                    </p>
+                                </div>
+                                <!-- Registration Forms -->
+                                <form *ngIf="activityModemStep == 1" class="First-Step">
+                                    <div class="form-row align-items-center">
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
+                                            <label for="inlineFormInput">CNIC Number</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-regular fa-credit-card"></i>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-lg-12 col-md-6 col-sm-4 col-xs-4">
-                                                        <div class="row">
-                                                            <form class="First-Step" *ngIf="activityModemStep == 1">
-                                                                <div class="form-row align-items-center">
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                                                        <label for="inlineFormInput">CNIC Number</label>
-                                                                        <div class="input-group mb-2">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text">
-                                                                                    <i
-                                                                                        class="fa fa-regular fa-credit-card"></i>
-                                                                                </div>
-                                                                            </div>
-                                                                            <input type="text" class="form-control"
-                                                                                id="inlineFormInputGroup"
-                                                                                placeholder="Enter Your CNIC">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                                                        <label for="inlineFormInputGroup">Mobile
-                                                                            Number</label>
-                                                                        <div class="input-group mb-2">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text">
-                                                                                    <i class="fa fa-solid fa-phone"></i>
-                                                                                </div>
-                                                                            </div>
-                                                                            <input type="text" class="form-control"
-                                                                                id="inlineFormInputGroup"
-                                                                                placeholder="Enter Your Mobile Number">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                                                        <label for="inlineFormInputGroup">Account
-                                                                            Number</label>
-                                                                        <div class="input-group mb-2">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text">
-                                                                                    <i
-                                                                                        class="fa fa-solid fa-hashtag"></i>
-                                                                                </div>
-                                                                            </div>
-                                                                            <input type="text" class="form-control"
-                                                                                id="inlineFormInputGroup"
-                                                                                placeholder="Enter Your Account No">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
-                                                                        style="line-height: 6;">
-                                                                        <button type="button"
-                                                                            class="col-lg-12 btn btn-primary TrnBtn"
-                                                                            (click)="NextActivity(2)">Next</button>
-                                                                    </div>
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv AlrAcc">
-                                                                        <p>Already Have an Account ? <span
-                                                                                (click)="gotoLogin()">Login</span>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
-                                                            <form class="Second-Step" *ngIf="activityModemStep == 2">
-                                                                <div class="form-row align-items-center">
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                                                        <label for="inlineFormInput">First Name</label>
-                                                                        <div class="input-group mb-2">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text">
-                                                                                    <i class="fa fa-solid fa-user"></i>
-                                                                                </div>
-                                                                            </div>
-                                                                            <input type="text" class="form-control"
-                                                                                disabled id="inlineFormInputGroup"
-                                                                                placeholder="Enter Your First Name">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                                                        <label for="inlineFormInputGroup">Last
-                                                                            Name</label>
-                                                                        <div class="input-group mb-2">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text">
-                                                                                    <i class="fa fa-solid fa-user"></i>
-                                                                                </div>
-                                                                            </div>
-                                                                            <input type="text" class="form-control"
-                                                                                id="inlineFormInputGroup" disabled
-                                                                                placeholder="Enter Your Last Name">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                                                        <label for="inlineFormInputGroup">Email
-                                                                        </label>
-                                                                        <div class="input-group mb-2">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text">
-                                                                                    <i
-                                                                                        class="fa fa-solid fa-envelope"></i>
-                                                                                </div>
-                                                                            </div>
-                                                                            <input type="text" class="form-control"
-                                                                                id="inlineFormInputGroup" disabled
-                                                                                placeholder="Enter Your Email">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
-                                                                        style="line-height: 4;">
-                                                                        <button type="button"
-                                                                            class="col-lg-12 btn btn-primary TrnBtn"
-                                                                            (click)="NextActivity(3)">Next</button>
-                                                                        <button type="button"
-                                                                            class="col-lg-12 btn btn-primary TrnBtn Back"
-                                                                            (click)="NextActivity(1)">Back</button>
-                                                                    </div>
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv AlrAcc STP2">
-                                                                        <p class="m-0">Already Have an Account ?
-                                                                            <span>Login</span>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
-                                                            <form class="Third-Step" *ngIf="activityModemStep == 3">
-                                                                <div class="form-row align-items-center">
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
-                                                                        <otp-verification></otp-verification>
-                                                                    </div>
-                                                                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
-                                                                        style="line-height: 4;">
-                                                                        <button type="button"
-                                                                            class="col-lg-12 btn btn-primary TrnBtn"
-                                                                            (click)="NextActivity(4)">Verify</button>
-                                                                        <button type="button"
-                                                                            class="col-lg-12 btn btn-primary TrnBtn Back"
-                                                                            (click)="NextActivity(1)">Cancel</button>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
-                                                            <form class="Fourth-Step" *ngIf="activityModemStep == 4">
-                                                                <div class="form-row align-items-center">
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                                                        <label for="inlineFormInput">User Name *</label>
-                                                                        <div class="input-group mb-2">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text">
-                                                                                    <i class="fa fa-solid fa-user"></i>
-                                                                                </div>
-                                                                            </div>
-                                                                            <input type="text" class="form-control"
-                                                                                id="inlineFormInputGroup"
-                                                                                placeholder="Enter Your User Name">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                                                        <!-- Password input-->
-                                                                        <div class="form-group">
-                                                                            <label class="col-md-12 control-label p-0"
-                                                                                for="passwordinput">Password <span
-                                                                                    id="popover-password-top"
-                                                                                    class="hide pull-right block-help"><i
-                                                                                        class="fa fa-info-circle text-danger"
-                                                                                        aria-hidden="true"></i> Enter a
-                                                                                    strong password</span></label>
-                                                                            <div class="input-group mb-2">
-                                                                                <div class="input-group-prepend">
-                                                                                    <div class="input-group-text">
-                                                                                        <i
-                                                                                            class="fa fa-solid fa-lock"></i>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                                <input #pass id="password"
-                                                                                    name="password" type="password"
-                                                                                    placeholder=""
-                                                                                    class="form-control input-md"
-                                                                                    (keyup)="checkStrength(pass.value)"
-                                                                                    data-placement="bottom"
-                                                                                    data-toggle="popover"
-                                                                                    data-container="body"
-                                                                                    data-html="true">
-                                                                            </div>
-
-                                                                            <div id="popover-password">
-
-                                                                                <ul class="list-unstyled">
-                                                                                    <li class=""><span
-                                                                                            class="eight-character">
-                                                                                            <i
-                                                                                                class="fa fa-solid fa-circle-check"></i></span>
-                                                                                        <span
-                                                                                            class="blueLable">Length:</span>
-                                                                                        Ensure your password is
-                                                                                        at least 8 characters long
-                                                                                    </li>
-                                                                                    <li class=""><span
-                                                                                            class="one-number"><i
-                                                                                                class="fa fa-solid fa-circle-check"></i></span>
-                                                                                        <span
-                                                                                            class="blueLable">Numbers:</span>
-                                                                                        Include at least one
-                                                                                        number (0-9)
-                                                                                    </li>
-                                                                                    <li class=""><span
-                                                                                            class="low-upper-case"><i
-                                                                                                class="fa fa-solid fa-circle-check"></i></span>
-                                                                                        <span class="blueLable">Case
-                                                                                            Sensitivity:</span> Use both
-                                                                                        uppercase and lowercase letters
-                                                                                    </li>
-                                                                                </ul>
-                                                                                <div class="progress">
-                                                                                    <div id="password-strength"
-                                                                                        class="progress-bar progress-bar-success"
-                                                                                        role="progressbar"
-                                                                                        aria-valuenow="40"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"
-                                                                                        style="width:0%">
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                                                        <label for="inlineFormInputGroup">Confirm
-                                                                            Password</label>
-                                                                        <div class="input-group mb-2">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text">
-                                                                                    <i class="fa fa-solid fa-lock"></i>
-                                                                                </div>
-                                                                            </div>
-                                                                            <input type="text" class="form-control"
-                                                                                id="inlineFormInputGroup"
-                                                                                placeholder="Confirm Password">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
-                                                                        <div>
-                                                                            <input class="input" id="checkbox" type="checkbox" />
-                                                                            <label for="checkbox">
-                                                                                I agree to these<a href="#" class="Link">Terms and
-                                                                                    Conditions</a>.</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
-                                                                        style="line-height: 6;">
-                                                                        <button type="button"
-                                                                            class="col-lg-12 btn btn-primary TrnBtn"
-                                                                            (click)="NextActivity(5)">Let's Do
-                                                                            This</button>
-                                                                    </div>
-                                                                    <div
-                                                                        class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv AlrAcc">
-                                                                        <p>Already Have an Account ? <span
-                                                                                (click)="gotoLogin()">Login</span>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    placeholder="Enter Your CNIC">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
+                                            <label for="inlineFormInputGroup">
+                                                Mobile
+                                                Number
+                                            </label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-solid fa-phone"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    placeholder="Enter Your Mobile Number">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
+                                            <label for="inlineFormInputGroup">
+                                                Account
+                                                Number
+                                            </label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-solid fa-hashtag"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    placeholder="Enter Your Account No">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
+                                            style="line-height: 6;">
+                                            <button (click)="NextActivity(2)" type="button"
+                                                class="col-lg-12 btn btn-primary TrnBtn">
+                                                Next
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv AlrAcc">
+                                            <p>
+                                                Already Have an Account ?
+                                                <span (click)="gotoLogin()">Login</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form *ngIf="activityModemStep == 2" class="Second-Step">
+                                    <div class="form-row align-items-center">
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
+                                            <label for="inlineFormInput">First Name</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-solid fa-user"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" disabled
+                                                    id="inlineFormInputGroup" placeholder="Enter Your First Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
+                                            <label for="inlineFormInputGroup">
+                                                Last
+                                                Name
+                                            </label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-solid fa-user"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    disabled placeholder="Enter Your Last Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
+                                            <label for="inlineFormInputGroup">Email</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-solid fa-envelope"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    disabled placeholder="Enter Your Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv" style="">
+                                            <button (click)="NextActivity(3)" type="button"
+                                                class="col-lg-12 btn btn-primary TrnBtn">
+                                                Next
+                                            </button>
+                                            <button (click)="NextActivity(1)" type="button"
+                                                class="col-lg-12 btn btn-primary TrnBtn Back">
+                                                Back
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv AlrAcc STP2">
+                                            <p class="m-0">
+                                                Already Have an Account ?
+                                                <span>Login</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form *ngIf="activityModemStep == 3" class="Third-Step">
+                                    <div class="form-row align-items-center">
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
+                                            <otp-verification></otp-verification>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
+                                            style="line-height: 4;">
+                                            <button (click)="NextActivity(4)" type="button"
+                                                class="col-lg-12 btn btn-primary TrnBtn">
+                                                Verify
+                                            </button>
+                                            <button (click)="NextActivity(1)" type="button"
+                                                class="col-lg-12 btn btn-primary TrnBtn Back">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form *ngIf="activityModemStep == 4" class="Fourth-Step">
+                                    <div class="form-row align-items-center">
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
+                                            <label for="inlineFormInput">User Name *</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-solid fa-user"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    placeholder="Enter Your User Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
+                                            <div class="form-group">
+                                                <label class="col-md-12 control-label p-0" for="passwordinput">
+                                                    Password
+                                                    <span id="popover-password-top" class="hide pull-right block-help">
+                                                        <i class="fa fa-info-circle text-danger" aria-hidden="true"></i>
+                                                        Enter a strong password
+                                                    </span>
+                                                </label>
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="fa fa-solid fa-lock"></i>
+                                                        </div>
+                                                    </div>
+                                                    <input #pass (keyup)="checkStrength(pass.value)" id="password"
+                                                        name="password" type="password" placeholder="Enter Password"
+                                                        class="form-control input-md" data-placement="bottom"
+                                                        data-toggle="popover" data-container="body" data-html="true">
+                                                </div>
+                                                <div id="popover-password">
+                                                    <ul class="list-unstyled">
+                                                        <li class="info">
+                                                            <span class="eight-character">
+                                                                <i class="fa fa-solid fa-circle-check"></i>
+                                                            </span>
+                                                            <span class="blueLable">Length:</span>
+                                                            Ensure your password is
+                                                            at least 8 characters long
+                                                        </li>
+                                                        <li class="info">
+                                                            <span class="one-number">
+                                                                <i class="fa fa-solid fa-circle-check"></i>
+                                                            </span>
+                                                            <span class="blueLable">Numbers:</span>
+                                                            Include at least one
+                                                            number (0-9)
+                                                        </li>
+                                                        <li class="info">
+                                                            <span class="low-upper-case">
+                                                                <i class="fa fa-solid fa-circle-check"></i>
+                                                            </span>
+                                                            <span class="blueLable-case">
+                                                                Case
+                                                                Sensitivity:
+                                                            </span>
+                                                            Use both
+                                                            uppercase and lowercase letters
+                                                        </li>
+                                                    </ul>
+                                                    <div class="progress">
+                                                        <div id="password-strength"
+                                                            class="progress-bar progress-bar-success" role="progressbar"
+                                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                                                            style="width:0%">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
+                                            <label for="inlineFormInput">Confirm Password</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-solid fa-lock"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    placeholder="Confirm Your Password">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
+                                            <div>
+                                                <input class="input" id="checkbox" type="checkbox">
+                                                <label for="checkbox">
+                                                    I agree to these
+                                                    <a href="#" class="Link">
+                                                        Terms and
+                                                        Conditions
+                                                    </a>
+                                                    .
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
+                                            style="line-height: 6;">
+                                            <button (click)="NextActivity(5)" type="button"
+                                                class="col-lg-12 btn btn-primary TrnBtn">
+                                                Let's Do
+                                                This
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv AlrAcc">
+                                            <p>
+                                                Already Have an Account ?
+                                                <span (click)="gotoLogin() ">Login</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -335,6 +308,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

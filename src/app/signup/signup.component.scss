@@ -6,7 +6,7 @@ $PrimaryColor: $PrimaryWebOrient;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: fit-content;
 }
 
 .CNT-LFT {
@@ -18,102 +18,25 @@ $PrimaryColor: $PrimaryWebOrient;
     margin-top: 75px;
   }
 
-  .Content-Sec1 p:nth-child(1) {
+  .Content-Sec1 p:nth-of-type(1) {
     color: white;
     font-size: 42px;
     font-weight: bold;
-
-    span {
-      color: $PrimaryColor;
-    }
   }
 
-  .Content-Sec1 p:nth-child(2) {
+  .Content-Sec1 p:nth-of-type(1) span {
+    color: $PrimaryColor;
+    /* Assuming $PrimaryColor is defined elsewhere */
+  }
+
+  .Content-Sec1 p:nth-of-type(2) {
     color: white;
     font-size: 30px;
   }
 
-  .Content-Sec1 p:nth-child(3) {
+  .Content-Sec1 p:nth-of-type(3) {
     color: white;
   }
-}
-
-.FormDiv {
-  width: 500px;
-  // height: 575px;
-  background-color: #0000005e;
-  border: 1px solid dimgrey;
-  border-radius: 6px;
-  // margin-left: 100px;
-  box-shadow: 0px 0px 4px 2px #7f7f7f8f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  padding-bottom: 22px;
-
-  .row:nth-child(1) {
-    text-align: left;
-
-    .TopUpCnt {
-      padding: 45px;
-    }
-
-    h4 {
-      color: white;
-      font-size: 29px;
-    }
-  }
-
-  p {
-    color: white;
-    font-size: 13px;
-  }
-}
-
-.form-row {
-  .FieldDiv {
-    padding: 0px 66px 0px 55px;
-
-    label {
-      color: white;
-      font-weight: 600;
-
-    }
-
-    input {
-      padding: 23px;
-    }
-  }
-}
-
-.TrnBtn {
-  color: white;
-  font-weight: 700;
-  padding: 14px;
-  background: $PrimaryColor;
-}
-
-.TrnBtn.Back {
-  background: none !important;
-  border: 1px solid #9f9f9f !important;
-}
-
-.AlrAcc p {
-  text-align: center !important;
-  font-weight: 600 !important;
-
-  span {
-    color: $PrimaryColor;
-    cursor: pointer;
-  }
-}
-
-.STP2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 55px;
 }
 
 .FormModuleDIv {
@@ -122,125 +45,206 @@ $PrimaryColor: $PrimaryWebOrient;
   justify-content: center;
 }
 
-// Password Strength 
-.progress {
-  height: 5px;
+.FormDiv {
+  max-width: 500px;
+  background-color: rgba(0, 0, 0, 0.36);
+  border: 1px solid dimgrey;
+  border-radius: 6px;
+  box-shadow: 0px 0px 4px 2px #7f7f7f8f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 22px;
 }
 
-.control-label {
-  text-align: left !important;
-  padding-bottom: 7px;
-}
-
-.form-horizontal {
-  padding: 25px 20px;
-  border: 1px solid #eee;
-  border-radius: 5px;
-}
-
-select.form-control:focus {
-  border-color: #e9ab66;
-  box-shadow: none;
-}
-
-.block-help {
-  font-weight: 300;
-}
-
-.terms {
-  text-decoration: underline;
-}
-
-.modal {
+.FormDiv .TopUpCnt {
+  padding: 27px;
   text-align: center;
-  padding: 0 !important;
 }
 
-.modal:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  margin-right: -4px;
+.FormDiv h4 {
+  color: white;
+  font-size: 29px;
 }
 
-.modal-dialog {
-  display: inline-block;
-  text-align: left;
-  vertical-align: middle;
+.FormDiv p {
+  color: white;
+  font-size: 13px;
 }
 
-.divider {
-  position: absolute;
-  height: 2px;
-  border: 1px solid #eee;
-  width: 100%;
-  top: 10px;
-  z-index: -5;
+.form-row {
+  margin-top: 20px;
 }
 
-.ex-account {
-  position: relative;
+.form-row .FieldDiv {
+  padding: 0px 42px 0px 38px;
 }
 
-.ex-account p {
-  background-color: rgba(255, 255, 255, 0.41);
+
+.form-row label {
+  color: white;
+  font-weight: 600;
 }
 
-select:hover {
-  color: #444645;
-  background: #ddd;
+.form-row input {
+  padding: 23px;
 }
 
-.fa-file-text {
-  color: #edda39;
+.form-row .TrnBtn {
+  color: white;
+  font-weight: 700;
+  padding: 12px;
+  margin-right: 10px;
+  background: $PrimaryColor;
+  margin-top: 13px;
+
 }
 
-.mar-top-bot-50 {
-  margin-top: 50px;
-  margin-bottom: 50px;
+.form-row .TrnBtn.Back {
+  background: none;
+  border: 1px solid #9f9f9f;
+  line-height: 1.6;
+  margin-top: 20px;
+
 }
 
-.list-unstyled {
-  line-height: 2;
+.form-row .AlrAcc {
+  text-align: center;
+  margin-top: 10px;
+}
 
-  .fa-times {
-    color: #b60505;
-    font-size: 13px !important;
-    font-weight: lighter !important;
-    padding-right: 5px;
+.form-row .AlrAcc span {
+  color: #e9ab66;
+  cursor: pointer;
+}
+
+.form-row .STP2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+}
+.info{
+  font-size: 14px;
+  color: #A7ACB1;
+}
+.progress {
+  height: 4px;
+}
+.blueLable{
+  color: $PrimaryColor;
+}
+.blueLable-case{
+  color: $PrimaryColor;
+  margin-left: -3px;
+}
+
+
+
+
+@media (min-width: 320px) and (max-width: 642px) {
+
+  .Background-Primary {
+    height: auto;
   }
 
-  li {
-    color: #e1e1e1;
-    font-size: 13px;
-    font-weight: 600;
+  .container {
+    overflow-y: auto;
+    max-height: 100vh;
+  }
 
-    span.blueLable {
-      color: $PrimaryColor;
-      font-weight: 700;
+  .CNT-LFT {
+    text-align: center;
+  }
+
+  .CNT-LFT {
+    img {
+      height: 60px;
+      width: auto;
     }
   }
+
+
+  .Content-Sec1 p:nth-of-type(1) {
+    display: none;
+  }
+
+  .Content-Sec1 p:nth-of-type(2) {
+    display: none;
+  }
+
+  .Content-Sec1 p:nth-of-type(3) {
+    display: none;
+  }
+
+
+  .Content-Sec1 {
+    margin-top: 0 !important;
+  }
+
+  .FormDiv .TopUpCnt {
+    padding: 10px;
+
+  }
+
+  .FormDiv h4 {
+    font-size: 18px;
+  }
+
+  .FormDiv p {
+    font-size: 10px;
+  }
+
+  .form-control {
+    font-size: 10px;
+  }
+
+  .form-row input {
+    padding: 14px;
+  }
+
+  .form-row .TrnBtn {
+    padding: 3px;
+    bottom: 6px;
+  }
+
+  .form-row .TrnBtn.Back {
+    line-height: 1.6;
+    margin-top: 12px;
+
+  }
+
+  .info {
+    color: white;
+    font-size: 8px;
+  }
+
+  
 }
 
-.tacbox {
-  display: block;
-  padding: 1em;
-  margin: 2em;
-  border: 3px solid #ddd;
-  background-color: #eee;
-  max-width: 800px;
-}
 
-.input {
-  padding: 0 !important;
-  height: 1em;
-  width: 2em;
-  vertical-align: middle;
-}
+@media (min-width: 768px) {
 
-.Link {
-  color: $PrimaryColor;
-  font-weight: 700;
-  padding-left: 5px;
+  .Background-Primary {
+    height: auto;
+  }
+
+  .container {
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+
+
+
+  .CNT-LFT {
+    img {
+      height: 99px;
+      width: auto;
+    }
+  }
+
+  .info {
+    color: white;
+  }
 }
