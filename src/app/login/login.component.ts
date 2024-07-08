@@ -192,23 +192,23 @@ export class loginComponent implements OnInit {
   }
   async LoginPost() {
 
-    const dto: any = await this.loginService.login(this.username, this.password, this.securityImage);
-    if (dto && dto.success && dto.success == true) {
+    // const dto: any = await this.loginService.login(this.username, this.password, this.securityImage);
+    // if (dto && dto.success && dto.success == true) {
       this.router.navigate(["/Admin/maiden"])
-    }
-    else {
-      if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
-        this.dcserror.showErrors(dto.data.errors, 'Error', 4);
-      }
-      else {
-        if (dto && dto.message) {
-          this.dcserror.showErrors(dto.message, 'Error', 4);
-        }
-        else {
-          this.dcserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
-        }
-      }
-    }
+    // }
+    // else {
+    //   if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
+    //     this.dcserror.showErrors(dto.data.errors, 'Error', 4);
+    //   }
+    //   else {
+    //     if (dto && dto.message) {
+    //       this.dcserror.showErrors(dto.message, 'Error', 4);
+    //     }
+    //     else {
+    //       this.dcserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
+    //     }
+    //   }
+    // }
   }
   async SignupPost() {
     var CreationDto: any = {};
