@@ -1,1 +1,213 @@
-<h1>hellow</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Link Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <section id="Navbar">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand mr-auto" href="#">
+                        Manage Internet Banking
+                        <p class="manage-text">Manage Your Bank Account</p>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="has-search">
+                                        <span class="fa fa-search form-control-feedback"></span>
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="d-flex align-items-center ml-3">
+                                    <div class="circle-icon">
+                                        <i class="fas fa-cog"></i>
+                                    </div>
+                                    <div class="circle-icon ml-3">
+                                        <i class="fas fa-bell"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="m-0">Welcome</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col d-flex align-items-center">
+                                        <h6 class="m-0">Mirza Uraib</h6>
+                                        <i class="fa fa-angle-down ml-1"></i>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <hr class="mt-2">
+        </section>
+        <section id="account-details">
+            <div class="container">
+                <!-- First section -->
+                <div class="row">
+                    <div class="col-lg-5 mt-4">
+                        <div class="account-section">
+                            <div class="account-header">
+                                <h5 class="account-title mt-2">Total Balance</h5>
+                            </div>
+                            <h3 class="account-amount">Rs. ******</h3>
+                            <h4 class="account-description">Meezan Bank Savings Foreign Accounts.</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="menu-container">
+                                    <div class="row gx-2 gy-2">
+                                        <!-- First row of menu items -->
+                                        <div class="col-4 mb-2">
+                                            <div class="menu">
+                                                <img src="../../../assets/img/cards/SendMoney.png" alt="Send Money">
+                                            </div>
+                                            <p class="menu-description">Send Money</p>
+                                        </div>
+                                        <div class="col-4 mb-2">
+                                            <div class="menu">
+                                                <img src="../../../assets/img/cards/History.png" alt="History">
+                                            </div>
+                                            <p class="menu-description">History</p>
+                                        </div>
+                                        <div class="col-4 mb-2">
+                                            <div class="menu">
+                                                <img src="../../../assets/img/cards/Wallet.png" alt="Wallet">
+                                            </div>
+                                            <p class="menu-description">Wallet</p>
+                                        </div>
+                                    </div>
+                                    <div class="row gx-2 gy-2">
+                                        <!-- Second row of menu items -->
+                                        <div class="col-4 mb-2">
+                                            <div class="menu">
+                                                <img src="../../../assets/img/cards/Bank.png" alt="Bank">
+                                            </div>
+                                            <p class="menu-description">Bank</p>
+                                        </div>
+                                        <div class="col-4 mb-2">
+                                            <div class="menu">
+                                                <img src="../../../assets/img/cards/SendMoney.png" alt="Send Money">
+                                            </div>
+                                            <p class="menu-description">Send Money</p>
+                                        </div>
+                                        <div class="col-4 mb-2">
+                                            <div class="menu">
+                                                <img src="../../../assets/img/cards/SendMoney.png" alt="Send Money">
+                                            </div>
+                                            <p class="menu-description">Send Money</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 d-flex align-items-center">
+                                <img src="../../../assets/img/cards/illustartion.png" class="illustration-img"
+                                    alt="Illustration">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="all-beneficiary" class="d-flex flex-column gap-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="account-title">
+                    Accounts
+                </div>
+                <button class="add-new-container border border-dashed border-info p-3 rounded">
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="add-container"></div>
+                        <div class="add-new-text">
+                            Add New
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+            <div class="beneficiary-cards d-flex align-items-center">
+                <div class="card flex-grow-1">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <h6 class="badge">
+                            M
+                        </h6>
+                        <div class="flex-grow-1">
+                            <h6 class="fw-bold">
+                                Mirza Uraib
+                            </h6>
+                            <h6 class="text-muted">
+                                00257 596, 00202 899
+                            </h6>
+                        </div>
+                        <div class="d-flex flex-column gap-1 ms-auto">
+                            <h6 class="fw-bold">
+                                Status
+                            </h6>
+                            <h6 class="text-muted">
+                                Current
+                            </h6>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <h6 class="text-primary fw-bold">
+                                Rs. 36,254
+                            </h6>
+                            <h6 class="text-muted">
+                                Savings Foreign Accounts
+                            </h6>
+                        </div>
+                        <h6 class="badge bg-success mt-3 ms-auto">
+                            Active
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

@@ -1,169 +1,267 @@
-@import "../../../assets/scss/core/variables/_colors.scss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
 body {
     margin: 0;
-    font-family: 'Roboto';
+    font-family: "Inter", sans-serif;
     font-size: 14px;
-    background: #455A64;
 }
 
-h3 {
-    color: #fff;
-    font-size: 24px;
-    text-align: center;
-    margin-top: 30px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 30px;
-    font-weight: 300;
-}
-
-.container {
-    max-width: 970px;
-}
-
-div[class*='col-'] {
-    padding: 0 30px;
-}
-
-.wrap {
-    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-    border-radius: 4px;
-}
-
-a:focus,
-a:hover,
-a:active {
-    outline: 0;
-    text-decoration: none;
-}
-
-.panel {
-    border-width: 0 0 1px 0;
-    border-style: solid;
-    border-color: #fff;
-    background: none;
-    box-shadow: none;
-}
-
-.panel:last-child {
-    border-bottom: none;
-}
-
-.panel-group>.panel:first-child .panel-heading {
-    border-radius: 4px 4px 0 0;
-}
-
-.panel-group .panel {
-    border-radius: 0;
-}
-
-.panel-group .panel+.panel {
-    margin-top: 0;
-}
-
-.panel-heading {
-    background-color: $PrimaryWebOrient;
-    border-radius: 0;
-    border: none;
-    color: #fff;
+.container-fluid {
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
     padding: 0;
 }
 
-.panel-title a {
-    display: block;
-    color: #fff;
-    padding: 15px;
+.navbar-light .navbar-brand {
+    font-weight: 600;
+}
+
+.navbar-brand .manage-text {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+    color: #555555;
+}
+
+.navbar .form-control {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.has-search {
     position: relative;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    text-align: center;
+    color: #aaa;
+    margin-top: 12px;
+}
+
+.navbar .circle-icon {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
+
+.navbar .nav-item h5 {
+    font-size: 14px;
+    margin: 0;
+}
+
+.navbar .nav-item h6 {
     font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.container-fluid hr {
+    margin-top: 5px;
+}
+
+#account-details {
+    padding: 21px 80px 6px 21px;
+    border: 2px solid rgba(239, 239, 241, 1);
+    border-radius: 10px;
+    background-color: #effcff;
+    width: 97%;
+    margin: 0 auto;
+}
+
+#account-details .account-section {
+    background-image: url("../../../assets/img/cards/AccountDetails-card.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: fit-content;
+    align-items: flex-start;
+    padding: 21px 60px 6px 11px;
+    height: 183px;
+}
+
+#account-details .account-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 20px;
+    color: #727272;
     font-weight: 400;
 }
 
-.panel-body {
-    background: #fff;
-    padding-bottom: 15px;
+#account-details .account-title {
+    font-family: Inter, sans-serif;
 }
 
-.panel:last-child .panel-body {
-    border-radius: 0 0 4px 4px;
+#account-details .account-amount {
+    color: black;
+    margin-top: 30px;
+    font: 600 45px Inter, sans-serif;
 }
 
-.panel:last-child .panel-heading {
-    border-radius: 0 0 4px 4px;
-    transition: border-radius 0.3s linear 0.2s;
+#account-details .account-description {
+    color: #1dbbd8;
+    margin-top: 5px;
+    font: 500 15px Inter, sans-serif;
 }
 
-.panel:last-child .panel-heading.active {
-    border-radius: 0;
-    transition: border-radius linear 0s;
+#account-details .menu-container {
+    padding-top: 21px;
+    padding-left: 17px;
 }
 
-/* #bs-collapse icon scale option */
-
-.panel-heading a:before {
-    content: '\e146';
-    position: absolute;
-    font-family: 'Material Icons';
-    right: 5px;
-    top: 10px;
-    font-size: 24px;
-    transition: all 0.5s;
-    transform: scale(1);
-}
-
-.panel-heading.active a:before {
-    content: ' ';
-    transition: all 0.5s;
-    transform: scale(0);
-}
-
-#bs-collapse .panel-heading a:after {
-    content: ' ';
-    font-size: 24px;
-    position: absolute;
-    font-family: 'Material Icons';
-    right: 5px;
-    top: 10px;
-    transform: scale(0);
-    transition: all 0.5s;
-}
-
-#bs-collapse .panel-heading.active a:after {
-    content: '\e909';
-    transform: scale(1);
-    transition: all 0.5s;
-}
-
-/* #accordion rotate icon option */
-
-#accordion .panel-heading a:before {
-    content: '\e316';
-    font-size: 24px;
-    position: absolute;
-    font-family: 'Material Icons';
-    right: 5px;
-    top: 10px;
-    transform: rotate(180deg);
-    transition: all 0.5s;
-}
-
-#accordion .panel-heading.active a:before {
-    transform: rotate(0deg);
-    transition: all 0.5s;
-}
-.ImgDivMain {
+#account-details .menu {
+    background-color: white;
+    height: 70px;
+    width: 70px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 7px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#account-details .menu img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#account-details .menu-description {
+    font-weight: 500;
+    padding-top: 6px;
+    text-align: center;
+}
+
+#all-beneficiary {
+    padding: 0 20px;
+  }
+  
+  #all-beneficiary .account-title {
+    color: #263238;
+    font-weight: 600;
+    font-size: 25px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  #all-beneficiary .add-new-container {
+    background-color: #e5f7fb;
+    font-size: 18px;
+    color: #1dbbd8;
+    font-weight: 500;
+    height: 52px;
+    margin-top: 10px;
+    border: 1px dashed #1dbbd8;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  #all-beneficiary .add-container {
+    width: 23px;
+    height: 23px;
+    background-color: #1DBBD8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
     position: relative;
-    top: 20px;
-
-    div {
-        margin-left: 10px;
-    }
+  }
+  
+  #all-beneficiary .add-container::before {
+    content: '+';
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+  }
+  
+  #all-beneficiary .add-new-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    padding-left: 11px;
+  }
+  
+  #all-beneficiary .beneficiary-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    max-width: 100%;
+    padding-top: 29px;
 }
 
-.CardButtonActivate {
+#all-beneficiary .beneficiary-cards .card {
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.04), 0px 8px 16px 0px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+   
+}
+
+#all-beneficiary .beneficiary-cards .badge {
     display: flex;
-    margin: auto;
-    width: 40%;
-    margin-top: 45px;
-} 
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #1DBBD8;
+    color: white;
+    font-weight: 600;
+    font-size: 28px;
+}
+#all-beneficiary .beneficiary-cards .card-body h6{
+    font-size: 14px;
+}
+
+.gap-3 {
+    gap: 20px;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.fw-bold {
+    font-weight: 600;
+}
+
+.text-muted {
+    color: #455a64;
+    font-weight: 400;
+}
+
+.text-primary {
+    color: #1dbbd8;
+    font-weight: 600;
+}
+
+.img-fluid {
+    width: 25px;
+    fill: #455a64;
+}
+
+.bg-success {
+    background-color: #E2F5F0;
+    color: #0C975D;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-weight: 600;
+}
+
