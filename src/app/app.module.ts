@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AppConstants } from './@constant/app.constant';
 import { DefaultInterceptor } from './@core/helper/http.interceptor';
+import { CommonModule } from '@angular/common'; // Import CommonModule
+import { BrowserModule } from '@angular/platform-browser';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -18,6 +21,7 @@ import { DefaultInterceptor } from './@core/helper/http.interceptor';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    CommonModule,
   ],
   declarations: [
     AppComponent,

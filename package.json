@@ -34,6 +34,7 @@
     "@fullcalendar/interaction": "^6.1.11",
     "@fullcalendar/timegrid": "^6.1.11",
     "@ng-bootstrap/ng-bootstrap": "^16.0.0",
+    "@popperjs/core": "^2.11.8",
     "@swimlane/ngx-charts": "^20.5.0",
     "ag-grid-angular": "^27.0.2",
     "ag-grid-community": "^27.0.2",
