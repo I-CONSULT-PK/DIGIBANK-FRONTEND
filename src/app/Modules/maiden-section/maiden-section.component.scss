@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@import '../../../assets/scss/core/variables/colors';
+$PrimaryColor: $PrimaryWebOrient;
 
 body {
     margin: 0;
@@ -6,11 +8,14 @@ body {
     font-size: 14px;
 }
 
-.container-fluid {
+//  <!-- navbar section -->
+.main-container-fluid {
     background-color: white;
     border-radius: 5px;
+    border-color: black;
     width: 100%;
     padding: 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-light .navbar-brand {
@@ -72,10 +77,13 @@ body {
     font-weight: bold;
 }
 
+// <!-- navbar section end-->
+
 .container-fluid hr {
     margin-top: 5px;
 }
 
+// <!-- account-details section -->
 #account-details {
     padding: 21px 80px 6px 21px;
     border: 2px solid rgba(239, 239, 241, 1);
@@ -116,7 +124,7 @@ body {
 }
 
 #account-details .account-description {
-    color: #1dbbd8;
+    color: $PrimaryColor;
     margin-top: 5px;
     font: 500 15px Inter, sans-serif;
 }
@@ -148,60 +156,64 @@ body {
     text-align: center;
 }
 
+// <!-- account-details section end-->
+
+// <!-- All-beneficiary section -->
+
 #all-beneficiary {
     padding: 0 20px;
-  }
-  
-  #all-beneficiary .account-title {
+}
+
+#all-beneficiary .account-title {
     color: #263238;
     font-weight: 600;
     font-size: 25px;
     font-family: 'Inter', sans-serif;
-  }
-  
-  #all-beneficiary .add-new-container {
+}
+
+#all-beneficiary .add-new-container {
     background-color: #e5f7fb;
     font-size: 18px;
-    color: #1dbbd8;
+    color: $PrimaryColor;
     font-weight: 500;
     height: 52px;
     margin-top: 10px;
-    border: 1px dashed #1dbbd8;
+    border: 1px dashed $PrimaryColor;
     border-radius: 5px;
     padding: 10px;
     display: flex;
     align-items: center;
     cursor: pointer;
-  }
-  
-  #all-beneficiary .add-container {
+}
+
+#all-beneficiary .add-container {
     width: 23px;
     height: 23px;
-    background-color: #1DBBD8;
+    background-color: $PrimaryColor;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     position: relative;
-  }
-  
-  #all-beneficiary .add-container::before {
+}
+
+#all-beneficiary .add-container::before {
     content: '+';
     color: white;
     font-size: 18px;
     font-weight: bold;
     position: absolute;
-  }
-  
-  #all-beneficiary .add-new-text {
+}
+
+#all-beneficiary .add-new-text {
     font-family: 'Inter', sans-serif;
     font-size: 15px;
     padding-left: 11px;
-  }
-  
-  #all-beneficiary .beneficiary-cards {
+}
+
+#all-beneficiary .beneficiary-cards {
     display: flex;
-    gap: 20px; 
+    gap: 20px;
     justify-content: space-between;
     max-width: 100%;
     padding-top: 29px;
@@ -211,19 +223,30 @@ body {
     border-radius: 10px;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.04), 0px 8px 16px 0px rgba(0, 0, 0, 0.08);
     background-color: #fff;
-    width: 100%;
-    margin-bottom: 20px; 
-    padding: 20px; 
+    margin-bottom: 20px;
+
 }
 
 #all-beneficiary .beneficiary-cards .badge {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 117px;
+    height: 44px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+#all-beneficiary .beneficiary-cards .beneficiary-title-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $PrimaryColor;
+    color: white;
     width: 60px;
     height: 60px;
     border-radius: 5px;
-    color: white;
     font-weight: 600;
     font-size: 28px;
 }
@@ -231,34 +254,190 @@ body {
 #all-beneficiary .beneficiary-cards .card-body {
     display: flex;
     align-items: center;
-    gap: 20px; 
+    gap: 20px;
 }
 
 #all-beneficiary .beneficiary-cards .card-body h6 {
     font-size: 14px;
 }
 
-.text-muted {
+#all-beneficiary .beneficiary-cards .card-body .text-muted {
     color: #455a64;
     font-weight: 400;
 }
 
-.text-primary {
-    color: #1dbbd8;
+#all-beneficiary .beneficiary-cards .card-body .text-primary {
+    color: $PrimaryColor;
     font-weight: 600;
 }
 
-.bg-success {
-    background-color: #E2F5F0;
+#all-beneficiary .beneficiary-cards .card-body .bg-success {
+    background-color: #E2F5F0 !important;
     color: #0C975D;
     border-radius: 5px;
     padding: 12px 24px;
     font-weight: 600;
 }
-.bg-disable {
+
+#all-beneficiary .beneficiary-cards .card-body .bg-disable {
     background-color: #F5E2E2;
     color: #E25946;
     border-radius: 5px;
     padding: 12px 24px;
     font-weight: 600;
 }
+
+// <!-- All-beneficiary section end-->
+
+// <!-- Quick Transfer section -->
+#quick-transfer {
+    position: relative;
+}
+
+#quick-transfer .card {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+}
+
+#quick-transfer .card .heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#quick-transfer .card .left-heading,
+#quick-transfer .card .right-heading {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#quick-transfer .card .left-heading {
+    text-align: left;
+}
+
+#quick-transfer .card .right-heading {
+    text-align: right;
+}
+
+#quick-transfer .card .transfer-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+#quick-transfer .card .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: auto;
+}
+
+#quick-transfer .card .box-content {
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 80px;
+    height: 80px;
+    box-shadow: 0px 3.32016px 66.4032px rgba(0, 0, 0, 0.08);
+    border-radius: 8.30039px;
+}
+
+#quick-transfer .card .box-content .transfer-title-logo {
+    font-size: 37px;
+    font-weight: 600;
+    padding-top: 5px;
+}
+
+#quick-transfer .card .box-color-1 {
+    background-color: #52C9E3;
+}
+
+#quick-transfer .card .box-color-2 {
+    background-color: #20798C;
+}
+
+#quick-transfer .card .box-color-3 {
+    background-color: #2E76B7;
+}
+
+#quick-transfer .card .box-color-4 {
+    background-color: #9683E4;
+}
+
+#quick-transfer .card .box-color-5 {
+    background-color: #E983CC;
+}
+
+#quick-transfer .card .box-color-6 {
+    background-color: #9683E4;
+}
+
+#quick-transfer .card .box-title {
+    padding-top: 10px;
+    text-align: center;
+}
+
+#quick-transfer .card .box-title.box-title h6 {
+    margin: 0;
+    padding: 0;
+}
+
+#quick-transfer .card .box-title .text-muted {
+    font-size: 12px;
+}
+
+#quick-transfer .card .amount-title {
+    color: #263238;
+    font-weight: 600;
+    font-size: 22px;
+    margin: auto 0;
+    padding-top: 11px;
+}
+
+#quick-transfer .card .amount-value {
+    background-color: #f2f4f7;
+    color: #232323;
+    font-weight: 500;
+    font-size: 26px;
+    padding: 22px 23px;
+}
+
+#quick-transfer .card .form-control {
+    width: 424px;
+    height: 49px;
+    background-color: #F2F4F7;
+}
+
+#quick-transfer .card .btn-primary {
+    background-color: #1dbbd8;
+    border-color: #1dbbd8;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 8px 48px;
+}
+
+.circle-box {
+    position: absolute;
+    right: 251px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    box-shadow: 0px 0px 5.091px 0px rgba(0, 0, 0, 0.04), 0px 10.182px 20.364px 0px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $PrimaryColor;
+    z-index: 1;
+}
+//   <!-- Quick Transfer section end-->
