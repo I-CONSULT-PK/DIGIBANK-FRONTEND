@@ -148,6 +148,7 @@ $PrimaryColor: $PrimaryWebOrient;
   height: 173px;
   padding-top: 0px;
   padding-left: 1.3rem;
+  height: 199px;
 }
 
 #account-details .account-header {
@@ -225,16 +226,17 @@ $PrimaryColor: $PrimaryWebOrient;
     display: flex;
     align-items: center;
     border: 2px dotted #1EBBD7;
+    margin-bottom: 1rem;
 }
 
 #all-beneficiary .add-container {
-  width: 23px;
-  height: 23px;
+  width: 20px;
+  height: 20px;
   background-color: $PrimaryColor;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 20%;
   position: relative;
 }
 
@@ -249,7 +251,7 @@ $PrimaryColor: $PrimaryWebOrient;
 #all-beneficiary .add-new-text {
   font-family: 'Inter', sans-serif;
   font-size: 15px;
-  padding-left: 11px;
+  padding-left: 5px;
 }
 
 #all-beneficiary .beneficiary-cards .card {
@@ -310,6 +312,8 @@ $PrimaryColor: $PrimaryWebOrient;
   border-radius: 5px;
   padding: 12px 24px;
   font-weight: 600;
+  font-size: 14px;
+  width: 7.5rem;
 }
 
 #all-beneficiary .beneficiary-cards .card-body .bg-disable {
@@ -318,6 +322,8 @@ $PrimaryColor: $PrimaryWebOrient;
   border-radius: 5px;
   padding: 12px 24px;
   font-weight: 600;
+  font-size: 14px;
+  width: 7.5rem;
 }
 
 // <!-- All-beneficiary CSS end-->
@@ -560,7 +566,8 @@ $PrimaryColor: $PrimaryWebOrient;
   font-weight: 600;
   font-size: 22px;
   margin: auto 0;
-  padding-top: 11px;
+  padding-top: 7px;
+  padding-left: 7px;
 }
 
 #quick-transfer .card .amount-value {

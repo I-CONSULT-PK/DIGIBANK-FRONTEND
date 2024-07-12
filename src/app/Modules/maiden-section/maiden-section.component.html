@@ -152,11 +152,29 @@
             <div class="row">
               <div class="col-lg-5 mt-4">
                 <div class="account-section">
-                  <div class="account-header">
+                  <div class="account-header d-flex justify-content-between align-items-center">
                     <h5 class="account-title mt-2">Total Balance</h5>
+                    <div class="dropdown">
+                      <button class="btn fa fa-ellipsis-v" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-share-alt me-2"></i>Share</a></li>
+                      </ul>
+                    </div>
                   </div>
-                  <h3 class="account-amount">Rs. ******</h3>
+                  <div class="d-flex align-items-center mb-2">
+                    <h3 class="account-amount">Rs. ******</h3>
+                    <i class="far fa-eye fa-lg ml-2"></i>
+                  </div>
                   <h4 class="account-description">Meezan Bank Savings Foreign Accounts.</h4>
+                  <div class="d-flex align-items-center">
+                    <i class="far fa-arrow-alt-circle-up fa-lg text-success mr-2"></i>
+                    <h6 class="mb-0">Rs. 55,000</h6>
+                    <i class="far fa-arrow-alt-circle-down fa-lg text-danger ml-3"></i>
+                    <h6 class="mb-0 ml-2">Rs. 10,000</h6>
+                  </div>
                 </div>
               </div>
               <div class="col-lg-7">
@@ -225,7 +243,7 @@
                   <div class="account-title">
                     Accounts
                   </div>
-                  <button class="add-new-container border border-dashed border-info p-3 rounded">
+                  <button class="btn add-new-container border border-dashed border-info p-2 rounded mb-3">
                     <div class="d-flex align-items-center gap-2">
                       <div class="add-container"></div>
                       <div class="add-new-text">
@@ -254,12 +272,13 @@
                             <h6 class="text-primary fw-bold">Rs. 36,254</h6>
                             <h6 class="text-muted">Savings Foreign Accounts</h6>
                           </div>
-                          <h6 class="badge bg-success mt-3 ms-auto">Active</h6>
+                          <i class="fas fa-edit fa-lg"></i>
+                          <button class="btn badge bg-success mt-3 ms-auto">Active</button>
                         </div>
                       </div>
                     </div>
                     <!-- beneficiary-card 1 end -->
-
+ 
                     <!-- beneficiary-card 2 starts -->
                     <div class="col-12">
                       <div class="card flex-grow-1">
@@ -277,12 +296,13 @@
                             <h6 class="text-primary fw-bold">Rs. 36,254</h6>
                             <h6 class="text-muted">Savings Foreign Accounts</h6>
                           </div>
-                          <h6 class="badge bg-disable mt-3 ms-auto">Disable</h6>
+                          <i class="fas fa-edit fa-lg"></i>
+                          <button class="btn bg-disable mt-3 ms-auto">Disable</button>
                         </div>
                       </div>
                     </div>
                     <!-- beneficiary-card 2 end -->
-
+ 
                     <!-- beneficiary-card 3 starts -->
                     <div class="col-12">
                       <div class="card flex-grow-1">
@@ -300,12 +320,13 @@
                             <h6 class="text-primary fw-bold">Rs. 36,254</h6>
                             <h6 class="text-muted">Savings Foreign Accounts</h6>
                           </div>
-                          <h6 class="badge bg-disable mt-3 ms-auto">Disable</h6>
+                          <i class="fas fa-edit fa-lg"></i>
+                          <button class="btn bg-disable mt-3 ms-auto">Disable</button>
                         </div>
                       </div>
                     </div>
                     <!-- beneficiary-card 3 end -->
-
+ 
                     <!-- beneficiary-card 4 starts -->
                     <div class="col-12">
                       <div class="card flex-grow-1">
@@ -323,7 +344,8 @@
                             <h6 class="text-primary fw-bold">Rs. 36,254</h6>
                             <h6 class="text-muted">Savings Foreign Accounts</h6>
                           </div>
-                          <h6 class="badge bg-disable mt-3 ms-auto">Disable</h6>
+                          <i class="fas fa-edit fa-lg"></i>
+                          <button class="btn bg-disable mt-3 ms-auto">Disable</button>
                         </div>
                       </div>
                     </div>
@@ -421,12 +443,12 @@
                   </div>
                   <!-- Circle box outside of the card -->
                   <div class="circle-container">
-                    <div class="circle-box-left">
+                    <button class="btn circle-box-left">
                       <i class="fas fa-angle-left fa-lg"></i>
-                    </div>
-                    <div class="circle-box-right">
+                    </button>
+                    <button class="btn circle-box-right">
                       <i class="fas fa-angle-right fa-lg"></i>
-                    </div>
+                    </button>
                   </div>
                 </div>
               </section>
