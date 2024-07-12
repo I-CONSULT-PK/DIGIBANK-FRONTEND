@@ -2,9 +2,14 @@
 @import '../../../assets/scss/core/variables/colors';
 $PrimaryColor: $PrimaryWebOrient;
 
+.divider{
+  height: 0px;
+  border: 1px solid rgb(245 245 245 / 75%);
+}
 #sidebar {
-  background: #F5F5F5;
+  background: #F9FAFC;
   height: 100vh;
+  position: fixed;
   /* Full height */
 }
 
