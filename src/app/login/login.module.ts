@@ -20,8 +20,8 @@ import { IcsErrorModule } from 'app/components/ics-error/ics-error.module';
   imports: [
     // CommonModule,
     // RouterModule.forChild(AdminLayoutRoutes),
-    // FormsModule,
-    // ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     // MatButtonModule,
     // MatRippleModule,
     MatFormFieldModule,
