@@ -12,28 +12,8 @@ export class loginService extends AppService<any>{
         super('customer');
     }
 
-    async login(email: string, password: string, securityImage: string) {
-        var dto: any = {};
-        dto = {
-            emailorUsername: email,
-            password: password,
-            securityImage: securityImage
-        };
+    async login(dto: any) {
         const result = await this.post("login", dto);
-        return result;
-    }
-    async signup(dto: any) {
-        const result = await this.post("signup", dto);
-        return result;
-    }
-    async OTPCreation(dto: any) {
-        debugger
-        const result = await this.post("createOTP", dto);
-        return result;
-    }
-    async OTPVerify(dto: any) {
-        debugger
-        const result = await this.post("verifyOTP", dto);
         return result;
     }
 

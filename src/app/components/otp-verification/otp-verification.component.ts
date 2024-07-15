@@ -17,6 +17,7 @@ export class OtpVerificationComponent implements OnInit {
     input4: string = '';
     input5: string = '';
     input6: string = '';
+    value: string = '';
 
     handleInput(event: any, inputNumber: number) {
 
@@ -32,5 +33,6 @@ export class OtpVerificationComponent implements OnInit {
                 nextInput.focus();
             }
         }
+        this.value = this.input1 + "" + this.input2 + "" + this.input3 + "" + this.input4 + "" + this.input5 + "" + this.input6;
     }
 }

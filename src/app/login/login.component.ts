@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 import { loginService } from './login.service';
 import { Router } from '@angular/router';
 import { IcsErrorComponent } from 'app/components/ics-error/ics-error.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { IcsErrorComponent } from 'app/components/ics-error/ics-error.component'
   styleUrls: ['./login.component.scss']
 })
 export class loginComponent implements OnInit {
-  constructor(private renderer: Renderer2, private loginService: loginService, private router: Router) { }
+  constructor(private renderer: Renderer2, private formBuilder: FormBuilder, private loginService: loginService, private router: Router) { }
   @ViewChild('WhiteBannerBox') Box1: ElementRef | any;
   @ViewChild('WhiteBannerBox2') Box2: ElementRef | any;
   @ViewChild('CntrLogin') cntrLog: ElementRef | any;
@@ -81,14 +82,21 @@ export class loginComponent implements OnInit {
         selected: false,
       },
       {
-        name: 'tree',
+        name: 'cat',
         icon: 'fa fa-tree',
         selected: false,
       }
     ];
+  myForm: FormGroup;
+
   ngOnInit() {
-    debugger
+    this.myForm = this.formBuilder.group({
+
+      username: [''],
+      password: [''],
+    });
     this.SecurityImageArray = this.shuffleArray(this.ImageIconsArray);
+
   }
   shuffleArray(array) {
     var m = array.length, t, i;
@@ -191,9 +199,15 @@ export class loginComponent implements OnInit {
     });
   }
   async LoginPost() {
-
-    const dto: any = await this.loginService.login(this.username, this.password, this.securityImage);
+    debugger
+    var CreationDto: any = {
+      emailorUsername: this.myForm.controls['username'].value,
+      password: this.myForm.controls['password'].value,
+      securityImage: this.SelectedsecurityImage ? this.SelectedsecurityImage : "cat",
+    };
+    const dto: any = await this.loginService.login(CreationDto);
     if (dto && dto.success && dto.success == true) {
+      alert("Login SuccessFully");
       this.router.navigate(["/Admin/maiden"])
     }
     else {
@@ -210,80 +224,9 @@ export class loginComponent implements OnInit {
       }
     }
   }
-  async SignupPost() {
-    var CreationDto: any = {};
-    CreationDto = {
-      cnic: this.UserCnic,
-      mobileNumber: this.UserMobile,
-      accountNumber: this.UserAccountno,
-      firstName: this.FirstName,
-      lastName: this.LastName,
-      email: this.UserEmail,
-      userName: this.Userusername,
-      password: this.UserPassword,
-      securityPicture: this.SelectedsecurityImage ? this.SelectedsecurityImage : "None",
-    };
-
-    const dto: any = await this.loginService.signup(CreationDto);
-    if (dto && dto.success && dto.success == true) {
-      // const OTPdto: any = await this.OPTCreationPost();
-      await this.StepUp();
-    }
-    else {
-      if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
-        this.dcserror.showErrors(dto.data.errors, 'Error', 4);
-      }
-      else {
-        if (dto && dto.message) {
-          this.dcserror.showErrors(dto.message, 'Error', 4);
-        }
-        else {
-          this.dcserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
-        }
-      }
-    }
-  }
-  async OPTCreationPost() {
-    var CreationDto: any = {};
-    CreationDto = {
-      mobileNumber: this.UserMobile,
-      email: this.UserEmail,
-      reason: 'Verify Mobile Device'
-    };
-    const dto: any = await this.loginService.OTPCreation(CreationDto);
-    return dto;
-  }
   async getConcatedOTP() {
     var derived = this.input2 + this.input3 + this.input4 + this.input5 + this.input6 + this.input7;
     return derived;
-  }
-  async OPTVerificationPost() {
-    debugger
-    var CreationDto: any = {};
-    CreationDto = {
-      mobileNumber: this.UserMobile,
-      email: this.UserEmail,
-      otp: await this.getConcatedOTP()
-    };
-
-    const dto: any = await this.loginService.OTPVerify(CreationDto);
-
-    if (dto && dto.success && dto.success == true) {
-      this.ClickToChangeLog();
-    }
-    else {
-      if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
-        this.dcserror.showErrors(dto.data.errors, 'Error', 4);
-      }
-      else {
-        if (dto && dto.message) {
-          this.dcserror.showErrors(dto.message, 'Error', 4);
-        }
-        else {
-          this.dcserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
-        }
-      }
-    }
   }
 
 

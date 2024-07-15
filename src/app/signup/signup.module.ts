@@ -10,14 +10,21 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { signupComponent } from './signup.component';
 import { OtpVerificationModule } from 'app/components/otp-verification/otp-verification.module';
+import { signupService } from './signup.service';
+import { LoaderService } from 'app/@core/helper/loader.service';
+import { HttpClientModule } from '@angular/common/http';
+import { IcsErrorModule } from 'app/components/ics-error/ics-error.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { otpService } from 'app/components/otp-verification/otp-verification.service';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    OtpVerificationModule
+    OtpVerificationModule,
+    HttpClientModule,
+    BrowserModule,
+    RouterModule, FormsModule, ReactiveFormsModule, IcsErrorModule,
   ],
 
   declarations: [
@@ -25,7 +32,8 @@ import { OtpVerificationModule } from 'app/components/otp-verification/otp-verif
   ],
   exports: [
     signupComponent,
-  ]
+  ],
+  providers: [signupService, LoaderService,otpService]
 })
 
 export class SignupModule { }
