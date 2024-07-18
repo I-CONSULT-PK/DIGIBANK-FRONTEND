@@ -2114,10 +2114,7 @@ nav ul li {
     margin: 0;
 }
 
-nav>ul {
-    background: #eee;
-    text-align: center;
-}
+
 
 nav>ul>li {
     display: inline-block;
