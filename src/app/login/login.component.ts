@@ -207,7 +207,6 @@ export class loginComponent implements OnInit {
     };
     const dto: any = await this.loginService.login(CreationDto);
     if (dto && dto.success && dto.success == true) {
-      alert("Login SuccessFully");
       this.router.navigate(["/Admin/maiden"])
     }
     else {
