@@ -5,7 +5,7 @@
 }
 
 #myModal .modal .modal-header {
-    background-color: red;
+    background-color: #c92929;
 }
 
 #myModal .modal .modal-header .close {
@@ -1338,7 +1338,7 @@ span.drop-title-icon-text {
 .tooltipss {
     position: relative;
     display: inline-block;
-    color: red;
+    color: #c92929;
     margin-left: 5px;
     font-size: 12px;
     font-weight: 500;
@@ -3574,14 +3574,14 @@ span.p-treenode-label:hover {
 }
 
 .tooltip-style {
-    color: red;
+    color: #c92929;
     margin-left: 5px;
     font-size: 12px;
     font-weight: 500;
 }
 
 .tooltip-icon-style {
-    color: red;
+    color: #c92929;
     font-size: 12px;
     padding-right: 4px;
 }

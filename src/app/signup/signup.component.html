@@ -50,7 +50,7 @@
                                     </p>
                                 </div>
                                 <!-- Registration Forms -->
-                                <form *ngIf="activityModemStep == 1" class="First-Step">
+                                <form *ngIf="activityModemStep == 1" class="First-Step" [formGroup]="myForm">
                                     <div class="form-row align-items-center">
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
                                             <label for="inlineFormInput">CNIC Number</label>
@@ -61,11 +61,11 @@
                                                     </div>
                                                 </div>
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                    placeholder="Enter Your CNIC">
+                                                    placeholder="Enter Your CNIC" formControlName="cnic">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
-                                            <label for="inlineFormInputGroup">
+                                            <label for="inlineInputGroup">
                                                 Mobile
                                                 Number
                                             </label>
@@ -76,7 +76,8 @@
                                                     </div>
                                                 </div>
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                    placeholder="Enter Your Mobile Number">
+                                                    placeholder="Enter Your Mobile Number"
+                                                    formControlName="mobileNumber">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
@@ -91,12 +92,12 @@
                                                     </div>
                                                 </div>
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                    placeholder="Enter Your Account No">
+                                                    placeholder="Enter Your Account No" formControlName="accountnumber">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
                                             style="line-height: 6;">
-                                            <button (click)="NextActivity(2)" type="button"
+                                            <button (click)="VerifyCustomer()" type="button"
                                                 class="col-lg-12 btn btn-primary TrnBtn">
                                                 Next
                                             </button>
@@ -109,7 +110,7 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form *ngIf="activityModemStep == 2" class="Second-Step">
+                                <form *ngIf="activityModemStep == 2" class="Second-Step" [formGroup]="myForm">
                                     <div class="form-row align-items-center">
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
                                             <label for="inlineFormInput">First Name</label>
@@ -120,7 +121,8 @@
                                                     </div>
                                                 </div>
                                                 <input type="text" class="form-control" disabled
-                                                    id="inlineFormInputGroup" placeholder="Enter Your First Name">
+                                                    id="inlineFormInputGroup" placeholder="Enter Your First Name"
+                                                    formControlName="firstName">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
@@ -135,7 +137,8 @@
                                                     </div>
                                                 </div>
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                    disabled placeholder="Enter Your Last Name">
+                                                    disabled placeholder="Enter Your Last Name"
+                                                    formControlName="lastName">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4  FieldDiv">
@@ -147,11 +150,11 @@
                                                     </div>
                                                 </div>
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                    disabled placeholder="Enter Your Email">
+                                                    disabled placeholder="Enter Your Email" formControlName="email">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv" style="">
-                                            <button (click)="NextActivity(3)" type="button"
+                                            <button (click)="CreateOTP()" type="button"
                                                 class="col-lg-12 btn btn-primary TrnBtn">
                                                 Next
                                             </button>
@@ -168,14 +171,14 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form *ngIf="activityModemStep == 3" class="Third-Step">
+                                <form *ngIf="activityModemStep == 3" class="Third-Step" [formGroup]="myForm">
                                     <div class="form-row align-items-center">
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
-                                            <otp-verification></otp-verification>
+                                            <otp-verification #otpInput></otp-verification>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
                                             style="line-height: 4;">
-                                            <button (click)="NextActivity(4)" type="button"
+                                            <button (click)="VerifyOTP()" type="button"
                                                 class="col-lg-12 btn btn-primary TrnBtn">
                                                 Verify
                                             </button>
@@ -186,7 +189,7 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form *ngIf="activityModemStep == 4" class="Fourth-Step">
+                                <form *ngIf="activityModemStep == 4" class="Fourth-Step" [formGroup]="myForm">
                                     <div class="form-row align-items-center">
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
                                             <label for="inlineFormInput">User Name *</label>
@@ -197,7 +200,7 @@
                                                     </div>
                                                 </div>
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                    placeholder="Enter Your User Name">
+                                                    placeholder="Enter Your User Name" formControlName="username">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
@@ -269,7 +272,7 @@
                                                     </div>
                                                 </div>
                                                 <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                    placeholder="Confirm Your Password">
+                                                    placeholder="Confirm Your Password" formControlName="password">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
@@ -287,7 +290,7 @@
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
                                             style="line-height: 6;">
-                                            <button (click)="NextActivity(5)" type="button"
+                                            <button (click)="SignupPost()" type="button"
                                                 class="col-lg-12 btn btn-primary TrnBtn">
                                                 Let's Do
                                                 This
@@ -312,3 +315,4 @@
 </body>
 
 </html>
+<ics-error #IcsError></ics-error>
