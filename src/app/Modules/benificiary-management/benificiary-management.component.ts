@@ -8,6 +8,7 @@ import { IcsModalComponent } from 'app/components/ics-modal/ics-modal.component'
     styleUrls: ['./benificiary-management.component.scss']
 })
 export class BenificiaryManagementComponent implements OnInit {
+   
 
     @ViewChild('BeneficiaryModal') BeneficiaryModal: IcsModalComponent | any;
     @ViewChild('NewModal1') NewModal1: IcsModalComponent | any;
@@ -226,6 +227,7 @@ export class BenificiaryManagementComponent implements OnInit {
         debugger
         this.NewModal1.open('xs');
     }
+   
 }
 
 

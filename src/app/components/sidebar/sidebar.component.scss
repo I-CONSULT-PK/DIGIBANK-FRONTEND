@@ -1,62 +1,54 @@
-@import '../../../assets/scss/core/variables/_colors.scss';
-.nav-item {
-    cursor: pointer;
+@import '../../../assets/scss/core/variables/colors';
+$PrimaryColor: $PrimaryWebOrient;
+
+#sidebar {
+    background: #F9FAFC;
+    height: 100vh;
+    position: fixed;
+    /* Full height */
+}
+  
+#sidebar .sidebar-header {
+    padding: 20px;
+  
+    color: #fff;
+}
+  
+#sidebar ul {
+    padding-left: 10px;
+    list-style: none;
+}
+  
+#sidebar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    width: 225px;
 }
 
-/* For Desktop */
-
-@media (min-width: 992px) {
-    .container {
-        padding: 10px;
-    }
-
-}
-
-/* For Tablet */
-@media (min-width: 768px) and (min-width: 991px) {
-    .container {
-        padding: 10px;
-    }
-
-}
-
-/* For Mobile */
-@media (min-width: 767px) {
-    .container {
-        padding: 10px;
-    }
-
-}
-
-.NavSidebar {
-    width: 96%;
-    overflow-y: scroll;
-    max-height: 74vh;
-    li.active{
-        a{
-            margin: 0;
-        }
-    }
-}
-
-/* width */
-::-webkit-scrollbar {
-    width: 8px;
+  
+#sidebar ul li a:hover {
+    color: $PrimaryColor;
   }
   
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: none; 
-    border-radius: 10px;
-  }
+#sidebar ul li img {
+    width: 25px;
+    margin-right: 10px;
+}
   
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: $PrimaryWebOrient; 
-  }
+#sidebar .list-unstyled i {
+    margin-right: 11px;
+    font-size: 30px !important;
+}
+  
+  
+#sidebar ul li img.img-2 {
+    width: 26px;
+}
+  
+#sidebar ul li img.img-3 {
+    width: 22px;
+}
+  
