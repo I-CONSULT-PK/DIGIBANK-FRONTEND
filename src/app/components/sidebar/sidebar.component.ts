@@ -12,7 +12,10 @@ export const ROUTES: RouteInfo[] = [
   { path: '/Admin/maiden', title: 'Dashboard', icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/55831f7909cc1213c774fa6bbe9444e4bd7c3b5bdb8f0291c03d5b704ac2db4c?', class: '' },
     // { path: '/Accounts', title: 'Accounts', icon: 'settings_input_component', class: '' },
   // { path: '/BankStatement', title: 'Bank Statement', icon: 'receipt_long', class: '' },
-  { path: '/Admin/Benificiary', title: 'Add Benificiary ', icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/efd9de894b80c8cf24c31ef597db9a75e978543f6e37ba6562ca65cc4bec1520?', class: '' },  // { path: '/Mutual', title: 'Mutual Funds', icon: 'account_balance_wallet', class: '' },
+  { path: '/Admin/Benificiary', title: 'Add Benificiary ', icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/efd9de894b80c8cf24c31ef597db9a75e978543f6e37ba6562ca65cc4bec1520?', class: '' }, 
+  { path: '/Admin/Login', title: 'Logout ', icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/2a197809347bfb9e7280349b9933af1f13033b08d965df9ffde26a93a4ce3b9b?', class: '' }, 
+
+  // { path: '/Mutual', title: 'Mutual Funds', icon: 'account_balance_wallet', class: '' },
   // { path: '/PayOrder', title: 'Pay Order', icon: 'local_atm', class: '' },
   // { path: '/Card', title: 'Card Management', icon: 'credit_card', class: '' },
   // { path: '/Cheque', title: 'Cheque Management', icon: 'currency_exchange', class: '' },

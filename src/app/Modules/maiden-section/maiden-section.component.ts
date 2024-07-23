@@ -14,10 +14,10 @@ export class MaidenSectionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async gotoLogin(): Promise<void> {
-    await this.router.navigate(["/login"]);
-  }
-  async gotoBenificiary(): Promise<void> {
-    await this.router.navigate(["/BenificiaryManagementModule"]);
-  }
+  // async gotoLogin(): Promise<void> {
+  //   await this.router.navigate(["/login"]);
+  // }
+  // async gotoBenificiary(): Promise<void> {
+  //   await this.router.navigate(["/Benificiary"]);
+  // }
 }

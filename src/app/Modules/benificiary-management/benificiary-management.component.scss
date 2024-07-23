@@ -134,7 +134,26 @@ td {
 
 .edit-icons {
     font-size: 20px !important;
+    cursor: pointer;
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    text-align: center; /* Center align the text */
+    padding: 10px; /* Add padding to the cells */
+}
+.ml-2 {
+    margin-left: 10px;
+}
+.d-flex {
+    display: flex;
+}
+.flex-row {
+    flex-direction: row;
+}
+
 
 .add-new-container {
     background-color: #e5f7fb;
