@@ -1,126 +1,113 @@
-<div class="logo">
-    <a href="https://iconsult.com.pk/" class="simple-text">
-        <div class="logo-img">
-            <img src="../../../assets/img/DIGI-BANK Logo/DIGI-BANK.png" alt="DIGI-BANK Logo" />
-        </div>
-        <!-- DIGI-BANK Banking -->
-    </a>
-</div>
- <div class="container">
-    <div class="sidebar-wrapper">
-        <div *ngIf="isMobileMenu()">
-            <form class="navbar-form">
-                <span class="bmd-form-group">
-                    <div class="input-group no-border">
-                        <input type="text" value="" class="form-control" placeholder="Search...">
-                        <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
-                            <i class="material-icons">search</i>
-                            <div class="ripple-container"></div>
-                        </button>
-                    </div>
-                </span>
-            </form>
-            <ul class="nav navbar-nav nav-mobile-menu">
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <i class="material-icons">dashboard</i>
-                        <p>
-                            <span class="d-lg-none d-md-block">Stats</span>
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="material-icons">notifications</i>
-                        <span class="notification">5</span>
-                        <p>
-                            <span class="d-lg-none d-md-block">Some Actions</span>
-                        </p>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                        <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                        <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                        <a class="dropdown-item" href="#">Another Notification</a>
-                        <a class="dropdown-item" href="#">Another One</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <i class="material-icons">person</i>
-                        <p>
-                            <span class="d-lg-none d-md-block">Account</span>
-                        </p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <ul class="nav NavSidebar">
-            <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.title == selectedMenu.title ? 'active' : ''}} nav-item">
-                <a class="nav-link" (click)="Navigate(menuItem)">
-                    <i class="material-icons">{{menuItem.icon}}</i>
-                    <p>{{menuItem.title}}</p>
-                </a>
-            </li>
-        </ul>
+<nav id="sidebar" class="col-lg-2">
+    <div class="sidebar-header">
+      <img src="../../assets/img/Logo/Nav_Logo.png" style="width: 175px;" />
     </div>
-</div>  
+    <hr  class="divider">
+    <ul class="list-unstyled">
 
-<!-- <div class="sidebar-wrapper">
-    <div *ngIf="isMobileMenu()">
-        <form class="navbar-form">
-            <span class="bmd-form-group">
-                <div class="input-group no-border">
-                    <input type="text" value="" class="form-control" placeholder="Search...">
-                    <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
-                        <i class="material-icons">search</i>
-                        <div class="ripple-container"></div>
-                    </button>
-                </div>
-            </span>
-        </form>
-        <ul class="nav navbar-nav nav-mobile-menu">
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">
-                    <i class="material-icons">dashboard</i>
-                    <p>
-                        <span class="d-lg-none d-md-block">Stats</span>
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="material-icons">notifications</i>
-                    <span class="notification">5</span>
-                    <p>
-                        <span class="d-lg-none d-md-block">Some Actions</span>
-                    </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                    <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                    <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                    <a class="dropdown-item" href="#">Another Notification</a>
-                    <a class="dropdown-item" href="#">Another One</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">
-                    <i class="material-icons">person</i>
-                    <p>
-                        <span class="d-lg-none d-md-block">Account</span>
-                    </p>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <ul class="nav">
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
             <a class="nav-link" [routerLink]="[menuItem.path]">
-                <i class="material-icons">{{menuItem.icon}}</i>
-                <p>{{menuItem.title}}</p>
+                <img loading="lazy"
+            src="{{menuItem.icon}}"
+            class="img" />
+            {{menuItem.title}}
+                <!-- <i class="material-icons">{{menuItem.icon}}</i> -->
+                <!-- <p>{{menuItem.title}}</p> -->
             </a>
         </li>
+
+
+<!-- 
+      <li>
+        <a>
+          <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/55831f7909cc1213c774fa6bbe9444e4bd7c3b5bdb8f0291c03d5b704ac2db4c?"
+            class="img" />
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a>
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/efd9de894b80c8cf24c31ef597db9a75e978543f6e37ba6562ca65cc4bec1520?"
+            class="img"
+            />
+            Add Beneficiary
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/764429aa1ca8e9e56824a19865b080b51b279de229674e8a6712937cc65e7bf1?"
+            class="img" />
+          Transactions
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/ce8af22fe078839128765c774cf001f56d2138998a6759ace921a094cc2c0b19?"
+            class="img" />
+          Accounts
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/65dcb3b6180aa47ab188d48d22a4f4ba4e915890e4bd91f0e0038e33914adafa?"
+            class="img" />
+          Investments
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/4d29f4399650711b97f443f99adecd6ee5ca0e29f2335790578f22b3d3c82299?"
+            class="img-2" />
+          Credit Cards
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/401bb7ff032bd4609885c98ec083f36bc4764f2ec20fbdc2dbc70524629bc3b8?"
+            class="img" />
+          Loans
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/62f7274a1cb4bcd5feb165371d346a425bdd1f0e008ba279c6c0425328938e8b?"
+            class="img" />
+          Services
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/ddf715d729a46f2916f37bb1fcbc2cb13b40752b1b4d315def13365d0bbdb3e1?"
+            class="img" />
+          My Privileges
+        </a>
+      </li>
+      <hr  class="divider">
+      <li>
+        <a href="#">
+          <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0f4af9fec3bf4213048467187058076cfa8cfd1f9170c124a57fcd999735f6d2?"
+            class="img" />
+          Settings
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/2a197809347bfb9e7280349b9933af1f13033b08d965df9ffde26a93a4ce3b9b?"
+            class="img-3" />
+          Logout
+        </a>
+      </li> -->
     </ul>
-</div> -->
+</nav>
