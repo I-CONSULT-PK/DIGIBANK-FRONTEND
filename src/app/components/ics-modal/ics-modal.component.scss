@@ -1,4 +1,10 @@
 // component css goes here
+@import '../../../assets/scss/core/variables/colors';
+$PrimaryColor: $PrimaryWebOrient;
 .modal-title{
     color: black;
+}
+.modal-header {
+    background-color: $PrimaryColor;
+    color: #fff;
 }

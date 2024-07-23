@@ -1,7 +1,7 @@
 <modal #myModal [ngStyle]="{ 'z-index': zindex }">
   <modal-header *ngIf="!hideHeader">
     <h5 class="modal-title">
-      <i class="fa fa-bars mr-1"></i> {{ Caption }}
+       {{ Caption }}
     </h5>
     <!-- <span class="" (click)="closeModalonCross()"></span> -->
     <!-- <button type="button" class="NewCloseBtn" accesskey="x" (click)="closeModal()">×</button> -->
@@ -92,13 +92,20 @@
   </modal-content>
 
   <modal-footer *ngIf="!hideFooter" style="padding: 0;">
-    <div class="row" style="padding-right: 10px;">
-      <button mat-raised-button type="button" (click)="closeModal()" class="btn btn-danger pull-right CustomButton" style="padding-right: 20px;">
-        Close
-      </button>
-      <button mat-raised-button type="button" class="btn btn-danger pull-right CustomButton" style="padding-right: 20px;" (click)="SaveandClose()">
-        Save & Close
-      </button>
+    <div class="row" >
+      <div class="d-flex flex-row">
+        <div>
+          <button mat-raised-button type="button" (click)="closeModal()" class="btn btn-danger pull-right CustomButton" style="margin-right: 12px;">
+            Close
+          </button>
+        </div>
+        <div>
+          <button mat-raised-button type="button" class="btn  pull-right CustomButton save-btn" (click)="SaveandClose()">
+            Save & Close
+          </button>
+        </div>
+      </div>
+      
     </div>
   </modal-footer>
 </modal>
