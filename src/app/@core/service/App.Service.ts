@@ -7,6 +7,6 @@ import { BaseService } from './Base.Service';
 export class AppService<T extends any> extends BaseService<T> {
     constructor(@Inject(String) private appController: string) {
 
-        super(appController, 'http://192.168.0.156:8080');
+        super(appController, 'http://192.168.0.196:8080');
     }
 }
