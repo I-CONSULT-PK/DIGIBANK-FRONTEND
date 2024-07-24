@@ -252,6 +252,12 @@ export class BenificiaryManagementComponent {
   accountData: any[] = [
     { Id: 1, accountname: 'HBL Bank' },
     { Id: 2, accountname: 'Alfalah Bank' },
+    { Id: 3, accountname: 'Meezan Bank' },
+    { Id: 4, accountname: 'ALied Bank' },
+    { Id: 5, accountname: 'JS Bank' },
+    { Id: 6, accountname: 'Naya Pay' },
+    { Id: 7, accountname: 'Sada Pay' },
+
   ];
 
   constructor() {}
