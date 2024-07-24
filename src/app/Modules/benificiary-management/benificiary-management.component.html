@@ -199,7 +199,6 @@
 <ics-modal #AddBeneficiaryModal Caption="Add New Beneficiary">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      
       <div class="container">
         <!-- Form to Add New Beneficiary -->
         <form [formGroup]="profileForm" (ngSubmit)="addBeneficiary()">
@@ -209,15 +208,13 @@
                 <label for="bankName" class="form-label">Bank Name*</label>
                 <ics-dropdown
                   class="form-select custom-form-select"
-                  id="bankName"
-                  formControlName="bankName"
-                  placeholder="Select your Bank"
-                  required
-                >
-                  <option value="">Select your bank</option>
-                  <option value="bank1">Bank 1</option>
-                  <option value="bank2">Bank 2</option>
-                </ics-dropdown>
+                  caption="Select your Bank"
+                  [(value)]="profileForm.value.bankName"
+                  [data]="accountData"
+                  valueMember="Id"
+                  displayMember="accountname"
+                  (selectionChange)="onDropdownChange()"
+                ></ics-dropdown>
               </div>
             </div>
             <div class="col-md-6">
@@ -252,11 +249,13 @@
             <div class="col-md-6">
               <div class="mb-3">
                 <label for="nickName" class="form-label">Nick Name*</label>
-                
-                <ics-input id="nickName"
-                formControlName="nickName"
-                placeholder="Enter your nick name"
-                required></ics-input>
+
+                <ics-input
+                  id="nickName"
+                  formControlName="nickName"
+                  placeholder="Enter your nick name"
+                  required
+                ></ics-input>
               </div>
             </div>
           </div>

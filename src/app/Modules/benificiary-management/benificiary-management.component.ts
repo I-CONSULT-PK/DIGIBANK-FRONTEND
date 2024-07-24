@@ -230,9 +230,10 @@
    
 // }
 
-import { Component, ViewChild } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { IcsModalComponent } from 'app/components/ics-modal/ics-modal.component';
+
 @Component({
   selector: 'app-benificiary-management',
   templateUrl: './benificiary-management.component.html',
@@ -244,8 +245,14 @@ export class BenificiaryManagementComponent {
   profileForm = new FormGroup({
     bankName: new FormControl(''),
     accountNumber: new FormControl(''),
+    accountTitle: new FormControl(''),
     nickName: new FormControl('')
   });
+
+  accountData: any[] = [
+    { Id: 1, accountname: 'HBL Bank' },
+    { Id: 2, accountname: 'Alfalah Bank' },
+  ];
 
   constructor() {}
 
@@ -264,5 +271,10 @@ export class BenificiaryManagementComponent {
 
     this.closeModal();
   }
+
+  onDropdownChange() {
+    console.log('Selected bank:', this.profileForm.value.bankName);
+  }
 }
+
 
