@@ -96,10 +96,31 @@ $PrimaryColor: $PrimaryWebOrient;
   font-size: 13px;
   font-weight: 400;
 }
-hr {
+.doted-line {
   border: none;
   border-top: 2.3px dotted #747474;
   color: #fff;
   background-color: #fff;
   height: 4px;
+}
+.btn-edit {
+//   background-color: $PrimaryColor;
+  width: 12rem;
+}
+.add-more {
+  padding: 164px 39px;
+  cursor: pointer;
+}
+
+.fa-icon {
+  font-size: 66px;
+  color: #b8b8b8;
+  object-fit: auto;
+  object-position: center;
+  width: 66px;
+  align-self: center;
+}
+.add-text {
+  text-decoration-line: underline;
+  font-size: 18px;
 }
