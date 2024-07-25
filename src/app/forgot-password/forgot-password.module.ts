@@ -6,6 +6,8 @@ import { ForgotPasswordComponent } from './forgot-password.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OtpVerificationModule } from 'app/components/otp-verification/otp-verification.module';
+import { loginService } from 'app/login/login.service';
+import { LoaderService } from 'app/@core/helper/loader.service';
 
 @NgModule({
     imports: [
@@ -19,7 +21,8 @@ import { OtpVerificationModule } from 'app/components/otp-verification/otp-verif
     ],
     exports: [
         ForgotPasswordComponent,
-    ]
+    ],
+    providers: [loginService, LoaderService]
 })
 export class ForgotPasswordModule {
 

@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 @Injectable({
     providedIn: 'root',
 })
-export class loginService extends AppService<any>{
+export class loginService extends AppService<any> {
 
     constructor() {
         super('customer');
@@ -17,16 +17,8 @@ export class loginService extends AppService<any>{
         return result;
     }
 
-    async forgotPassword(mobileNumber: string, email: string, username: string, ResetPassword: string) {
-        var dto: any = {};
-        dto = {
-            mobileNumber: mobileNumber,
-            email: email,
-            username: username,
-            ResetPassword: ResetPassword,
-
-        };
-        const result = await this.post("forgetPassword", dto);
+    async forgotUsername(dto: any) {
+        const result = await this.post("forgetUserName", dto);
         return result;
     }
 
