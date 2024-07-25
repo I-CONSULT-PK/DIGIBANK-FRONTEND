@@ -1,62 +1,26 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-    moduleId: module.id,
-    selector: 'ics-dropdown',
-    templateUrl: 'ics-dropdown.component.html',
-    styleUrls: ['ics-dropdown.component.scss']
+  selector: 'ics-dropdown',
+  templateUrl: './ics-dropdown.component.html',
+  styleUrls: ['./ics-dropdown.component.scss']
 })
 export class IcsDropdownComponent {
+  @Input() caption: string = '';
+  @Input() value: any;
+  @Input() valueMember: string = '';
+  @Input() displayMember: string = '';
+  @Input() data: any[] = [];
+  @Output() valueChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() selectionChange: EventEmitter<any> = new EventEmitter<any>();
 
-    @Output() ChangeCallback = new EventEmitter<void>();
+  changeIcon: boolean = false;
 
-    innerValue: any = "";
-    @Input()
-    get value(): any {
-        return this.innerValue;
-    }
+  ChangeEVent() {
+    this.selectionChange.emit(this.value);
+  }
 
-    set value(v: any) {
-        if (v !== this.innerValue) {
-            this.innerValue = v;
-        }
-    }
-    @Input()
-    valueMember: string = "";
-    @Input()
-    displayMember: string = "";
-
-    @Input()
-    caption: string = "";
-
-    @Input()
-    fieldName: string = "";
-
-    @Input()
-    defaultOrderbyIs: boolean = true;
-
-    _data: any[] = [];
-    get data(): any[] {
-        return this._data;
-    }
-
-    @Input()
-    set data(value: any[]) {
-        debugger
-        this._data = value;
-    }
-    constructor() { }
-    async ngOnInit() {
-        debugger
-        this.data
-    }
-
-    async ChangeEVent() {
-        debugger
-        this.ChangeCallback.emit();
-    }
-    changeIcon: boolean = false;
-    async ChnagePos() {
-        this.changeIcon = !this.changeIcon;
-    }
+  ChnagePos() {
+    this.changeIcon = !this.changeIcon;
+  }
 }
