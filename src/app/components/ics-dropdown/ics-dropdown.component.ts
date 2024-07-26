@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class IcsDropdownComponent {
   @Input() caption: string = '';
   @Input() value: any;
+  @Input() placeholder: any = '';
   @Input() valueMember: string = '';
   @Input() displayMember: string = '';
   @Input() data: any[] = [];

@@ -205,11 +205,11 @@
           <div class="row">
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="bankName" class="form-label">Bank Name*</label>
                 <ics-dropdown
                   class="form-label"
                   [(value)]="profileForm.value.bankName"
                   [data]="accountData"
+                  caption="Bank Name"
                   valueMember="Id"
                   displayMember="accountname"
                   (selectionChange)="onDropdownChange()"
