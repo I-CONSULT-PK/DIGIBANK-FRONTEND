@@ -153,7 +153,7 @@
                                                     disabled placeholder="Enter Your Email" formControlName="email">
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv" style="">
+                                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv" >
                                             <button (click)="CreateOTP()" type="button"
                                                 class="col-lg-12 btn btn-primary TrnBtn">
                                                 Next
@@ -205,24 +205,30 @@
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
                                             <div class="form-group">
-                                                <label class="col-md-12 control-label p-0" for="passwordinput">
-                                                    Password
-                                                    <span id="popover-password-top" class="hide pull-right block-help">
+                                                <div class="col-md-12 p-0 password-wrapper">
+                                                    <label class="control-label" for="passwordinput">
+                                                      Password
+                                                      <span id="popover-password-top" class="hide pull-right block-help">
                                                         <i class="fa fa-info-circle text-danger" aria-hidden="true"></i>
                                                         Enter a strong password
-                                                    </span>
-                                                </label>
+                                                      </span>
+                                                    </label>
+                                                   
+                                                  </div>
+
                                                 <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">
                                                             <i class="fa fa-solid fa-lock"></i>
                                                         </div>
                                                     </div>
-                                                    <input #pass (keyup)="checkStrength(pass.value)" id="password"
-                                                        name="password" type="password" placeholder="Enter Password"
-                                                        class="form-control input-md" data-placement="bottom"
-                                                        data-toggle="popover" data-container="body" data-html="true">
+                                                    <input [type]="confirmPasswordFieldType" id="confirmPassword" 
+                                                    class="form-control" placeholder="Confirm Your Password"
+                                                    formControlName="confirmPassword">
+                                             <i class="fa" [ngClass]="{'fa-eye': confirmPasswordFieldType === 'password', 'fa-eye-slash': confirmPasswordFieldType === 'text'}" 
+                                                (click)="toggleConfirmPasswordVisibility()"></i>
                                                 </div>
+                                                
                                                 <div id="popover-password">
                                                     <ul class="list-unstyled">
                                                         <li class="info">
@@ -271,9 +277,15 @@
                                                         <i class="fa fa-solid fa-lock"></i>
                                                     </div>
                                                 </div>
-                                                <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                    placeholder="Confirm Your Password" formControlName="password">
+                                                <input [type]="confirmPasswordFieldType" id="confirmPassword" class="form-control" placeholder="Confirm Your Password"
+                                                    formControlName="confirmPassword">
+                                                <i class="fa"
+                                                    [ngClass]="{'fa-eye': confirmPasswordFieldType === 'password', 'fa-eye-slash': confirmPasswordFieldType === 'text'}"
+                                                    (click)="toggleConfirmPasswordVisibility()"></i>
                                             </div>
+                                            <div *ngIf="passwordForm.errors?.passwordMismatch && passwordForm.get('confirmPassword').touched">
+                                                <span class="text-danger">Passwords do not match</span>
+                                              </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv">
                                             <div>
