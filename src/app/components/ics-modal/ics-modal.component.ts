@@ -6,7 +6,7 @@ declare var $: any;
     selector: 'ics-modal',
     templateUrl: 'ics-modal.component.html',
     styleUrls: ['ics-modal.component.scss'],
-    encapsulation: ViewEncapsulation.None,
+    encapsulation: ViewEncapsulation.None
 })
 export class IcsModalComponent implements AfterViewInit, OnInit {
     Size: any;
@@ -148,7 +148,8 @@ export class IcsModalComponent implements AfterViewInit, OnInit {
 
     @Input()
     hideModalToolbar: boolean = false;
-
+    @Input() closeButtonLabel: string = 'Close'; 
+    @Input() saveAndCloseButtonLabel: string = 'Save & Close'; 
     constructor(private modalService: ModalManager,) { }
 
     async open(size: string = "lg", isCentered: boolean = false) {
