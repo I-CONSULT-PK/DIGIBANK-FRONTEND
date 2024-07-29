@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { signupService } from './signup.service';
 import { IcsErrorComponent } from 'app/components/ics-error/ics-error.component';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { otpService } from 'app/components/otp-verification/otp-verification.service';
 import { OtpVerificationComponent } from 'app/components/otp-verification/otp-verification.component';
 
@@ -13,7 +13,7 @@ import { OtpVerificationComponent } from 'app/components/otp-verification/otp-ve
 })
 export class signupComponent implements OnInit {
 
-  constructor(private router: Router, private signupService: signupService, private formBuilder: FormBuilder, private otpService: otpService) { }
+  constructor(private router: Router,private fb: FormBuilder, private signupService: signupService, private formBuilder: FormBuilder, private otpService: otpService) { }
   myForm: FormGroup;
   // Model Variable For Signup
   UserCnic: string = "";
@@ -42,9 +42,31 @@ export class signupComponent implements OnInit {
       username: [''],
       password: [''],
     });
+    this.passwordForm = this.fb.group({
+      password: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]]
+    }, {
+      validator: PasswordMatchValidator('password', 'confirmPassword')
+    });
   }
+  passwordForm: FormGroup;
+  passwordFieldType: string = 'password';
+  confirmPasswordFieldType: string = 'password';
+
+
+
+  togglePasswordVisibility(): void {
+    this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
+  }
+
+  toggleConfirmPasswordVisibility(): void {
+    this.confirmPasswordFieldType = this.confirmPasswordFieldType === 'password' ? 'text' : 'password';
+  }
+
+  
+
   tittle: any = "Make Your Account";
-  activityModemStep: any = 1;
+  activityModemStep: any = 4;
   async NextActivity(activityModem: any) {
     debugger
     this.activityModemStep = activityModem;
@@ -64,6 +86,8 @@ export class signupComponent implements OnInit {
       this.tittle = "Set Your Account Credentials";
     }
   }
+  
+  
 
   async checkStrength(password: any) {
     debugger
@@ -294,3 +318,22 @@ export class signupComponent implements OnInit {
     this.router.navigate(["/login"])
   }
 }
+export function PasswordMatchValidator(controlName: string, matchingControlName: string) {
+  return (formGroup: FormGroup) => {
+    const control = formGroup.controls[controlName];
+    const matchingControl = formGroup.controls[matchingControlName];
+
+    if (matchingControl.errors && !matchingControl.errors.passwordMismatch) {
+      return;
+    }
+
+    if (control.value !== matchingControl.value) {
+      matchingControl.setErrors({ passwordMismatch: true });
+    } else {
+      matchingControl.setErrors(null);
+    }
+  };
+}
+
+
+
