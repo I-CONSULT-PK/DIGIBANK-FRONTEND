@@ -1,9 +1,5 @@
-// Angular Imports
 import { NgModule } from '@angular/core';
-
-// This Module's Components
-import { FundsTransferComponent } from './funds-transfer.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'; // Import FormsModule
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,10 +10,12 @@ import { ComponentsModule } from 'app/components/components.module';
 import { IcsModalModule } from 'app/components/ics-modal/ics-modal.module';
 import { SuccessPopupModule } from 'app/components/success-popup/success-popup.module';
 import { IcsGridModule } from 'app/components/ics-grid/ics-grid.module';
+import { FundsTransferComponent } from './funds-transfer.component';
 
 @NgModule({
     imports: [
         ReactiveFormsModule,
+        FormsModule, // Add FormsModule here
         ComponentsModule,
         IcsModalModule,
         SuccessPopupModule,
@@ -30,6 +28,4 @@ import { IcsGridModule } from 'app/components/ics-grid/ics-grid.module';
         FundsTransferComponent,
     ]
 })
-export class FundsTransfer {
-
-}
+export class FundsTransferModule { }

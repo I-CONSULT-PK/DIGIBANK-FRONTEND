@@ -1,7 +1,8 @@
 <div class="card">
-    <label>{{ caption }}</label>
+  <label for="bankName" class="form-label">{{ caption }}</label>
     <!-- <i class="fa" [ngClass]="changeIcon ? 'fa-caret-down' : 'fa-caret-up'"></i> -->
     <select class="form-select" (change)="ChangeEVent()" [(ngModel)]="value" (click)="ChnagePos()">
+      <option hidden value="" disabled selected>{{placeholder == '' ? ("Select "+ caption) : placeholder}} </option>
       <option *ngFor="let item of data" [ngValue]="item[valueMember]">{{ item[displayMember] }}</option>
     </select>
   </div>

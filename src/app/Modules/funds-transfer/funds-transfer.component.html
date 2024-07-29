@@ -1,152 +1,204 @@
-<div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card card-profile">
-                    <div class="card-avatar">
+<div class="container-fluid " style="background-color: #F9FAFC;">
+    <div class="row">
+        <div class="ml-sm-auto col-lg-10 mt-2">
+            <div class="main-card">
+                <section id="Navbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand mr-auto" href="#">
+                                Manage Internet Banking
+                                <p class="manage-text">Manage Your Bank Account</p>
+                            </a>
 
-                        <a href="javascript:void(0)">
-                            <img class="img" src="../../assets/img/faces/marc.png" />
-                        </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
 
-                    </div>
-                    <div class="card-body" style="align-content: center;">
-                        <h6 class="card-category text-gray">Last Login : <strong>{{test }}</strong></h6>
-                        <h6 class="card-category text-gray">Last Password Changed : <strong>13 Days</strong></h6>
-                        <h4 class="card-title"> <strong>Hello,</strong> Meer Hamza</h4>
-                        <h2 class="card-title text-center">
-                            Funds Transfer
-                        </h2>
-                    </div>
-                    <nav>
-                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <!--MY ACCOUNTS TAB-->
-                            <a class="nav-item nav-link active" id="nav-accounts-tab" data-toggle="tab"
-                                href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="true">My
-                                Accounts</a>
-                            <!--MY WALLET TAB-->
-                            <a class="nav-item nav-link" id="nav-wallet-tab" data-toggle="tab" href="#nav-wallet"
-                                role="tab" aria-controls="nav-wallet" aria-selected="false">Wallet</a>
+                            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <div class="has-search">
+                                                <span class="fa fa-search form-control-feedback"></span>
+                                                <input type="text" class="form-control" placeholder="Search">
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="d-flex align-items-center ml-3">
+                                            <div class="circle-icon">
+                                                <i class="fas fa-cog"></i>
+                                            </div>
+                                            <div class="circle-icon ml-3">
+                                                <i class="fas fa-bell"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h5 class="m-0">Welcome</h5>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-flex align-items-center">
+                                                <h6 class="m-0">Mirza Uraib</h6>
+                                                <i class="fa fa-angle-down ml-1"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </nav>
-                    <div class="tab-content" id="nav-tabContent">
-                        <!--MY ACCOUNTS TAB-->
-                        <div class="tab-pane fade active show" id="nav-accounts" role="tabpanel"
-                            aria-labelledby="nav-accounts-tab">
-                            <div class="container-fluid">
-
-                                <div class="row" style="padding-top: 37px;">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <p>
-                                                    <mat-form-field appearance="outline">
-                                                        <mat-label>Search by Account</mat-label>
-                                                        <input matInput placeholder="Search">
-                                                        <mat-icon matSuffix>search</mat-icon>
-                                                    </mat-form-field>
-                                                </p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <button mat-raised-button type="button" (click)="OpenModal()"
-                                                    class="btn btn-danger pull-right CustomButton">
-                                                    Funds Transfer
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ics-modal #Modal1 Caption="Funds Transfer" (onSave)="SuccessPopup()">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <ics-dropdown caption="Select Your Account" [data]="accountData"
-                                                    valueMember="Id" displayMember="accountname"></ics-dropdown>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <ics-dropdown caption="Select Beneficiary Type" [data]="BankData"
-                                                    valueMember="Id" displayMember="bankname"></ics-dropdown>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <ics-dropdown caption="Select Payment For" [data]="TypeData"
-                                                    valueMember="Id" displayMember="forname"></ics-dropdown>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <ics-dropdown caption="Select Beneficiary" [data]="TypeData"
-                                                    valueMember="Id" displayMember="forname"></ics-dropdown>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="card">
-                                                    <input type="number" #input class="form-control"
-                                                        placeholder="Amount" (input)="handleAmountChange(input.value)">
-                                                    <span class="AmountInfoSpan">Available Balance: <span
-                                                            [style.color]="CurrentDisBal > 0 ? 'green' : 'red'">RS
-                                                            {{CurrentDisBal}}</span></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ics-modal>
-                                <div class="row">
-                                    <div class="TableMain col-md-12">
-                                        <ics-grid></ics-grid>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="nav-wallet" role="tabpanel" aria-labelledby="nav-wallet-tab">
-                            <div class="container-fluid">
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <select class="form-select">
-                                            <option selected>From Wallet</option>
-                                            <option value="1">xxx xxxxxx xx</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <select class="form-select">
-                                            <option selected>To Wallet</option>
-                                            <option value="1">My DIGI-BANK Account</option>
-                                            <option value="1">My JazzCash Account</option>
-                                            <option value="1">Others</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <form>
-                                            <input type="number" #input class="form-control" placeholder="Amount"
-                                                (input)="handleAmountChange(input.value)">
-                                            <span
-                                                [style.color]="remainingAmountNew > 0 ? 'green' : 'red'">{{remainingAmountNew}}</span>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <select class="form-select">
-                                            <option selected>Others</option>
-                                            <option value="1">Card Bill Payment</option>
-                                            <option value="1">Rental Payment</option>
-                                            <option value="1">Hotel Payment</option>
-                                            <option value="1">School and University Fee Payment</option>
-                                            <option value="1">Donations or Charity</option>
-                                            <option value="1">Supplier and Distributor Payment</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <hr class="divider">
+                </section>
+                <div class="d-flex justify-content-between align-items-center tittle-div">
+                    <div class="account-title ">
+                        Transactions History
+                    </div>                    
+                    <div class="d-flex align-items-center gap-2">
+                      <ics-dropdown
+                        class="form-label"
+                        aria-placeholder="hello"
+                        [(value)]="profileForm.value.TransferName"
+                        placeholder="Select Account"
+                        [data]="TransferData"
+                        valueMember="Id"
+                        displayMember="TransferName"
+                        (selectionChange)="onDropdownChange()"
+                      ></ics-dropdown>
+                        <button class="btn btn-download border-info p-2 rounded mb-3">
+                            <i class="fa fa-download"></i>
+                            Download Report
+                        </button>
                     </div>
-                </div>
+                </div> 
+                <section id="Transactions-History" class="mt-2">
+                    <div class="Transactions-History-Card">
+                      <div class="container">
+                        <table class="table  transaction-table">
+                          <thead>
+                            <tr>
+                              <th>Description</th>
+                              <th>Banks</th>
+                              <th>Account Number</th>
+                              <th>Date</th>
+                              <th>Amount</th>
+                              <th>Receipt</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="d-flex flex-row">
+                                <span class="description-icon s">S</span>
+                                <div class="ml-3 text-left">
+                                  M. Sameer<br>
+                                  <small>Family Support</small>
+                                </div>
+                              </td>
+                              <td><img src="../../../assets/img/Logo/askari-bank-logo.png" alt="Askari Bank" class="bank-logo">
+                              </td>
+                              <td>98575463558974</td>
+                              <td>28 Jan, 12.30 AM</td>
+                              <td class="text-danger">-$2,500</td>
+                              <td><button class=" btn t-download">Download</button></td>
+                            </tr>
+                            <tr>
+                              <td class="d-flex flex-row">
+                                <span class="description-icon A">A</span>
+                                <div class="ml-3 text-left">
+                                  Amna<br>
+                                  <small>Family Support</small>
+                                </div>
+                              </td>
+                              <td><img src="../../../assets/img/Logo/hbl-konnect-logo.png" alt="HBL KONNECT" class="bank-logo">
+                              </td>
+                              <td>98575463558974</td>
+                              <td>28 Jan, 12.30 AM</td>
+                              <td class="text-danger">-$2,500</td>
+                              <td><button class=" btn t-download">Download</button></td>
+                            </tr>
+                            <tr>
+                              <td class="d-flex flex-row">
+                                <span class="description-icon S">S</span>
+                                <div class="ml-3 text-left">
+                                  Sidra<br>
+                                  <small>Family Support</small>
+                                </div>
+                              </td>
+                              <td><img src="../../../assets/img/Logo/askari-bank-logo.png" alt="Askari Bank" class="bank-logo">
+                              </td>
+                              <td>98575463558974</td>
+                              <td>28 Jan, 12.30 AM</td>
+                              <td class="text-danger">-$2,500</td>
+                              <td><button class=" btn t-download">Download</button></td>
+                            </tr>
+                            <tr>
+                              <td class="d-flex flex-row">
+                                <span class="description-icon F">F</span>
+                                <div class="ml-3 text-left">
+                                  Fatima Ali<br>
+                                  <small>Family Support</small>
+                                </div>
+                              </td>
+                              <td><img src="../../../assets/img/Logo/hbl-konnect-logo.png" alt="HBL KONNECT" class="bank-logo">
+                              </td>
+                              <td>98575463558974</td>
+                              <td>28 Jan, 12.30 AM</td>
+                              <td class="text-danger">-$2,500</td>
+                              <td><button class=" btn t-download">Download</button></td>
+                            </tr>
+                            <tr>
+                                <td class="d-flex flex-row">
+                                  <span class="description-icon M">M</span>
+                                  <div class="ml-3 text-left">
+                                    Maaz Khan<br>
+                                    <small>Family Support</small>
+                                  </div>
+                                </td>
+                                <td><img src="../../../assets/img/Logo/askari-bank-logo.png" alt="HBL KONNECT" class="bank-logo">
+                                </td>
+                                <td>98575463558974</td>
+                                <td>28 Jan, 12.30 AM</td>
+                                <td class="text-danger">-$2,500</td>
+                                <td><button class=" btn t-download">Download</button></td>
+                              </tr>
+                              <tr>
+                                <td class="d-flex flex-row">
+                                  <span class="description-icon N">N</span>
+                                  <div class="ml-3 text-left">
+                                    Nida<br>
+                                    <small>Family Support</small>
+                                  </div>
+                                </td>
+                                <td><img src="../../../assets/img/Logo/hbl-konnect-logo.png" alt="HBL KONNECT" class="bank-logo">
+                                </td>
+                                <td>98575463558974</td>
+                                <td>28 Jan, 12.30 AM</td>
+                                <td class="text-danger">-$2,500</td>
+                                <td><button class=" btn t-download">Download</button></td>
+                              </tr>
+                          </tbody>
+                        </table>
+                        <!-- <div class="pagination-container">
+                          <div class="div-2">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                            <div class="div-3">Previous</div>
+                            <div class="div-4">1</div>
+                            <div class="div-5">2</div>
+                            <div class="div-5">3</div>
+                            <div class="div-5">4</div>
+                            <div class="div-9">Next</div>
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                          </div>
+                        </div> -->
+                      </div>
+                    </div>
+                  </section>    
+                 
             </div>
         </div>
     </div>
 </div>
-
-<ics-modal #NewModal1 Caption="Notification" [hideHeader]="true" [hideFooter]="true">
-    <success-popup></success-popup>
-</ics-modal>

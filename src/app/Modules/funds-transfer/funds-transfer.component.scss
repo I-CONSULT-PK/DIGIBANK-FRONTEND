@@ -1,72 +1,229 @@
 @import '../../../assets/scss/core/variables/colors';
+$PrimaryColor: $PrimaryWebOrient;
 
-.nav-item.nav-link.active {
-    background-color: $PrimaryWebOrient !important;
+.main-card {
+    background-color: white;
+    border-radius: 12px;
+    width: 100%;
+    padding: 0;
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .navbar-brand {
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.navbar-brand .manage-text {
+    font-weight: 400;
+    font-size: 15px;
+    color: #555555;
+}
+
+.navbar .form-control {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.has-search {
+    position: relative;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    text-align: center;
+    color: #aaa;
+    margin-top: 12px;
+}
+
+.navbar .circle-icon {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
+
+.navbar .nav-item h5 {
+    font-size: 14px;
+    margin: 0;
+}
+
+.navbar .nav-item h6 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+}
+
+//  header css end-->
+.tittle-div{
+    padding: 1px 2.5rem 0px 1.5rem;
+}
+.account-title {
+    color: #263238;
+    font-weight: 600;
+    font-size: 25px;
+    font-family: 'Inter', sans-serif;
+}
+.btn-download {
+    background-color: $PrimaryColor;
+    color: white;
+    width: 11rem;
+}
+// Transactions-History card css-->
+#Transactions-History .Transactions-History-Card {
+    height: auto;
+    width: 95%;
+    margin-left: 30px;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.04), 0px 8px 16px 0px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    color: #263238;
+}
+
+#Transactions-History .transaction-table th {
+    vertical-align: middle;
+    border-bottom-color: none !important;
+    border-bottom: none !important;
+    text-align: center;
+    color: #727272;
+    font-weight: 600;
+}
+
+.transaction-table td {
+    vertical-align: middle;
+    border-bottom-color: none !important;
+    border-bottom: none !important;
+    text-align: center;
+    color: #727272;
+    font-weight: 500;
+}
+
+// #Transactions-History .bank-logo {
+//   width: 30px;
+//   height: auto;
+// }
+#Transactions-History .description-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    line-height: 43px;
     color: white;
 }
 
-.form-select {
-    display: block;
-    width: 100%;
-    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
-    -moz-padding-start: calc(0.75rem - 3px);
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
+#Transactions-History .description-icon.S {
+    background-color: #007bff;
+}
+#Transactions-History .description-icon.s {
+    background-color: #59d1ef;
+}
+
+#Transactions-History .description-icon.A {
+    background-color: #6610f2;
+}
+
+#Transactions-History .description-icon.F {
+    background-color: #28a745;
+}
+#Transactions-History .description-icon.N {
+    background-color: #FE5C73;
+}
+#Transactions-History .description-icon.M {
+    background-color: #861867;
+}
+
+:host {
+    display: contents;
+}
+
+#Transactions-History .div {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    justify-content: space-between;
+}
+
+#Transactions-History .div-2 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 20px;
+}
+
+#Transactions-History .t-download {
+    background-color: #fff !important;
+    color: $PrimaryColor;
+    border-color: $PrimaryColor;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-weight: 600;
+}
+
+#Transactions-History .div-3,
+.div-9 {
+    color: #455a64;
+    font-family: Inter, sans-serif;
+    align-self: stretch;
+    margin: auto 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.avatar-container {
+    position: absolute;
+    top: 96%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid rgba(29, 216, 137, 1);
     background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 16px 12px;
-    border: 1px solid #ced4da;
-    border-radius: 0.375rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.totalAmount {
-    text-align: end;
+#Transactions-History .div-4 {
+    font-family: Inter, sans-serif;
+    border-radius: 8.405px;
+    background-color: #455a64;
+    align-self: stretch;
+    align-items: center;
+    color: #fff;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0 8px;
 }
 
-.tab-content {
-    border-top: 1px solid #1cb1cb;
+#Transactions-History .div-5 {
+    color: #b8b8b8;
+    font-family: Inter, sans-serif;
+    align-self: stretch;
+    margin: auto 0;
 }
-
-.TableMain {
-    // overflow: scroll;
-    // max-height: 65vh;
-
-    tr {
-        th {
-            font-weight: bold;
-            color: black;
-            font-size: 15px;
-        }
-
-        td:nth-child(6) {
-            color: green;
-            font-weight: bold;
-
-        }
-    }
+::ng-deep .card{
+    height: 52px;
 }
-
-.td-actions button {
-    margin-left: 9px;
-}
-
-input:focus {
-    box-shadow: none;
-}
-
-.AmountInfoSpan {
-    text-align: right;
-    font-size: 12px;
-    padding-right: 6px;
-
-    span {
-        font-weight: 600;
-    }
+::ng-deep .form-select{
+    height: 42px;
 }
