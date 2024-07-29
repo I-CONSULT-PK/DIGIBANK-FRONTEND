@@ -92,20 +92,19 @@
   </modal-content>
 
   <modal-footer *ngIf="!hideFooter" style="padding: 0;">
-    <div class="row" >
+    <div class="row">
       <div class="d-flex flex-row">
         <div>
-          <button mat-raised-button type="button" (click)="closeModal()" class="btn btn-danger pull-right CustomButton" style="margin-right: 12px;">
-            Close
+          <button mat-raised-button type="button" class="btn btn-primary" (click)="SaveandClose()">
+            {{ saveAndCloseButtonLabel }}
           </button>
         </div>
         <div>
-          <button mat-raised-button type="button" class="btn  pull-right CustomButton save-btn" (click)="SaveandClose()">
-            Save & Close
+          <button mat-raised-button type="button" class="btn btn-danger" (click)="customClosed()">
+            {{ closeButtonLabel }}
           </button>
         </div>
       </div>
-      
     </div>
   </modal-footer>
 </modal>
