@@ -146,6 +146,9 @@ $PrimaryColor: $PrimaryWebOrient;
 .modal-content {
   border: 0px ;
 }
+::ng-deep .modal-title {
+  color: white !important;
+}
 ::ng-deep .modal-footer {
   display: none;
 }
@@ -157,6 +160,7 @@ $PrimaryColor: $PrimaryWebOrient;
   font-weight: 600;
   cursor: pointer;
   transition: 0.15s ease;
+  margin-right: 30px;
 }
 
 .button.is-ghost:hover, .button.is-ghost:focus {
