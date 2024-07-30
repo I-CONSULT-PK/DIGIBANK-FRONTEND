@@ -240,6 +240,7 @@ import { IcsModalComponent } from 'app/components/ics-modal/ics-modal.component'
   styleUrls: ['./benificiary-management.component.scss']
 })
 export class BenificiaryManagementComponent {
+  saveAndCloseButtonLabel: string = "Accept";
   @ViewChild('AddBeneficiaryModal') AddBeneficiaryModal: IcsModalComponent | any; 
 
   profileForm = new FormGroup({

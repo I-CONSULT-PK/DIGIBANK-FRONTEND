@@ -183,16 +183,16 @@ td {
   max-width: 870px;
   margin: auto;
 }
-.modal-footer {
-  display: none !important;
-}
+// .modal-footer {
+//   display: none !important;
+// }
 .form-control {
   background-color: #fbfbfb !important;
 }
 .form-select {
   background-color: #fbfbfb !important;
 }
-.custom-form-select{
+.custom-form-select {
   color: black;
 }
 
@@ -204,14 +204,18 @@ td {
 ::ng-deep .modal-title {
   color: white !important;
 }
-::ng-deep .save-btn {
+
+::ng-deep .form-control {
+  background-color: #fbfbfb;
+}
+::ng-deep .btn-primary {
   background-color: $PrimaryWebOrient !important;
+  margin-right: 10px !important;
   color: #fff !important;
 }
-::ng-deep .form-control {
-background-color: #FBFBFB; 
+::ng-deep .btn-danger{
+  display: none !important;
 }
-
 
 //  .nav-item.nav-link.active {
 //      background-color: $PrimaryWebOrient !important;
