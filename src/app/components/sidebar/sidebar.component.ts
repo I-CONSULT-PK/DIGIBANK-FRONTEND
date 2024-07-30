@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
-import { ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef } from "@angular/core";
 
 declare const $: any;
 declare interface RouteInfo {
@@ -29,6 +29,12 @@ export const ROUTES: RouteInfo[] = [
     class: "",
   },
   // { path: '/BankStatement', title: 'Bank Statement', icon: 'receipt_long', class: '' },
+  {
+    path: "/Admin/Funds",
+    title: "Transactions",
+    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/764429aa1ca8e9e56824a19865b080b51b279de229674e8a6712937cc65e7bf1?",
+    class: "",
+  },
   {
     path: "/Admin/Login",
     title: "Logout ",
@@ -60,7 +66,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     // Set default active menu item
     this.setDefaultActiveMenu();
-    
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.highlightActiveMenu(event.urlAfterRedirects);
@@ -69,27 +75,30 @@ export class SidebarComponent implements OnInit {
   }
 
   navigate(menu: RouteInfo) {
-    this.selectedMenu = menu; 
+    this.selectedMenu = menu;
     this.router.navigate([menu.path]).then(() => {
-      this.cdr.detectChanges(); 
+      this.cdr.detectChanges();
     });
   }
 
   setDefaultActiveMenu() {
     // Default to Dashboard if no route matches
-    const defaultRoute = this.menuItems.find(item => item.title === 'Dashboard');
+    const defaultRoute = this.menuItems.find(
+      (item) => item.title === "Dashboard"
+    );
     this.selectedMenu = defaultRoute || null;
-    this.router.navigate([defaultRoute?.path || '/Admin/maiden']);
+    this.router.navigate([defaultRoute?.path || "/Admin/maiden"]);
   }
 
   highlightActiveMenu(currentRoute: string) {
-    this.selectedMenu = this.menuItems.find(menuItem =>
-      this.router.isActive(menuItem.path, true) 
-    ) || this.selectedMenu; 
+    this.selectedMenu =
+      this.menuItems.find((menuItem) =>
+        this.router.isActive(menuItem.path, true)
+      ) || this.selectedMenu;
   }
 
   isActive(menuItem: RouteInfo): boolean {
-    return this.selectedMenu === menuItem; 
+    return this.selectedMenu === menuItem;
   }
 
   isMobileMenu() {
