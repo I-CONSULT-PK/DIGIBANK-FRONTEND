@@ -267,13 +267,13 @@
                   <form
                     *ngIf="activityModemStep == 4"
                     class="Fourth-Step"
-                    [formGroup]="myForm"
+                    [formGroup]="passwordForm"
                   >
                     <div class="form-row align-items-center">
                       <div
                         class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
                       >
-                        <label for="inlineFormInput">User Name *</label>
+                        <label for="username">User Name *</label>
                         <div class="input-group mb-2">
                           <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -283,18 +283,19 @@
                           <input
                             type="text"
                             class="form-control"
-                            id="inlineFormInputGroup"
+                            id="username"
                             placeholder="Enter Your User Name"
                             formControlName="username"
                           />
                         </div>
                       </div>
+
                       <div
                         class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
                       >
                         <div class="form-group">
                           <div class="col-md-12 p-0 password-wrapper">
-                            <label class="control-label" for="passwordinput">
+                            <label class="control-label" for="password">
                               Password
                               <span
                                 id="popover-password-top"
@@ -316,21 +317,19 @@
                               </div>
                             </div>
                             <input
-                              [type]="confirmPasswordFieldType"
-                              id="confirmPassword"
+                              [type]="passwordFieldType"
+                              id="password"
                               class="form-control"
-                              placeholder="Confirm Your Password"
-                              formControlName="confirmPassword"
+                              placeholder="Enter Your Password"
+                              formControlName="password"
                             />
                             <i
                               class="fa"
                               [ngClass]="{
-                                'fa-eye':
-                                  confirmPasswordFieldType === 'password',
-                                'fa-eye-slash':
-                                  confirmPasswordFieldType === 'text'
+                                'fa-eye': passwordFieldType === 'password',
+                                'fa-eye-slash': passwordFieldType === 'text'
                               }"
-                              (click)="toggleConfirmPasswordVisibility()"
+                              (click)="togglePasswordVisibility()"
                             ></i>
                           </div>
 
@@ -355,9 +354,9 @@
                                 <span class="low-upper-case">
                                   <i class="fa fa-solid fa-circle-check"></i>
                                 </span>
-                                <span class="blueLable-case">
-                                  Case Sensitivity:
-                                </span>
+                                <span class="blueLable-case"
+                                  >Case Sensitivity:</span
+                                >
                                 Use both uppercase and lowercase letters
                               </li>
                             </ul>
@@ -375,10 +374,11 @@
                           </div>
                         </div>
                       </div>
+
                       <div
                         class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
                       >
-                        <label for="inlineFormInput">Confirm Password</label>
+                        <label for="confirmPassword">Confirm Password</label>
                         <div class="input-group mb-2">
                           <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -391,6 +391,9 @@
                             class="form-control"
                             placeholder="Confirm Your Password"
                             formControlName="confirmPassword"
+                            [ngStyle]="{
+                              'box-shadow': getConfirmPasswordClass()
+                            }"
                           />
                           <i
                             class="fa"
@@ -404,8 +407,8 @@
                         </div>
                         <div
                           *ngIf="
-                            passwordForm.errors?.passwordMismatch &&
-                            passwordForm.get('confirmPassword').touched
+                            myForm.errors?.passwordMismatch &&
+                            confirmPasswordControl.touched
                           "
                         >
                           <span class="text-danger"
@@ -428,19 +431,21 @@
                           .
                         </div>
                       </div>
+
                       <div
                         class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv"
                         style="line-height: 6"
                       >
-                      <button
-                      (click)="SignupPost()"
-                      type="button"
-                      class="col-lg-12 btn btn-primary TrnBtn"
-                      [disabled]="isTraDisabled"
-                    >
-                      Let's Do This
-                    </button>
+                        <button
+                          (click)="SignupPost()"
+                          type="button"
+                          class="col-lg-12 btn btn-primary TrnBtn"
+                          [disabled]="isTraDisabled"
+                        >
+                          Let's Do This
+                        </button>
                       </div>
+
                       <div
                         class="col-lg-12 col-md-12 col-sm-6 col-xs-4 FieldDiv AlrAcc"
                       >
