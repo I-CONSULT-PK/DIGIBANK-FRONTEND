@@ -1,54 +1,64 @@
-@import '../../../assets/scss/core/variables/colors';
+@import "../../../assets/scss/core/variables/colors";
 $PrimaryColor: $PrimaryWebOrient;
 
 #sidebar {
-    background: #F9FAFC;
-    height: 100vh;
-    position: fixed;
-    /* Full height */
+  background: #f9fafc;
+  height: 100vh;
+  position: fixed;
+  /* Full height */
 }
-  
+
 #sidebar .sidebar-header {
-    color: #fff;
-    padding: 10px;
+  color: #fff;
+  padding: 1px;
 }
-  
+
 #sidebar ul {
-    padding-left: 10px;
-    list-style: none;
-}
+  // padding-left: 10px;
+  list-style: none;
   
+}
+
 #sidebar ul li a {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    color: #333;
-    text-decoration: none;
-    width: 225px;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  width: 225px;
+  cursor: pointer;
     cursor: pointer;
 }
 
-  
-#sidebar ul li a:hover {
-    color: $PrimaryColor;
-  }
-  
-#sidebar ul li img {
-    width: 25px;
-    margin-right: 10px;
-}
-  
+// #sidebar ul li a:hover {
+//     color: $PrimaryColor;
+//   }
+
 #sidebar .list-unstyled i {
-    margin-right: 11px;
-    font-size: 30px !important;
+  margin-right: 11px;
+  font-size: 22px !important;
 }
-  
-  
+
 #sidebar ul li img.img-2 {
-    width: 26px;
+  width: 26px;
 }
-  
+
 #sidebar ul li img.img-3 {
-    width: 22px;
+  width: 22px;
 }
-  
+
+.nav-item.active {
+  // background-color: rgba($PrimaryColor, 0.3);
+  border-left: 4px solid $PrimaryColor;
+}
+
+.nav-item.active .nav-link {
+  color: $PrimaryColor !important;
+}
+.nav-item-icon.active {
+  // background-color: rgba($PrimaryColor, 0.3);
+  background-color: $PrimaryColor;
+}
+.nav-item .icon {
+  font-size: 20px !important;
+}

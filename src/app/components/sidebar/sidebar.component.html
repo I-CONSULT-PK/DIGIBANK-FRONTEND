@@ -2,17 +2,16 @@
   <div class="sidebar-header">
     <img src="../../assets/img/Logo/Nav_Logo.png" style="width: 175px;" />
   </div>
-  <hr  class="divider">
+  <hr class="divider">
   <ul class="list-unstyled">
-
-    <li *ngFor="let menuItem of menuItems" [routerLinkActive]="['active', menuItem.class]" class="nav-item">
+    <li *ngFor="let menuItem of menuItems" [ngClass]="{'active': isActive(menuItem), 'nav-item': true}">
       <a class="nav-link" (click)="navigate(menuItem)">
-        <img loading="lazy" [src]="menuItem.icon" class="img" />
-        {{ menuItem.title }}
-      <!-- <i class="material-icons">{{menuItem.icon}}</i> -->
-              <!-- <p>{{menuItem.title}}</p> -->
-    </a> 
-  </li>
+        <i [ngClass]="menuItem.icon" class="icon"></i>
+        {{menuItem.title}}
+                <!-- <i class="material-icons">{{menuItem.icon}}</i> -->
+                <!-- <p>{{menuItem.title}}</p> -->
+            </a>
+        </li>
 
 
 <!-- 
