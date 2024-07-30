@@ -36,7 +36,7 @@ export const ROUTES: RouteInfo[] = [
     class: "",
   },
   {
-    path: "/Admin/Login",
+    path: "/Admin/login",
     title: "Logout ",
     icon: "fa fa-sign-out",
     class: "",
