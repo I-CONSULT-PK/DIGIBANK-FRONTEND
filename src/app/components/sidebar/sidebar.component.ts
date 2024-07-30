@@ -32,7 +32,7 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/Admin/Funds",
     title: "Transactions",
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/764429aa1ca8e9e56824a19865b080b51b279de229674e8a6712937cc65e7bf1?",
+    icon: "fa fa-exchange",
     class: "",
   },
   {
