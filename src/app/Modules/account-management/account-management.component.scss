@@ -78,13 +78,14 @@ $PrimaryColor: $PrimaryWebOrient;
   border: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
+  height: auto;
 }
 
 .card:hover {
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 .card-body {
-  padding: 1.25rem;
+  padding: 1.25rem !important;
   background-color: #fbfbfb;
 }
 .card-img-top-1 {
@@ -108,7 +109,7 @@ $PrimaryColor: $PrimaryWebOrient;
   width: 12rem;
 }
 .add-more {
-  padding: 161px 39px;
+  padding: 161px 39px !important;
   cursor: pointer;
 }
 
