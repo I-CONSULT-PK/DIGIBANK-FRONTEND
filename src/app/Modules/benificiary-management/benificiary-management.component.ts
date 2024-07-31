@@ -205,7 +205,7 @@ export class BenificiaryManagementComponent implements OnInit {
     }
     LableName: any = "Account/IBAN Number:";
     toggleInput(value: any) {
-        debugger
+        
         if (value == '1') {
             this.LableName = "Mobile Number (Easypaisa):";
         }
@@ -223,7 +223,7 @@ export class BenificiaryManagementComponent implements OnInit {
         this.BeneficiaryModal.open();
     }
     async SuccessPopup() {
-        debugger
+        
         this.NewModal1.open('xs');
     }
 }

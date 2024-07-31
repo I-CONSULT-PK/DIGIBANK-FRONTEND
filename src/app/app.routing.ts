@@ -46,7 +46,7 @@ const routes: Routes = [
     }]
   },
   {
-    path: 'ForgetPassword',
+    path: 'ForgetPassword/:frgto',
     component: ForgotPasswordComponent,
     children: [{
       path: '',

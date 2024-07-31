@@ -32,7 +32,7 @@ export class IcsInputComponent {
     async ngOnInit() { }
 
     async ChangeEVent() {
-        debugger
+        
         this.ChangeCallback.emit();
     }
 }

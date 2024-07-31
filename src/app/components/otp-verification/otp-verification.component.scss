@@ -1,6 +1,7 @@
 // component css goes here
 .otp-field {
   margin: auto;
+  width: 95%;
 }
 
 .OtpH2 {
@@ -33,10 +34,10 @@
 @media (min-width: 320px) and (max-width: 642px) {
 
 
-  
-  .otp-field input{
+
+  .otp-field input {
     width: 31px;
     height: 37px;
-   
-}
+
+  }
 }

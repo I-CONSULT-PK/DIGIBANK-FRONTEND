@@ -42,17 +42,17 @@ export class IcsDropdownComponent {
 
     @Input()
     set data(value: any[]) {
-        debugger
+        
         this._data = value;
     }
     constructor() { }
     async ngOnInit() {
-        debugger
+        
         this.data
     }
 
     async ChangeEVent() {
-        debugger
+        
         this.ChangeCallback.emit();
     }
     changeIcon: boolean = false;

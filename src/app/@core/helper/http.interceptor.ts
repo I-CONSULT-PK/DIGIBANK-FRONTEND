@@ -30,7 +30,7 @@ export class DefaultInterceptor implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        debugger
+        
         console.log("Wokring");
         // const token = localStorage.getItem("token");
 

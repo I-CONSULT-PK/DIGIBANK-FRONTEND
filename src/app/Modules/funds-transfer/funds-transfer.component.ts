@@ -101,7 +101,7 @@ export class FundsTransferComponent implements OnInit {
     CurrentDisBal: any = 0;
 
     handleAmountChange(enteredAmount: any) {
-        debugger
+        
         var NewBal = 0;
         this.CurrentDisBal = this.CurrentBal;
         if (enteredAmount > 0 && enteredAmount != "" && enteredAmount != '') {
@@ -109,11 +109,11 @@ export class FundsTransferComponent implements OnInit {
         }
     }
     async OpenModal() {
-        debugger
+        
         this.modal.open();
     }
     async SuccessPopup() {
-        debugger
+        
         this.NewModal1.open('xs');
     }
     

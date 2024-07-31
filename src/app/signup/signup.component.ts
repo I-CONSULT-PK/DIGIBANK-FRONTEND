@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { signupService } from './signup.service';
 import { IcsErrorComponent } from 'app/components/ics-error/ics-error.component';
@@ -14,6 +14,7 @@ import { OtpVerificationComponent } from 'app/components/otp-verification/otp-ve
 export class signupComponent implements OnInit {
 
   constructor(private router: Router, private signupService: signupService, private formBuilder: FormBuilder, private otpService: otpService) { }
+
   myForm: FormGroup;
   // Model Variable For Signup
   UserCnic: string = "";
@@ -41,12 +42,13 @@ export class signupComponent implements OnInit {
 
       username: [''],
       password: [''],
+      suggestbox: [''],
     });
   }
   tittle: any = "Make Your Account";
   activityModemStep: any = 1;
   async NextActivity(activityModem: any) {
-    debugger
+
     this.activityModemStep = activityModem;
     if (activityModem == 1) {
       this.tittle = "Make Your Account";
@@ -66,7 +68,7 @@ export class signupComponent implements OnInit {
   }
 
   async checkStrength(password: any) {
-    debugger
+
     var strength = 0;
 
 
@@ -156,7 +158,7 @@ export class signupComponent implements OnInit {
   GlobalDto: any = {};
   async VerifyCustomer() {
     this.GlobalDto = {};
-    debugger
+
     var CreationDto: any = {};
     CreationDto = {
       globalId: {
@@ -179,7 +181,7 @@ export class signupComponent implements OnInit {
       this.GlobalDto.LastName = dto.data.customer.lastName;
       this.GlobalDto.UserEmail = dto.data.email;
 
-      debugger
+
 
       this.myForm.controls['firstName'].setValue(dto.data.customer.firstName);
       this.myForm.controls['lastName'].setValue(dto.data.customer.lastName);
@@ -201,7 +203,7 @@ export class signupComponent implements OnInit {
     }
   }
   async CreateOTP() {
-    debugger
+
     var CreationDto: any = {};
     CreationDto = {
       mobileNumber: this.myForm.controls['mobileNumber'].value,
@@ -210,7 +212,7 @@ export class signupComponent implements OnInit {
     };
     const dto: any = await this.otpService.OTPCreation(CreationDto);
     if (dto && dto.success && dto.success == true) {
-      debugger
+
       await this.NextActivity(3);
     }
     else {
@@ -228,7 +230,7 @@ export class signupComponent implements OnInit {
     }
   }
   async VerifyOTP() {
-    debugger
+
     this.otpInput
     var CreationDto: any = {};
     CreationDto = {
@@ -238,7 +240,7 @@ export class signupComponent implements OnInit {
     };
     const dto: any = await this.otpService.OTPVerify(CreationDto);
     if (dto && dto.success && dto.success == true) {
-      debugger
+
       await this.NextActivity(4);
     }
     else {
@@ -256,20 +258,63 @@ export class signupComponent implements OnInit {
     }
   }
   SelectedsecurityImage: any;
+  SuggestedUserData: any = [];
+  SuggestedIcon: any = "";
+  async SuggestUsername(username) {
+    debugger
+    this.SuggestedUserData = [];
+    this.myForm.controls['suggestbox'].setValue('');
+    if (username && username != null && username != "") {
+      this.SuggestedIcon = "";
+      const dto: any = await this.signupService.SuggestUserName(username);
+      if (dto && dto.success && dto.success == true) {
+        if (dto && dto.data && dto.data.suggestedUserNames && dto.data.suggestedUserNames.length > 0) {
+          this.SuggestedUserData = dto.data.suggestedUserNames;
+          this.SuggestedIcon = "icon fas fa-exclamation-circle red";
+        }
+        else {
+          this.SuggestedIcon = "icon fa fa-check green";
+        }
+        // await this.gotoLogin();
+      }
+      else {
+        if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
+          this.dcserror.showErrors(dto.data.errors, 'Error', 4);
+        }
+        else {
+          if (dto && dto.message) {
+            this.dcserror.showErrors(dto.message, 'Error', 4);
+          }
+          else {
+            this.dcserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
+          }
+        }
+      }
+    }
+    else {
+      this.SuggestedIcon = "icon fa fa-times red";
+    }
+
+  }
+  async SelectBoxChange() {
+    this.myForm.controls['username'].setValue(this.myForm.controls['suggestbox'].value);
+    await this.SuggestUsername(this.myForm.controls['suggestbox'].value);
+  }
   async SignupPost() {
     var CreationDto: any = {};
     CreationDto = {
+
       cnic: this.GlobalDto.UserCnic,
       mobileNumber: this.GlobalDto.UserMobile,
-      accountNumber: this.GlobalDto.UserAccountno,
       firstName: this.GlobalDto.FirstName,
       lastName: this.GlobalDto.LastName,
       email: this.GlobalDto.UserEmail,
       userName: this.myForm.controls["username"].value,
       password: this.myForm.controls["password"].value,
-      securityPicture: this.SelectedsecurityImage ? this.SelectedsecurityImage : "cat",
+      securityPictureId: this.SelectedsecurityImage ? this.SelectedsecurityImage : 4,
+      accountDto: { accountNumber: this.GlobalDto.UserAccountno }
     };
-    debugger
+
     const dto: any = await this.signupService.RegisterCustomerV2(CreationDto);
     if (dto && dto.success && dto.success == true) {
       // const OTPdto: any = await this.OPTCreationPost();
