@@ -36,22 +36,28 @@ export class signupComponent implements OnInit {
   // -------------------------
   @ViewChild("IcsError") dcserror: IcsErrorComponent | any;
   @ViewChild("otpInput") otpInput: OtpVerificationComponent | any;
-  @ViewChild('openTermsConditionsModal') opentCModal: IcsModalComponent | any;
+  @ViewChild("openTermsConditionsModal") opentCModal: IcsModalComponent | any;
 
   isTraDisabled: boolean = true;
   ngOnInit() {
-    this.myForm = this.formBuilder.group({
-      cnic: [""],
-      accountnumber: [""],
-      mobileNumber: [""], //, Validators.pattern(/^\d{10}$/)
+    this.myForm = this.formBuilder.group(
+      {
+        cnic: [""],
+        accountnumber: [""],
+        mobileNumber: [""], //, Validators.pattern(/^\d{10}$/)
 
-      firstName: [""],
-      lastName: [""],
-      email: [""],
+        firstName: [""],
+        lastName: [""],
+        email: [""],
 
-      username: [""],
-      password: [""],
-    });
+        username: [""],
+        password: [""],
+        confirmPassword: [""],
+      },
+      {
+        validator: PasswordMatchValidator("password", "confirmPassword"),
+      }
+    );
     this.passwordForm = this.fb.group(
       {
         password: ["", [Validators.required]],
@@ -74,6 +80,23 @@ export class signupComponent implements OnInit {
   toggleConfirmPasswordVisibility(): void {
     this.confirmPasswordFieldType =
       this.confirmPasswordFieldType === "password" ? "text" : "password";
+  }
+  // Check password match and set box shadow
+  get confirmPasswordControl() {
+    return this.myForm.get("confirmPassword");
+  }
+
+  get passwordControl() {
+    return this.myForm.get("password");
+  }
+
+  getConfirmPasswordClass() {
+    if (this.myForm.get("confirmPassword").touched) {
+      return this.myForm.get("confirmPassword").errors?.passwordMismatch
+        ? "box-shadow: 0 0 5px red;"
+        : "box-shadow: 0 0 5px green;";
+    }
+    return "";
   }
 
   tittle: any = "Make Your Account";
@@ -105,13 +128,13 @@ export class signupComponent implements OnInit {
   async AcceptTnC() {
     this.isTraDisabled = false;
     if (this.opentCModal) {
-      this.opentCModal.closeModal(); 
+      this.opentCModal.closeModal();
     }
   }
-  
+
   async DeclineTnC() {
     if (this.opentCModal) {
-      this.opentCModal.closeModal(); 
+      this.opentCModal.closeModal();
     }
   }
   async checkStrength(password: any) {

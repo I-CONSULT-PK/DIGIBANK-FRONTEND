@@ -12,7 +12,8 @@ $PrimaryColor: $PrimaryWebOrient;
   position: relative;
 }
 
-.fa-eye, .fa-eye-slash {
+.fa-eye,
+.fa-eye-slash {
   position: absolute;
   right: 10px;
   top: 50%;
@@ -147,14 +148,14 @@ $PrimaryColor: $PrimaryWebOrient;
 }
 .blueLable-case {
   color: $PrimaryColor;
-  margin-left: -3px;
+
 }
-.Link{
+.Link {
   color: $PrimaryColor;
- cursor: pointer;
+  cursor: pointer;
 }
 .modal-content {
-  border: 0px ;
+  border: 0px;
 }
 ::ng-deep .modal-title {
   color: white !important;
@@ -173,7 +174,8 @@ $PrimaryColor: $PrimaryWebOrient;
   margin-right: 30px;
 }
 
-.button.is-ghost:hover, .button.is-ghost:focus {
+.button.is-ghost:hover,
+.button.is-ghost:focus {
   background-color: #dfdad7;
 }
 
@@ -182,7 +184,8 @@ $PrimaryColor: $PrimaryWebOrient;
   color: #fff;
 }
 
-.button.is-primary:hover, .button.is-primary:focus {
+.button.is-primary:hover,
+.button.is-primary:focus {
   background-color: $PrimaryColor;
 }
 
@@ -258,6 +261,13 @@ $PrimaryColor: $PrimaryWebOrient;
     font-size: 8px;
   }
 }
+/* Add styles for box-shadow */
+input.ng-invalid.ng-touched {
+  box-shadow: 0 0 4px red;
+  color: red;
+}
+
+
 
 @media (min-width: 768px) {
   .Background-Primary {
