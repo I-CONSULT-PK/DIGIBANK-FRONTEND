@@ -18,7 +18,7 @@ import { HttpClientModule } from "@angular/common/http";
         // DcsTextboxModule,
         // DcsDropdownModule,
         // DcsDimentionModule,
-        // DCSErrorModule,
+        // icserrorModule,
     ],
     exports: [IcsGridComponent,],
     declarations: [IcsGridComponent,],

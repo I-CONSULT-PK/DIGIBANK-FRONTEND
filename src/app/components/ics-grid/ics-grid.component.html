@@ -1,6 +1,6 @@
 <!--component html goes here -->
 <div>
-    <div class="row ngStart" *ngIf="hidetoolbar === true" (click)="ClickOnMenu = true">
+    <div class="row ngStart" *ngIf="hidetoolbar === false" (click)="ClickOnMenu = true">
         <div *ngIf="
           _type !== 1 ||
           (customButton && customButton.length > 0) ||
@@ -370,7 +370,7 @@
                 <!-- End -->
                 <!-- Normal Mood Grid Control Component -->
                 <div class="GridControls" style="float: right; display: flex"
-                    *ngIf="hideAllControlBtn === true && ShowLiftControlBtn === false">
+                    *ngIf="hideAllControlBtn === false && ShowLiftControlBtn === false">
                     <div *ngIf="pagination === true && paginationTop === true" style="
                 border: 1px solid #ddd;
                 border-top: none;
@@ -515,7 +515,7 @@
     <div class="MainGridDiv" style="display: flex" [ngClass]="scrollable ? 'grid-scrollable' : ''">
         <ag-grid-angular #agGrid [paginationPageSize]="paginationPageSize" [ngStyle]="{ height: height}"
             style="width: 100%" class="ag-theme-balham" [gridOptions]="options" [pagination]="pagination"
-            [headerHeight]="headerHeight" [columnDefs]="_columns" [rowData]="rowData"
+            [headerHeight]="headerHeight" [columnDefs]="_columns" [rowData]="data"
             (rowClicked)="onRowClickedInner($event)" (rowDoubleClicked)="onRowDoubleClickedInner($event)"
             (filterChanged)="filterchanges()" (cellValueChanged)="calculateSummary($event)"
             [overlayNoRowsTemplate]="overlayNoRowsTemplate" (componentStateChanged)="calculateSummaryInternal()"

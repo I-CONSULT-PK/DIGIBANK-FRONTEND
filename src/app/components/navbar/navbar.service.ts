@@ -15,4 +15,8 @@ export class navbarService extends AppService<any>{
         const result = await this.get('getCustomer', userid);
         return result;
     }
+    async getBanks() {
+        const result = await this.get(`/fund/getBanks`);
+        return result;
+    }
 }
