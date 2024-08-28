@@ -2,8 +2,8 @@ import { Injector } from "@angular/core";
 
 export const AppConstants = {
   urls: {
-    ut: "http://192.168.0.196:8080/v1/",
-    api: "http://192.168.0.196:8080/v1/",
+    ut: "http://192.168.0.91:8080/v1/",
+    api: "http://192.168.0.91:8080/v1/",
   },
   settings: {
     dateFormatforString: "DD-MMM-YYYY",

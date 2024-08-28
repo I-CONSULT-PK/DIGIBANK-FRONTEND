@@ -34,7 +34,7 @@ export class signupComponent implements OnInit {
   UserPassword: string = "";
   UserRetypepass: string = "";
   // -------------------------
-  @ViewChild("IcsError") dcserror: IcsErrorComponent | any;
+  @ViewChild("IcsError") icserror: IcsErrorComponent | any;
   @ViewChild("otpInput") otpInput: OtpVerificationComponent | any;
   @ViewChild("openTermsConditionsModal") opentCModal: IcsModalComponent | any;
 
@@ -100,7 +100,7 @@ export class signupComponent implements OnInit {
   }
 
   tittle: any = "Make Your Account";
-  activityModemStep: any = 4;
+  activityModemStep: any = 1;
   async NextActivity(activityModem: any) {
     debugger;
     this.activityModemStep = activityModem;
@@ -250,12 +250,12 @@ export class signupComponent implements OnInit {
       await this.NextActivity(2);
     } else {
       if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
-        this.dcserror.showErrors(dto.data.errors, "Error", 4);
+        this.icserror.showErrors(dto.data.errors, "Error", 4);
       } else {
         if (dto && dto.message) {
-          this.dcserror.showErrors(dto.message, "Error", 4);
+          this.icserror.showErrors(dto.message, "Error", 4);
         } else {
-          this.dcserror.showErrors("Some Thing Wents Wrong", "Error", 4);
+          this.icserror.showErrors("Some Thing Wents Wrong", "Error", 4);
         }
       }
     }
@@ -274,12 +274,12 @@ export class signupComponent implements OnInit {
       await this.NextActivity(3);
     } else {
       if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
-        this.dcserror.showErrors(dto.data.errors, "Error", 4);
+        this.icserror.showErrors(dto.data.errors, "Error", 4);
       } else {
         if (dto && dto.message) {
-          this.dcserror.showErrors(dto.message, "Error", 4);
+          this.icserror.showErrors(dto.message, "Error", 4);
         } else {
-          this.dcserror.showErrors("Some Thing Wents Wrong", "Error", 4);
+          this.icserror.showErrors("Some Thing Wents Wrong", "Error", 4);
         }
       }
     }
@@ -299,12 +299,12 @@ export class signupComponent implements OnInit {
       await this.NextActivity(4);
     } else {
       if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
-        this.dcserror.showErrors(dto.data.errors, "Error", 4);
+        this.icserror.showErrors(dto.data.errors, "Error", 4);
       } else {
         if (dto && dto.message) {
-          this.dcserror.showErrors(dto.message, "Error", 4);
+          this.icserror.showErrors(dto.message, "Error", 4);
         } else {
-          this.dcserror.showErrors("Some Thing Wents Wrong", "Error", 4);
+          this.icserror.showErrors("Some Thing Wents Wrong", "Error", 4);
         }
       }
     }
@@ -332,12 +332,12 @@ export class signupComponent implements OnInit {
       await this.gotoLogin();
     } else {
       if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
-        this.dcserror.showErrors(dto.data.errors, "Error", 4);
+        this.icserror.showErrors(dto.data.errors, "Error", 4);
       } else {
         if (dto && dto.message) {
-          this.dcserror.showErrors(dto.message, "Error", 4);
+          this.icserror.showErrors(dto.message, "Error", 4);
         } else {
-          this.dcserror.showErrors("Some Thing Wents Wrong", "Error", 4);
+          this.icserror.showErrors("Some Thing Wents Wrong", "Error", 4);
         }
       }
     }

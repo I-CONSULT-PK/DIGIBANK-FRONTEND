@@ -10,6 +10,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ProductHomeComponent } from './product-home/product-home.component';
 import { LogoutComponent } from '../app/logout/logout.component';
 import { AddChildAccountComponent } from './add-child-account/add-child-account.component';
+import { AuthGuard } from './@core/helper/auth.guard';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
   {
     path: 'Admin',
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
     children: [{
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)

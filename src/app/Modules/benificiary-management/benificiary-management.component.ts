@@ -8,7 +8,7 @@
 //     styleUrls: ['./benificiary-management.component.scss']
 // })
 // export class BenificiaryManagementComponent implements OnInit {
-   
+
 
 //     @ViewChild('BeneficiaryModal') BeneficiaryModal: IcsModalComponent | any;
 //     @ViewChild('NewModal1') NewModal1: IcsModalComponent | any;
@@ -227,53 +227,69 @@
 //         debugger
 //         this.NewModal1.open('xs');
 //     }
-   
+
 // }
 
-import { Component,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { IcsModalComponent } from 'app/components/ics-modal/ics-modal.component';
+import { BenificiaryManagementService } from './benificiary-management.service';
+import { DomSanitizer } from '@angular/platform-browser';
+import { navbarService } from 'app/components/navbar/navbar.service';
+import { IcsErrorComponent } from 'app/components/ics-error/ics-error.component';
 
 @Component({
   selector: 'app-benificiary-management',
   templateUrl: './benificiary-management.component.html',
   styleUrls: ['./benificiary-management.component.scss']
 })
-export class BenificiaryManagementComponent {
+export class BenificiaryManagementComponent implements OnInit {
   saveAndCloseButtonLabel: string = "Accept";
-  @ViewChild('AddBeneficiaryModal') AddBeneficiaryModal: IcsModalComponent | any; 
+  @ViewChild('AddBeneficiaryModal') AddBeneficiaryModal: IcsModalComponent | any;
+  @ViewChild('confirmationModal') confirmationModal?: IcsModalComponent;
+  @ViewChild('icserror') icserror?: IcsErrorComponent;
+  beneficiaries: any[];
+  isAmounthidden: boolean = false;
+  isFavourite: boolean = false;
+  accountNumber: string;
+  profileForm: FormGroup;
+  isFavouriteData: boolean = false;
 
-  profileForm = new FormGroup({
-    bankName: new FormControl(''),
-    accountNumber: new FormControl(''),
-    accountTitle: new FormControl(''),
-    nickName: new FormControl('')
-  });
 
   accountData: any[] = [
-    { Id: 1, accountname: 'HBL Bank' },
-    { Id: 2, accountname: 'Alfalah Bank' },
-    { Id: 3, accountname: 'Meezan Bank' },
-    { Id: 4, accountname: 'ALied Bank' },
-    { Id: 5, accountname: 'JS Bank' },
-    { Id: 6, accountname: 'Naya Pay' },
-    { Id: 7, accountname: 'Sada Pay' },
+    [{ Id: null, bankName: 'No bank available' }]
+    // { Id: 1, accountname: 'HBL Bank' },
+    // { Id: 2, accountname: 'Alfalah Bank' },
+    // { Id: 3, accountname: 'Meezan Bank' },
+    // { Id: 4, accountname: 'ALied Bank' },
+    // { Id: 5, accountname: 'JS Bank' },
+    // { Id: 6, accountname: 'Naya Pay' },
+    // { Id: 7, accountname: 'Sada Pay' },
 
   ];
 
-  constructor() {}
-
+  constructor(private benificiaryManagementService: BenificiaryManagementService, private sanitizer: DomSanitizer, private navBarService: navbarService) { }
+  async ngOnInit() {
+    this.profileForm = new FormGroup({
+      bankName: new FormControl(''),
+      accountNumber: new FormControl(''),
+      accountTitle: new FormControl(''),
+      nickName: new FormControl('')
+    });
+    // this.getAllBeneficiaries();
+    await this.getBanks();
+  }
   openAddBeneficiaryModal() {
     this.AddBeneficiaryModal.open();
   }
 
   closeModal() {
     this.AddBeneficiaryModal.close();
-    this.profileForm.reset(); 
+    this.profileForm.reset();
   }
 
   addBeneficiary() {
-    console.log(this.profileForm.value); 
+    console.log(this.profileForm.value);
     this.profileForm.reset();
 
     this.closeModal();
@@ -282,6 +298,128 @@ export class BenificiaryManagementComponent {
   onDropdownChange() {
     console.log('Selected bank:', this.profileForm.value.bankName);
   }
+  async getAllBeneficiaries() {
+    const userData = localStorage.getItem('userInfo');
+    if (userData) {
+      const user = JSON.parse(userData);
+      console.log('Logged in user:', user);
+      console.log('customerId:', user.customerId);
+      const dto: any = await this.benificiaryManagementService.getAllBeneficiaries(user.customerId, this.isFavouriteData);
+      this.beneficiaries = dto.data;
+      console.log(this.beneficiaries, "hello world")
+
+    }
+  }
+
+  addToFavourite() {
+    this.isFavourite = !this.isFavourite;
+  }
+
+  // toggleFavourite(id: number): void {
+  //   // Find the beneficiary by ID
+  //   const foundBeneficiary = this.beneficiaries.find(b => b.id === id);
+  //   if (foundBeneficiary) {
+  //     foundBeneficiary.isFavourite = !foundBeneficiary.isFavourite;
+
+  //     // Optionally, update the favorites list in a service or local storage
+  //     // this.updateFavorites(foundBeneficiary);
+  //   }
+  // }
+  getSafeUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+  itemId: number
+  openDeleteConfirmationModal(id: any) {
+    // Set up and open the modal
+    // this.confirmationModal.message = 'Are you sure you want to delete this beneficiary?';
+    // this.confirmationModal.confirmButtonLabel = 'Delete';
+    // this.confirmationModal.cancelButtonLabel = 'Cancel';
+
+    this.confirmationModal.open('sm', true);
+    if (this.itemId) {
+      this.itemId = id
+      console.log(this.itemId)
+      this.confirmationModal.open()
+    }
+  }
+
+  async handleDeleteConfirmation() {
+    console.log("hello world")
+    // if (confirm) {
+    if (this.itemId) {
+      console.log("hello world2", this.itemId)
+      await this.benificiaryManagementService.deleteBenificiary(this.itemId);
+      await this.getAllBeneficiaries();
+    }
+  }
+  // }
+  accountDetails: any;
+  async getBanks() {
+    //  const dto:any = await this.navBarService.getBanks();
+    // this.accountData = dto.data;
+    // console.log(this.accountData,"account data")
+    const dto = await this.navBarService.getBanks();
+    if (dto && dto.success && dto.success == true && dto.data) {
+      this.accountData = dto.data;
+    }
+    else {
+      if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
+        this.icserror.showErrors(dto.data.errors, 'Error', 4);
+      }
+      else {
+        if (dto && dto.message) {
+          this.icserror.showErrors(dto.message, 'Error', 4);
+        }
+        else {
+          this.icserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
+        }
+      }
+    }
+  }
+  async saveAccountNumber() {
+    console.log(this.profileForm, "form ")
+    console.log(this.profileForm.get('accountNumber')?.value)
+    const dto: any = await this.benificiaryManagementService.fetchAccountDetails(this.profileForm.get('accountNumber')?.value)
+    console.log(dto, "account details")
+  }
+
+  columnDefs = [
+    {
+      headerName: 'Description',
+      field: 'beneficiaryName',
+      cellRenderer: (params) => {
+        return `
+          <div class="d-flex justify-content-start align-items-center">
+            <div class="bank-logo">
+              <img class="w-100" src="../../../assets/img/digibank-logo.png" alt="">
+            </div>
+            <div class="text-center mx-2 fs-15px">${params.value}</div>
+          </div>`;
+      },
+    },
+    { headerName: 'Banks', field: 'beneficiaryBankName' },
+    { headerName: 'Account Number', field: 'accountNumber' },
+    { headerName: 'Date', valueGetter: () => '28 Jan 2024' },
+    { headerName: 'Amount', valueGetter: () => 'Rs.2800' },
+    {
+      headerName: 'Action',
+      cellRenderer: (params) => {
+        return `
+          <div class="d-flex flex-row gap-2">
+            <div class="px-2 py-1 border rounded-circle shadow-sm cursor-pointer">
+              <i class="far fa-heart"></i>
+            </div> 
+            <div class="px-2 py-1 border rounded-circle shadow-sm cursor-pointer">
+              <i class="fas fa-edit fav-icon"></i>
+            </div>
+            <div class="px-2 py-1 border rounded-circle shadow-sm cursor-pointer">
+              <i class="fas fa-trash-alt fav-icon"></i>
+            </div>
+          </div>`;
+      },
+    },
+  ];
+
 }
 
 

@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 /* Modal Base Styles Global Access */
+body {
+    overflow: hidden;
+}
+
 #myModal .modal {
     z-index: 99999;
 }
@@ -2953,8 +2957,8 @@ h2 {
     margin: 16px;
 }
 
-? .container {
-    margin-top: 100px;
+ .container {
+    /* margin-top: 100px; */
     padding: 32px;
 }
 
@@ -2965,7 +2969,7 @@ h2 {
     flex-direction: column;
 }
 
-? .select-box .options-container {
+ .select-box .options-container {
     background: #2f3640;
     color: #f5f6fa;
     max-height: 0;
@@ -2974,10 +2978,10 @@ h2 {
     transition: all 0.4s;
     border-radius: 8px;
     overflow: hidden;
-    ?order: 1;
+    order: 1;
 }
 
-? .selected {
+ .selected {
     background: #2f3640;
     border-radius: 8px;
     margin-bottom: 8px;
@@ -2986,12 +2990,12 @@ h2 {
     border: 0;
 }
 
-? .selected::after {
+ .selected::after {
     content: "";
     /* background: url("img/arrow-down.svg"); */
     background-size: contain;
     background-repeat: no-repeat;
-    ?position: absolute;
+    position: absolute;
     height: 100%;
     width: 32px;
     right: 10px;
@@ -2999,51 +3003,47 @@ h2 {
     transition: all 0.4s;
 }
 
-? .select-box .options-container.active {
+ .select-box .options-container.active {
     max-height: 240px;
     opacity: 1;
     overflow-y: scroll;
     margin-top: 54px;
 }
 
-? .select-box .options-container.active+.selected::after {
+ .select-box .options-container.active+.selected::after {
     transform: rotateX(180deg);
     top: -6px;
 }
 
-? .select-box .options-container::-webkit-scrollbar {
+ .select-box .options-container::-webkit-scrollbar {
     width: 8px;
     background: #0d141f;
     border-radius: 0 8px 8px 0;
 }
 
-? .select-box .options-container::-webkit-scrollbar-thumb {
+ .select-box .options-container::-webkit-scrollbar-thumb {
     background: #525861;
     border-radius: 0 8px 8px 0;
 }
 
-? .select-box .option,
+ .select-box .option,
 .selected {
     /* padding: 12px 24px; */
     cursor: pointer;
 }
 
-? .select-box .option:hover {
+ .select-box .option:hover {
     background: #414b57;
 }
 
-? .select-box label {
+ .select-box label {
     cursor: pointer;
-}
-
-? .select-box .option .radio {
+}.select-box .option .radio {
     display: none;
 }
-
-?
 /* Searchbox */
 
-? .search-box input {
+ .search-box input {
     width: 100%;
     padding: 12px 16px;
     font-family: "Roboto", sans-serif;
@@ -3052,16 +3052,16 @@ h2 {
     border-radius: 8px 8px 0 0;
     z-index: 100;
     border: 8px solid #2f3640;
-    ?opacity: 0;
+    opacity: 0;
     pointer-events: none;
     transition: all 0.4s;
 }
 
-? .search-box input:focus {
+ .search-box input:focus {
     outline: none;
 }
 
-? .select-box .options-container.active~.search-box input {
+ .select-box .options-container.active~.search-box input {
     opacity: 1;
     pointer-events: auto;
 }
@@ -3631,6 +3631,25 @@ span.p-treenode-label:hover {
 
 
 /* End */
+/* font size */
+
+.fs-15px {
+    font-size: 15px;
+}
+ /* font weight */
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+ /* text color */
+
+ .text-black {
+    color: #000000 !important;
+}
+
+.text-1F1F1{
+    color:#F1F1F1 !important;
+}
 
 
 /* Next Button */
@@ -3706,4 +3725,43 @@ button.next-btn {
 
 .ag-floating-filter-button {
     display: none !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.color-ff0000 {
+    color: #ff0000 !important;
+}
+
+.fav-icon {
+    font-size: 15px !important;
+    font-weight: 500;
+    color: #486a6a;
+}
+
+.left-border-radius {
+    border-radius: 5px 0px 0px 5px !important;
+}
+
+.right-border-radius {
+    border-radius: 0px 5px 5px 0px !important;
+}
+
+.main-card-scroller {
+    height: calc(100vh - 126px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.w-40-px {
+    width: 40px !important;
+}
+
+.h-40-px {
+    height: 40px !important;
+}
+.ps__rail-y{
+    display: none;
 }

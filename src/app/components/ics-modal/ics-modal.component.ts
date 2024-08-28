@@ -11,7 +11,12 @@ declare var $: any;
 export class IcsModalComponent implements AfterViewInit, OnInit {
     Size: any;
     ModalSize: any;
+    @Input() modalWidth: string = 'XL'; // Default value
+    @ViewChild('modalContent') modalContent?: ElementRef;
     ngAfterViewInit(): void {
+        if (this.modalContent) {
+            this.modalContent.nativeElement.style.width = this.modalWidth;
+          }
     }
     //   private lookupSubscription?: Subscription;
 
@@ -68,7 +73,7 @@ export class IcsModalComponent implements AfterViewInit, OnInit {
     //     this.FieldConfigModal?.open();
     //   }
     //   else {
-    //     this.dcserror.showErrors("There Is No Data Fields For Configuration", 'Alert');
+    //     this.icserror.showErrors("There Is No Data Fields For Configuration", 'Alert');
     //   }
     // }
     // closeDocfieldModal() {

@@ -1,6 +1,7 @@
+<!-- <app-header></app-header> -->
 <div class="ml-sm-auto col-lg-10 mt-2">
-  <div class="main-card">
-    <section id="Navbar">
+  <div class="main-card main-card py-3">
+    <!-- <section id="Navbar">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand mr-auto" href="#">
@@ -65,7 +66,7 @@
         </div>
       </nav>
       <hr class="divider" />
-    </section>
+    </section> -->
     <div class="d-flex justify-content-between align-items-center tittle-div">
       <div class="account-title">Beneficiary Management</div>
       <button
@@ -80,7 +81,7 @@
     </div>
     <section id="Benificiary-History">
       <div class="container">
-        <table class="table transaction-table">
+        <!-- <table class="table transaction-table">
           <thead>
             <tr>
               <th>Description</th>
@@ -92,109 +93,56 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr *ngFor="let benificiary of beneficiaries">
               <td>
                 <div class="d-flex justify-content-start align-items-center">
-                  <span class="description-icon S">S</span>
-                  <div class="text-center mx-2">M. Sameer</div>
+                   <div class="bank-logo">
+                     <img class="w-100" src="../../../assets/img/digibank-logo.png" alt="">
+                   </div>
+                  <div class="text-center mx-2 fs-15px">{{benificiary?.beneficiaryName}}</div>
                 </div>
               </td>
 
-              <td>
-                <img
-                  src="../../../assets/img/Logo/askari-bank-logo.png"
-                  alt="Askari Bank"
-                  class="bank-logo"
-                />
+              <td class="fs-15px">
+                {{benificiary?.beneficiaryBankName}}
               </td>
-              <td>98575463558974</td>
+              <td>{{benificiary?.accountNumber}}</td>
               <td>28 Jan 2024</td>
               <td>Rs.2800</td>
               <td>
-                <div class="d-flex flex-row">
-                  <i class="fas fa-edit edit-icons"></i>
-                  <i class="fas fa-trash-alt edit-icons ml-2"></i>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex justify-content-start align-items-center">
-                  <span class="description-icon A">A</span>
-                  <div class="text-center mx-2">Amna</div>
-                </div>
-              </td>
-              <td>
-                <img
-                  src="../../../assets/img/Logo/hbl-konnect-logo.png"
-                  alt="HBL KONNECT"
-                  class="bank-logo"
-                />
-              </td>
-              <td>98575463558974</td>
-              <td>28 Jan 2024</td>
-              <td>Rs.2800</td>
-              <td>
-                <div class="d-flex flex-row">
-                  <i class="fas fa-edit edit-icons"></i>
-                  <i class="fas fa-trash-alt edit-icons ml-2"></i>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex justify-content-start align-items-center">
-                  <span class="description-icon S">S</span>
-                  <div class="text-center mx-2">Sidra</div>
-                </div>
-              </td>
-              <td>
-                <img
-                  src="../../../assets/img/Logo/askari-bank-logo.png"
-                  alt="Askari Bank"
-                  class="bank-logo"
-                />
-              </td>
-              <td>98575463558974</td>
-              <td>28 Jan 2024</td>
-              <td>Rs.2800</td>
-              <td>
-                <div class="d-flex flex-row">
-                  <i class="fas fa-edit edit-icons"></i>
-                  <i class="fas fa-trash-alt edit-icons ml-2"></i>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex justify-content-start align-items-center">
-                  <span class="description-icon F">F</span>
-                  <div class="text-center mx-2">Fatima</div>
-                </div>
-              </td>
-              <td>
-                <img
-                  src="../../../assets/img/Logo/hbl-konnect-logo.png"
-                  alt="HBL KONNECT"
-                  class="bank-logo"
-                />
-              </td>
-              <td>98575463558974</td>
-              <td>28 Jan 2024</td>
-              <td>Rs.2800</td>
-              <td>
-                <div class="d-flex flex-row">
-                  <i class="fas fa-edit edit-icons"></i>
-                  <i class="fas fa-trash-alt edit-icons ml-2"></i>
+                <div class="d-flex flex-row gap-2">
+                 <div class="px-2 py-1 border rounded-circle shadow-sm cursor-pointer">
+                  <i *ngIf="!isFavourite" class="far fa-heart" (click)="addToFavourite()"></i>
+                  <i *ngIf="isFavourite"  class="fas fa-heart color-ff0000" (click)="addToFavourite()"></i>
+                 </div> 
+                 <div class="px-2 py-1 border rounded-circle shadow-sm cursor-pointer">
+                  <i class="fas fa-edit fav-icon"></i>
+                 </div>
+                 <div class="px-2 py-1 border rounded-circle shadow-sm cursor-pointer">
+                  <i class="fas fa-trash-alt fav-icon" (click)="openDeleteConfirmationModal(benificiary.data.id)"></i>
+                 </div>
                 </div>
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
+
+        <!-- ag grif implementation -->
+        <!-- <ag-grid-angular
+        [rowData]="beneficiaries"
+        [columnDefs]="columnDefs"
+        class="ag-theme-alpine"
+        style="width: 100%; height: 500px;">
+      </ag-grid-angular> -->
+      <benificiary-management-listing></benificiary-management-listing>
       </div>
     </section>
   </div>
 </div>
+<h3 class="account-amount">Rs. ******</h3>
+<h3 *ngIf="!isAmounthidden" class="account-amount">Rs. 2,10,000.00</h3>
+<i *ngIf="isAmounthidden" (click)="isAmounthidden = false" class="far fa-eye-slash fa-lg ml-2 cursor-pointer"></i>
+<i *ngIf="!isAmounthidden" (click)="isAmounthidden = true" class="far fa-eye fa-lg ml-2 cursor-pointer"></i>
 <!-- Modal for Adding New Beneficiary -->
 <ics-modal #AddBeneficiaryModal Caption="Add New Beneficiary">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -211,7 +159,7 @@
                   [data]="accountData"
                   caption="Bank Name"
                   valueMember="Id"
-                  displayMember="accountname"
+                  displayMember="bankName"
                   (selectionChange)="onDropdownChange()"
                 ></ics-dropdown>
               </div>
@@ -221,13 +169,31 @@
                 <label for="accountNumber" class="form-label"
                   >Account Number/IBAN*</label
                 >
-                <ics-input
+                <!-- <ics-input
                   id="accountNumber"
                   formControlName="accountNumber"
                   placeholder="Enter your account number"
+                  (blur)="saveAccountNumber()"
                   required
-                ></ics-input>
+                ></ics-input> -->
+                <input type="text"
+                id="accountNumber"
+                formControlName="accountNumber"
+                placeholder="Enter your account number"
+                (blur)="saveAccountNumber()"
+                required>
               </div>
+              <!-- <div class="mb-3">
+                <div class="fs-11 text-black fw-500">
+                  Account Number/IBAN*
+                </div>
+                 <div class="d-flex">
+                 <input class="form-control left-border-radius" type="text" formControlName="accountNumber" placeholder="Enter your account number">
+                 <div class="save-icon border p-1 cursor-pointer right-border-radius" (click)="saveAccountNumber()">
+                   <img class="w-100" src="../../../assets/img/cards/save-icon.png" alt="">
+                 </div>
+                 </div>
+               </div> -->
             </div>
           </div>
           <div class="row">
@@ -236,25 +202,35 @@
                 <label for="accountTitle" class="form-label"
                   >Account Title*</label
                 >
-
-                <ics-input
+                <!-- <div> -->
+                  <ics-input
                   id="accountTitle"
                   formControlName="accountTitle"
                   placeholder="Enter your account title"
                   required
                 ></ics-input>
+                <!-- </div> -->
               </div>
             </div>
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="nickName" class="form-label">Nick Name*</label>
-
-                <ics-input
+               <!-- <div class="fs-11 text-black"> -->
+                <label for="nickName" class="form-label">
+                  Nick Name*
+                </label>
+               <!-- </div> -->
+                <!-- <div class="d-flex"> -->
+                  <ics-input
                   id="nickName"
                   formControlName="nickName"
                   placeholder="Enter your nick name"
                   required
                 ></ics-input>
+                <!-- <input class="form-control" type="text" formControlName="nickName" placeholder="Enter your nick name">
+                <div class="save-icon border rounded p-1 cursor-pointer" (click)="saveAccountNumber()">
+                  <img class="w-100" src="../../../assets/img/cards/save-icon.png" alt="">
+                </div> -->
+                <!-- </div> -->
               </div>
             </div>
           </div>
@@ -265,3 +241,18 @@
     </div>
   </div>
 </ics-modal>
+<ics-modal #confirmationModal
+           Caption="Delete Confirmation"
+           [saveAndCloseButtonLabel]="'Delete'"
+           (onSave)="handleDeleteConfirmation()"
+           >
+           <div class="modal-content">
+            <div class="container">
+              <p>Are you sure you wants to delete it?</p>
+            </div>
+          </div>
+</ics-modal>
+<ics-error #IcsError></ics-error>
+<!-- (onConfirm)="handleDeleteConfirmation()"
+(onCancel)="handleDeleteCancellation()" -->
+<!-- [modalWidth]="'600px'"  -->
