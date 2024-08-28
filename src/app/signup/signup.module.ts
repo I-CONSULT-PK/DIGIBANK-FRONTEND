@@ -16,14 +16,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { IcsErrorModule } from 'app/components/ics-error/ics-error.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { otpService } from 'app/components/otp-verification/otp-verification.service';
+import { IcsModalModule } from 'app/components/ics-modal/ics-modal.module';
+import { ComponentsModule } from 'app/components/components.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+    ComponentsModule,
     OtpVerificationModule,
     HttpClientModule,
     BrowserModule,
-    RouterModule, FormsModule, ReactiveFormsModule, IcsErrorModule,
+    RouterModule, 
+    FormsModule, 
+    ReactiveFormsModule, 
+    IcsErrorModule,
+    IcsModalModule,
     
   ],
 

@@ -30,8 +30,8 @@ export class DefaultInterceptor implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        
-        console.log("Wokring");
+
+        // console.log("Wokring");
         // const token = localStorage.getItem("token");
 
 
@@ -56,7 +56,7 @@ export class DefaultInterceptor implements HttpInterceptor {
                         case 400:
                             return throwError(err);
                         case 401:
-                             this.goto(``);
+                            this.goto(``);
                         default:
                             return throwError(err);
                     }

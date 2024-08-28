@@ -1,21 +1,127 @@
-.plus-svg{
-    display: flex;
-    margin: 0;
+@import "../../../assets/scss/core/variables/colors";
+$PrimaryColor: $PrimaryWebOrient;
+
+.main-card {
+  background-color: white;
+  border-radius: 12px;
+  width: 100%;
+  padding: 0;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.1);
 }
-.card-title-acc{
-   text-align: center;
-   font-size: larger;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 700;
+
+.navbar-light .navbar-brand {
+  font-weight: 600;
+  font-size: 25px;
 }
-.card-title{
-    font-size: larger;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 700;
+
+.navbar-brand .manage-text {
+  font-weight: 400;
+  font-size: 15px;
+  color: #555555;
 }
-.card-text{
-    font-size: larger;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 500;
-    color: rgba(186, 174, 174, 1);
+
+.navbar .form-control {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.has-search {
+  position: relative;
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  text-align: center;
+  color: #aaa;
+  margin-top: 12px;
+}
+
+.navbar .circle-icon {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-item {
+  margin-right: 10px;
+}
+
+.navbar .nav-item h5 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.navbar .nav-item h6 {
+  font-size: 16px;
+  margin: 0;
+  font-weight: bold;
+}
+
+//  header css end-->
+.account-title {
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  line-height: 50px;
+}
+.card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  height: auto;
+}
+
+.card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+.card-body {
+  padding: 1.25rem !important;
+  background-color: #fbfbfb;
+}
+.card-img-top-1 {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+}
+.address {
+  font-size: 13px;
+  font-weight: 400;
+}
+.doted-line {
+  border: none;
+  border-top: 2.3px dotted #747474;
+  color: #fff;
+  background-color: #fff;
+  height: 4px;
+}
+.btn-edit {
+  background-color: $PrimaryColor;
+  width: 12rem;
+}
+.add-more {
+  padding: 161px 39px !important;
+  cursor: pointer;
+}
+
+.fa-icon {
+  font-size: 66px;
+  color: #b8b8b8;
+  object-fit: auto;
+  object-position: center;
+  width: 66px;
+  align-self: center;
+}
+.add-text {
+  text-decoration-line: underline;
+  font-size: 18px;
 }

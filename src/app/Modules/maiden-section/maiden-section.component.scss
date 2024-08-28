@@ -5,57 +5,12 @@ $PrimaryColor: $PrimaryWebOrient;
 .divider{
   height: 0px;
   border: 1px solid rgb(245 245 245 / 75%);
-}
-#sidebar {
-  background: #F9FAFC;
-  height: 100vh;
-  position: fixed;
-  /* Full height */
+  margin-top: 0px;
 }
 
-#sidebar .sidebar-header {
-  padding: 20px;
-
-  color: #fff;
+#atmCardSvg {
+  color: $PrimaryColor; /* Use the color variable */
 }
-
-#sidebar ul {
-  padding-left: 10px;
-  list-style: none;
-}
-
-#sidebar ul li a {
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  color: #333;
-  text-decoration: none;
-  width: 225px;
-}
-
-#sidebar ul li a:hover {
-  color: $PrimaryColor;
-}
-
-#sidebar ul li img {
-  width: 25px;
-  margin-right: 10px;
-}
-
-#sidebar .list-unstyled i {
-  margin-right: 11px;
-  font-size: 30px !important;
-}
-
-
-#sidebar ul li img.img-2 {
-  width: 26px;
-}
-
-#sidebar ul li img.img-3 {
-  width: 22px;
-}
-
 #content {
   padding: 20px;
 }
@@ -148,7 +103,7 @@ $PrimaryColor: $PrimaryWebOrient;
   height: 173px;
   padding-top: 0px;
   padding-left: 1.3rem;
-  height: 199px;
+  height: 198px;
 }
 
 #account-details .account-header {
@@ -166,7 +121,7 @@ $PrimaryColor: $PrimaryWebOrient;
 
 #account-details .account-amount {
   color: black;
-  margin-top: 30px;
+  margin-top: 16px;
   font: 600 45px Inter, sans-serif;
 }
 
@@ -259,6 +214,7 @@ $PrimaryColor: $PrimaryWebOrient;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.04), 0px 8px 16px 0px rgba(0, 0, 0, 0.08);
   background-color: #fff;
   margin-bottom: 20px;
+  height: auto;
 
 }
 
@@ -290,10 +246,12 @@ $PrimaryColor: $PrimaryWebOrient;
   display: flex;
   align-items: center;
   gap: 25px;
+  padding: 9px 10px 1px 10px !important;
 }
 
 #all-beneficiary .beneficiary-cards .card-body h6 {
   font-size: 14px;
+
 }
 
 #all-beneficiary .beneficiary-cards .card-body .text-muted {
@@ -302,7 +260,7 @@ $PrimaryColor: $PrimaryWebOrient;
 }
 
 #all-beneficiary .beneficiary-cards .card-body .text-primary {
-  color: $PrimaryColor;
+  color: $PrimaryColor !important;
   font-weight: 600;
 }
 
@@ -314,6 +272,12 @@ $PrimaryColor: $PrimaryWebOrient;
   font-weight: 600;
   font-size: 14px;
   width: 7.5rem;
+}
+
+#all-beneficiary .beneficiary-cards .edit-icons {
+  font-size: 26px !important;
+    color: #455A64;
+
 }
 
 #all-beneficiary .beneficiary-cards .card-body .bg-disable {
@@ -363,7 +327,7 @@ $PrimaryColor: $PrimaryWebOrient;
 
 // ----------
 .card-accordion {
-  height: 122vh;
+  height: 109vh;
   width: 100%;
   padding: 1rem;
   border-radius: 10px;
@@ -468,7 +432,8 @@ $PrimaryColor: $PrimaryWebOrient;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 20px;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 
 #quick-transfer .card .heading {
@@ -497,6 +462,13 @@ $PrimaryColor: $PrimaryWebOrient;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  padding-bottom: 16px;
+}
+#quick-transfer  .Both{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
 }
 
 #quick-transfer .card .box {
@@ -579,8 +551,11 @@ $PrimaryColor: $PrimaryWebOrient;
 }
 
 #quick-transfer .card .form-control {
-  height: 49px;
+  height: 46px;
   background-color: #F2F4F7;
+}
+#quick-transfer .card  {
+  height: auto;
 }
 
 #quick-transfer .card .btn-primary {
@@ -599,8 +574,8 @@ $PrimaryColor: $PrimaryWebOrient;
   border-radius: 50%;
   box-shadow: 0px 0px 5.091px 0px rgba(0, 0, 0, 0.04), 0px 10.182px 20.364px 0px rgba(0, 0, 0, 0.08);
   background-color: #fff;
-  width: 70px;
-  height: 70px;
+  width: 55px;
+  height: 55px;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -617,8 +592,8 @@ $PrimaryColor: $PrimaryWebOrient;
   border-radius: 50%;
   box-shadow: 0px 0px 5.091px 0px rgba(0, 0, 0, 0.04), 0px 10.182px 20.364px 0px rgba(0, 0, 0, 0.08);
   background-color: #fff;
-  width: 70px;
-  height: 70px;
+  width: 55px;
+  height: 55px;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -686,7 +661,7 @@ $PrimaryColor: $PrimaryWebOrient;
 #Transactions-History .div-2 {
   display: flex;
   align-items: center;
-  gap: 17px;
+  gap: 9px;
   padding: 0 20px;
 }
 
@@ -704,7 +679,7 @@ $PrimaryColor: $PrimaryWebOrient;
   font-family: Inter, sans-serif;
   align-self: stretch;
   margin: auto 0;
-  font-size: 20px;
+  font-size: large;
   font-weight: 500;
 }
 .avatar-container {
@@ -723,15 +698,16 @@ $PrimaryColor: $PrimaryWebOrient;
 }
 #Transactions-History .div-4 {
   font-family: Inter, sans-serif;
-  border-radius: 8.405px;
-  background-color: #455a64;
-  align-self: stretch;
-  align-items: center;
-  color: #fff;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  padding: 0 8px;
+    border-radius: 8.405px;
+    background-color: #455a64;
+    align-self: stretch;
+    align-items: center;
+    color: #fff;
+    justify-content: center;
+    width: 27px;
+    height: 26px;
+    padding: 1px 8px;
+    font-size: large;
 }
 
 #Transactions-History .div-5 {
@@ -739,6 +715,7 @@ $PrimaryColor: $PrimaryWebOrient;
   font-family: Inter, sans-serif;
   align-self: stretch;
   margin: auto 0;
+  font-size: large;
 }
 
 

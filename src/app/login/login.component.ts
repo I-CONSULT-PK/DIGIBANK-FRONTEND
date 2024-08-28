@@ -3,7 +3,6 @@ import { loginService } from './login.service';
 import { Router } from '@angular/router';
 import { IcsErrorComponent } from 'app/components/ics-error/ics-error.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -209,15 +208,16 @@ export class loginComponent implements OnInit {
     });
   }
   async LoginPost() {
-    
+
     var CreationDto: any = {
       emailorUsername: this.myForm.controls['username'].value,
       password: this.myForm.controls['password'].value,
       imageVerificationId: this.SelectedsecurityImage ? this.SelectedsecurityImage : 0,
     };
     const dto: any = await this.loginService.login(CreationDto);
-    if (dto && dto.success && dto.success == true) {
-      this.router.navigate(["/Admin/maiden"])
+    if (dto && dto.success && dto.success == true && dto.data && dto.data.token) {
+      localStorage.setItem("token", dto.data.token);
+      this.router.navigate(["/Admin/maiden"]);
     }
     else {
       if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {

@@ -1,22 +1,20 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-    moduleId: module.id,
-    selector: 'ics-dropdown',
-    templateUrl: 'ics-dropdown.component.html',
-    styleUrls: ['ics-dropdown.component.scss']
+  selector: 'ics-dropdown',
+  templateUrl: './ics-dropdown.component.html',
+  styleUrls: ['./ics-dropdown.component.scss']
 })
 export class IcsDropdownComponent {
+  @Input() placeholder: any = '';
+  @Input() innerValue: string = '';
+  @Output() valueChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() selectionChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() ChangeCallback: EventEmitter<any> = new EventEmitter<any>();
 
-    @Output() ChangeCallback = new EventEmitter<void>();
+  changeIcon: boolean = false;
 
-    innerValue: any = "";
-    @Input()
-    get value(): any {
-        return this.innerValue;
-    }
-
-    set value(v: any) {
+ set value(v: any) {
         if (v !== this.innerValue) {
             this.innerValue = v;
         }
@@ -55,7 +53,6 @@ export class IcsDropdownComponent {
         
         this.ChangeCallback.emit();
     }
-    changeIcon: boolean = false;
     async ChnagePos() {
         this.changeIcon = !this.changeIcon;
     }

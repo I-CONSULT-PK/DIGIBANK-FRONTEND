@@ -1,11 +1,12 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild, ViewEncapsulation  } from "@angular/core";
 import { ModalComponent, ModalManager } from "ngb-modal";
 declare var $: any;
 
 @Component({
     selector: 'ics-modal',
     templateUrl: 'ics-modal.component.html',
-    styleUrls: ['ics-modal.component.scss']
+    styleUrls: ['ics-modal.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class IcsModalComponent implements AfterViewInit, OnInit {
     Size: any;
@@ -147,7 +148,8 @@ export class IcsModalComponent implements AfterViewInit, OnInit {
 
     @Input()
     hideModalToolbar: boolean = false;
-
+    @Input() closeButtonLabel: string = 'Close'; 
+    @Input() saveAndCloseButtonLabel: string = 'Save & Close'; 
     constructor(private modalService: ModalManager,) { }
 
     async open(size: string = "lg", isCentered: boolean = false) {

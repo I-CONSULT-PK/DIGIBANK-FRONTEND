@@ -1,168 +1,220 @@
-<div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card card-profile">
-                    <div class="card-avatar">
+<div class="ml-sm-auto col-lg-10 mt-2">
+  <div class="main-card">
+    <section id="Navbar">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand mr-auto" href="#">
+            Manage Internet Banking
+            <p class="manage-text">Manage Your Bank Account</p>
+          </a>
 
-                        <a href="javascript:void(0)">
-                            <img class="img" src="../../assets/img/faces/marc.png" />
-                        </a>
-                    </div>
-                    <div class="card-body" style="align-content: center;">
-                        <h6 class="card-category text-gray">Last Login : <strong>{{test }}</strong></h6>
-                        <h6 class="card-category text-gray">Last Password Changed : <strong>13 Days</strong></h6>
-                        <h4 class="card-title"> <strong>Hello,</strong> Meer Hamza</h4>
-                        <h2 class="card-title text-center">
-                            Beneficiary Management
-                        </h2>
-                    </div>
-                    <nav>
-                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <!--MY ACCOUNTS TAB-->
-                            <a class="nav-item nav-link active" id="nav-accounts-tab" data-toggle="tab"
-                                href="#nav-accounts" role="tab" aria-controls="nav-accounts" aria-selected="true">My
-                                Accounts</a>
-                            <!--MY WALLET TAB-->
-                            <a class="nav-item nav-link" id="nav-wallet-tab" data-toggle="tab" href="#nav-wallet"
-                                role="tab" aria-controls="nav-wallet" aria-selected="false">Wallet</a>
-                        </div>
-                    </nav>
-                    <div class="tab-content" id="nav-tabContent">
-                        <!--MY ACCOUNTS TAB-->
-                        <div class="tab-pane fade active show" id="nav-accounts" role="tabpanel"
-                            aria-labelledby="nav-accounts-tab">
-                            <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-                                <div class="row" style="padding-top: 37px;">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <p>
-                                                    <mat-form-field appearance="outline">
-                                                        <mat-label>Search by Account</mat-label>
-                                                        <input matInput placeholder="Search">
-                                                        <mat-icon matSuffix>search</mat-icon>
-                                                    </mat-form-field>
-                                                </p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <button mat-raised-button type="button" (click)="OpenBeneficiaryModal()"
-                                                    class="btn btn-danger pull-right CustomButton">
-                                                    Add Beneficiary
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <ics-modal #BeneficiaryModal Caption="Add Beneficiary" (onSave)="SuccessPopup()">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <ics-dropdown #input (ChangeCallback)="toggleInput(input.value)"
-                                                        caption="Beneficiary Type" [data]="beneficiaryTypeData"
-                                                        displayMember="benname" valueMember="id"></ics-dropdown>
-                                                </div>
-
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <ics-input caption="{{LableName}}"></ics-input>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <ics-input caption="Beneficiary Name"></ics-input>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-md-9">
-                                                    <ics-input caption="{{Lable1Name}}"></ics-input>
-                                                </div>
-                                                <div class="col-md-3" style="padding-top: 25px;">
-                                                    <button type="button" class="btn btn-secondary btn-sm"
-                                                        style="color: white;">Get
-                                                        New Passcode</button>
-                                                </div>
-                                                <div class="alert alert-success" role="alert">
-                                                    Passcode sent to email/mobile as per your security settings
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <p>
-                                                        <b>Note:</b><small>In case of your Mobile network is
-                                                            changed and you are facing
-                                                            problem in recieving sms..
-                                                        </small>
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </ics-modal>
-                                <div class="row">
-                                    <div class="TableMain col-md-12">
-                                        <ics-grid></ics-grid>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="nav-wallet" role="tabpanel" aria-labelledby="nav-wallet-tab">
-                            <div class="container-fluid">
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <select class="form-select">
-                                            <option selected>From Wallet</option>
-                                            <option value="1">xxx xxxxxx xx</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <select class="form-select">
-                                            <option selected>To Wallet</option>
-                                            <option value="1">My DIGI-BANK Account</option>
-                                            <option value="1">My JazzCash Account</option>
-                                            <option value="1">Others</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <form>
-                                            <input type="number" #input class="form-control" placeholder="Amount"
-                                                (input)="handleAmountChange(input.value)">
-                                            <span
-                                                [style.color]="remainingAmountNew > 0 ? 'green' : 'red'">{{remainingAmountNew}}</span>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <select class="form-select">
-                                            <option selected>Others</option>
-                                            <option value="1">Card Bill Payment</option>
-                                            <option value="1">Rental Payment</option>
-                                            <option value="1">Hotel Payment</option>
-                                            <option value="1">School and University Fee Payment</option>
-                                            <option value="1">Donations or Charity</option>
-                                            <option value="1">Supplier and Distributor Payment</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <div class="has-search">
+                    <span class="fa fa-search form-control-feedback"></span>
+                    <input type="text" class="form-control" placeholder="Search" />
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <div class="d-flex align-items-center ml-3">
+                  <div class="circle-icon">
+                    <i class="fas fa-cog"></i>
+                  </div>
+                  <div class="circle-icon ml-3">
+                    <i class="fas fa-bell"></i>
+                  </div>
                 </div>
-            </div>
+              </li>
+              <li class="nav-item">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="m-0">Welcome</h5>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col d-flex align-items-center">
+                    <h6 class="m-0">Mirza Uraib</h6>
+                    <i class="fa fa-angle-down ml-1"></i>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
+      </nav>
+      <hr class="divider" />
+    </section>
+    <div class="d-flex justify-content-between align-items-center tittle-div">
+      <div class="account-title">Beneficiary Management</div>
+      <button class="btn add-new-container border border-dashed border-info p-2 rounded mb-3"
+        (click)="openAddBeneficiaryModal()">
+        <div class="d-flex align-items-center gap-2">
+          <div class="add-container"></div>
+          <div class="add-new-text">Add New</div>
+        </div>
+      </button>
     </div>
-</div>
+    <section id="Benificiary-History">
+      <div class="container">
+        <table class="table transaction-table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Banks</th>
+              <th>Account Number</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="description-icon S">S</span>
+                  <div class="text-center mx-2">M. Sameer</div>
+                </div>
+              </td>
 
-<ics-modal #NewModal1 Caption="Notification" [hideHeader]="true" [hideFooter]="true">
-    <success-popup></success-popup>
+              <td>
+                <img src="../../../assets/img/Logo/askari-bank-logo.png" alt="Askari Bank" class="bank-logo" />
+              </td>
+              <td>98575463558974</td>
+              <td>28 Jan 2024</td>
+              <td>Rs.2800</td>
+              <td>
+                <div class="d-flex flex-row">
+                  <i class="fas fa-edit edit-icons"></i>
+                  <i class="fas fa-trash-alt edit-icons ml-2"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="description-icon A">A</span>
+                  <div class="text-center mx-2">Amna</div>
+                </div>
+              </td>
+              <td>
+                <img src="../../../assets/img/Logo/hbl-konnect-logo.png" alt="HBL KONNECT" class="bank-logo" />
+              </td>
+              <td>98575463558974</td>
+              <td>28 Jan 2024</td>
+              <td>Rs.2800</td>
+              <td>
+                <div class="d-flex flex-row">
+                  <i class="fas fa-edit edit-icons"></i>
+                  <i class="fas fa-trash-alt edit-icons ml-2"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="description-icon S">S</span>
+                  <div class="text-center mx-2">Sidra</div>
+                </div>
+              </td>
+              <td>
+                <img src="../../../assets/img/Logo/askari-bank-logo.png" alt="Askari Bank" class="bank-logo" />
+              </td>
+              <td>98575463558974</td>
+              <td>28 Jan 2024</td>
+              <td>Rs.2800</td>
+              <td>
+                <div class="d-flex flex-row">
+                  <i class="fas fa-edit edit-icons"></i>
+                  <i class="fas fa-trash-alt edit-icons ml-2"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="description-icon F">F</span>
+                  <div class="text-center mx-2">Fatima</div>
+                </div>
+              </td>
+              <td>
+                <img src="../../../assets/img/Logo/hbl-konnect-logo.png" alt="HBL KONNECT" class="bank-logo" />
+              </td>
+              <td>98575463558974</td>
+              <td>28 Jan 2024</td>
+              <td>Rs.2800</td>
+              <td>
+                <div class="d-flex flex-row">
+                  <i class="fas fa-edit edit-icons"></i>
+                  <i class="fas fa-trash-alt edit-icons ml-2"></i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
+<!-- Modal for Adding New Beneficiary -->
+<ics-modal #AddBeneficiaryModal Caption="Add New Beneficiary">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="container">
+        <!-- Form to Add New Beneficiary -->
+        <form [formGroup]="profileForm" (ngSubmit)="addBeneficiary()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <!-- <ics-dropdown
+                  class="form-label"
+                  [(value)]="profileForm.value.bankName"
+                  [data]="accountData"
+                  caption="Bank Name"
+                  valueMember="Id"
+                  displayMember="accountname"
+                  (selectionChange)="onDropdownChange()"
+                ></ics-dropdown> -->
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="accountNumber" class="form-label">Account Number/IBAN*</label>
+                <ics-input id="accountNumber" formControlName="accountNumber" placeholder="Enter your account number"
+                  required></ics-input>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="accountTitle" class="form-label">Account Title*</label>
+
+                <ics-input id="accountTitle" formControlName="accountTitle" placeholder="Enter your account title"
+                  required></ics-input>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="nickName" class="form-label">Nick Name*</label>
+
+                <ics-input id="nickName" formControlName="nickName" placeholder="Enter your nick name"
+                  required></ics-input>
+              </div>
+            </div>
+          </div>
+          <!-- <button type="submit" class="btn btn-primary mt-4">Add</button> -->
+        </form>
+      </div>
+      <!-- End of Form Container -->
+    </div>
+  </div>
 </ics-modal>
+<ics-error #IcsError></ics-error>

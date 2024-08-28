@@ -1,10 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'ics-input',
     templateUrl: 'ics-input.component.html',
-    styleUrls: ['ics-input.component.scss']
+    styleUrls: ['ics-input.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
+
 export class IcsInputComponent {
     @Output() ChangeCallback = new EventEmitter<void>();
 

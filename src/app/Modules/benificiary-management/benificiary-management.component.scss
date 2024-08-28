@@ -1,88 +1,306 @@
-@import '../../../assets/scss/core/variables/colors';
+@import "../../../assets/scss/core/variables/colors";
+$PrimaryColor: $PrimaryWebOrient;
 
-.nav-item.nav-link.active {
-    background-color: $PrimaryWebOrient !important;
-    color: white;
+.main-card {
+  background-color: white;
+  border-radius: 12px;
+  width: 100%;
+  padding: 0;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.1);
 }
 
+.navbar-light .navbar-brand {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.navbar-brand .manage-text {
+  font-weight: 400;
+  font-size: 15px;
+  color: #555555;
+}
+
+.navbar .form-control {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.has-search {
+  position: relative;
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  text-align: center;
+  color: #aaa;
+  margin-top: 12px;
+}
+
+.navbar .circle-icon {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-item {
+  margin-right: 10px;
+}
+
+.navbar .nav-item h5 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.navbar .nav-item h6 {
+  font-size: 16px;
+  margin: 0;
+  font-weight: bold;
+}
+
+//  header css end-->
+
+#Benificiary-History {
+  margin-left: 23px;
+  width: 95%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.04),
+    0px 8px 16px 0px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  color: #263238;
+}
+.tittle-div {
+  padding: 1px 2.5rem 0px 1.5rem;
+}
+.account-title {
+  color: #263238;
+  font-weight: 600;
+  font-size: 25px;
+  font-family: "Inter", sans-serif;
+}
+
+.description-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+  line-height: 43px;
+  color: white;
+}
+
+.description-icon.S {
+  background-color: #007bff;
+}
+
+.description-icon.A {
+  background-color: #6610f2;
+}
+
+.description-icon.F {
+  background-color: #28a745;
+}
+
+.description-icon {
+  display: block;
+}
+
+.table > :not(caption) > * > * {
+  border-bottom-width: 0px !important;
+}
+
+td {
+  justify-content: start;
+  align-items: center;
+}
+
+.bank-logo {
+  width: 100px;
+  height: auto;
+}
+
+:host {
+  display: contents;
+}
+
+.edit-icons {
+  font-size: 20px !important;
+}
+
+.add-new-container {
+  background-color: #e5f7fb;
+  font-size: 18px;
+  color: $PrimaryColor;
+  font-weight: 500;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border: 2px dotted #1ebbd7;
+  margin-bottom: 1rem;
+}
+
+.add-container {
+  width: 20px;
+  height: 20px;
+  background-color: $PrimaryColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+  position: relative;
+}
+
+.add-container::before {
+  content: "+";
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+}
+
+.add-new-text {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  padding-left: 5px;
+}
+
+.modal-content {
+  border: 0 !important;
+  justify-content: start !important;
+}
+
+.modal-dialog {
+  max-width: 870px;
+  margin: auto;
+}
+// .modal-footer {
+//   display: none !important;
+// }
+.form-control {
+  background-color: #fbfbfb !important;
+}
 .form-select {
-    display: block;
-    width: 100%;
-    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
-    -moz-padding-start: calc(0.75rem - 3px);
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 16px 12px;
-    border: 1px solid #ced4da;
-    border-radius: 0.375rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  background-color: #fbfbfb !important;
+}
+.custom-form-select {
+  color: black;
 }
 
-.totalAmount {
-    text-align: end;
+::ng-deep .modal-header {
+  background-color: $PrimaryWebOrient !important;
+  opacity: 0.7;
 }
 
-.tab-content {
-    border-top: 1px solid #1cb1cb;
+::ng-deep .modal-title {
+  color: white !important;
 }
 
-.TableMain {
-    overflow: scroll;
-    max-height: 65vh;
-
-    tr {
-        th {
-            font-weight: bold;
-            color: black;
-            font-size: 15px;
-        }
-
-        td:nth-child(6) {
-            color: green;
-            font-weight: bold;
-
-        }
-    }
+::ng-deep .form-control {
+  background-color: #fbfbfb;
+}
+::ng-deep .btn-primary {
+  background-color: $PrimaryWebOrient !important;
+  margin-right: 10px !important;
+  color: #fff !important;
+  border: 0px;
+}
+::ng-deep .btn-danger{
+  display: none !important; 
 }
 
-.td-actions button {
-    margin-left: 9px;
-}
+//  .nav-item.nav-link.active {
+//      background-color: $PrimaryWebOrient !important;
+//      color: white;
+//  }
 
-input:focus {
-    box-shadow: none;
-}
+//  .form-select {
+//      display: block;
+//      width: 100%;
+//      padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+//      -moz-padding-start: calc(0.75rem - 3px);
+//      font-size: 1rem;
+//      font-weight: 400;
+//      line-height: 1.5;
+//      color: #212529;
+//      background-color: #fff;
+//      background-repeat: no-repeat;
+//      background-position: right 0.75rem center;
+//      background-size: 16px 12px;
+//      border: 1px solid #ced4da;
+//      border-radius: 0.375rem;
+//      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+//      -webkit-appearance: none;
+//      -moz-appearance: none;
+//      appearance: none;
+//  }
 
-.AmountInfoSpan {
-    text-align: right;
-    font-size: 12px;
-    padding-right: 6px;
+//  .totalAmount {
+//      text-align: end;
+//  }
 
-    span {
-        font-weight: 600;
-    }
-}
+//  .tab-content {
+//      border-top: 1px solid #1cb1cb;
+//  }
 
-.hidden {
-    display: none;
-}
+//  .TableMain {
+//      overflow: scroll;
+//      max-height: 65vh;
 
-.LableName1 {
-    padding: 0;
-}
+//      tr {
+//          th {
+//              font-weight: bold;
+//              color: black;
+//              font-size: 15px;
+//          }
 
-.alert {
-    width: 71%;
-    padding: 7px;
-    margin-left: 2%;
-    background-color: #59b459e6;
-    color: white;
-}
+//          td:nth-child(6) {
+//              color: green;
+//              font-weight: bold;
+
+//          }
+//      }
+//  }
+
+//  .td-actions button {
+//      margin-left: 9px;
+//  }
+
+//  input:focus {
+//      box-shadow: none;
+//  }
+
+//  .AmountInfoSpan {
+//      text-align: right;
+//      font-size: 12px;
+//      padding-right: 6px;
+
+//      span {
+//          font-weight: 600;
+//      }
+//  }
+
+//  .hidden {
+//      display: none;
+//  }
+
+//  .LableName1 {
+//      padding: 0;
+//  }
+
+//  .alert {
+//      width: 71%;
+//      padding: 7px;
+//      margin-left: 2%;
+//      background-color: #59b459e6;
+//      color: white;
+//  }

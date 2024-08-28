@@ -1,14 +1,25 @@
-@import '../../assets/scss/core/variables/colors';
+@import "../../assets/scss/core/variables/colors";
 $PrimaryColor: $PrimaryWebOrient;
 
 .Background-Primary {
-  background: url('../../assets/img/Backgrounds/signup-BG.png');
+  background: url("../../assets/img/Backgrounds/signup-BG.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: fit-content;
 }
+.password-wrapper {
+  position: relative;
+}
 
+.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 .CNT-LFT {
   img {
     width: 80%;
@@ -67,7 +78,10 @@ $PrimaryColor: $PrimaryWebOrient;
   color: white;
   font-size: 29px;
 }
-
+.btn:disabled {
+  opacity: 1 !important;
+  cursor: not-allowed;
+}
 .FormDiv p {
   color: white;
   font-size: 13px;
@@ -80,7 +94,6 @@ $PrimaryColor: $PrimaryWebOrient;
 .form-row .FieldDiv {
   padding: 0px 42px 0px 38px;
 }
-
 
 .form-row label {
   color: white;
@@ -98,7 +111,6 @@ $PrimaryColor: $PrimaryWebOrient;
   margin-right: 10px;
   background: $PrimaryColor;
   margin-top: 13px;
-
 }
 
 .form-row .TrnBtn.Back {
@@ -106,7 +118,6 @@ $PrimaryColor: $PrimaryWebOrient;
   border: 1px solid #9f9f9f;
   line-height: 1.6;
   margin-top: 20px;
-
 }
 
 .form-row .AlrAcc {
@@ -128,7 +139,7 @@ $PrimaryColor: $PrimaryWebOrient;
 
 .info {
   font-size: 14px;
-  color: #A7ACB1;
+  color: #a7acb1;
 }
 
 .progress {
@@ -141,14 +152,48 @@ $PrimaryColor: $PrimaryWebOrient;
 
 .blueLable-case {
   color: $PrimaryColor;
-  margin-left: -3px;
+
+}
+.Link {
+  color: $PrimaryColor;
+  cursor: pointer;
+}
+.modal-content {
+  border: 0px;
+}
+::ng-deep .modal-title {
+  color: white !important;
+}
+::ng-deep .modal-footer {
+  display: none;
+}
+.button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s ease;
+  margin-right: 30px;
 }
 
+.button.is-ghost:hover,
+.button.is-ghost:focus {
+  background-color: #dfdad7;
+}
 
+.button.is-primary {
+  background-color: $PrimaryColor;
+  color: #fff;
+}
 
+.button.is-primary:hover,
+.button.is-primary:focus {
+  background-color: $PrimaryColor;
+}
 
 @media (min-width: 320px) and (max-width: 642px) {
-
   .Background-Primary {
     height: auto;
   }
@@ -169,7 +214,6 @@ $PrimaryColor: $PrimaryWebOrient;
     }
   }
 
-
   .Content-Sec1 p:nth-of-type(1) {
     display: none;
   }
@@ -182,14 +226,12 @@ $PrimaryColor: $PrimaryWebOrient;
     display: none;
   }
 
-
   .Content-Sec1 {
     margin-top: 0 !important;
   }
 
   .FormDiv .TopUpCnt {
     padding: 10px;
-
   }
 
   .FormDiv h4 {
@@ -216,7 +258,6 @@ $PrimaryColor: $PrimaryWebOrient;
   .form-row .TrnBtn.Back {
     line-height: 1.6;
     margin-top: 12px;
-
   }
 
   .info {
@@ -226,10 +267,15 @@ $PrimaryColor: $PrimaryWebOrient;
 
 
 }
+/* Add styles for box-shadow */
+input.ng-invalid.ng-touched {
+  box-shadow: 0 0 4px red;
+  color: red;
+}
+
 
 
 @media (min-width: 768px) {
-
   .Background-Primary {
     height: auto;
   }
@@ -238,8 +284,6 @@ $PrimaryColor: $PrimaryWebOrient;
     overflow-y: auto;
     max-height: 100vh;
   }
-
-
 
   .CNT-LFT {
     img {

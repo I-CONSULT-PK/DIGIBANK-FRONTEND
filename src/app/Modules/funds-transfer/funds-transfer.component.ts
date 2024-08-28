@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { IcsModalComponent } from 'app/components/ics-modal/ics-modal.component';
+import { IcsDropdownComponent } from 'app/components/ics-dropdown/ics-dropdown.component';
 
 @Component({
     selector: 'funds-transfer',
@@ -8,36 +10,23 @@ import { IcsModalComponent } from 'app/components/ics-modal/ics-modal.component'
     styleUrls: ['./funds-transfer.component.scss']
 })
 export class FundsTransferComponent implements OnInit {
-    
-    @ViewChild('Modal1') modal: IcsModalComponent | any;
-    @ViewChild('NewModal1') NewModal1: IcsModalComponent | any;
 
-    remainingAmountNew: number = 0;
-    constructor() { }
-    test: Date = new Date();
-    ngOnInit() {
-        this.CurrentDisBal = this.CurrentBal;
-    }
 
-    accountData: any = [
-        {
-            Id: 1,
-            accountname: "My First Account"
-        },
-        {
-            Id: 2,
-            accountname: "Meezan Account"
-        },
-        {
-            Id: 3,
-            accountname: "Alfalah Account"
-        },
-        {
-            Id: 4,
-            accountname: "New Account"
-        },
+    profileForm = new FormGroup({
+        TransferName: new FormControl(''),
+        accountNumber: new FormControl(''),
+        accountTitle: new FormControl(''),
+        nickName: new FormControl(''),
+        amount: new FormControl(''),
+    });
+
+    TransferData: any[] = [
+        { Id: null, TransferName: 'Accont Name' },
+        { Id: 1, TransferName: 'Fatima' },
+        { Id: 2, TransferName: ' Ahmad Ali' },
+        { Id: 3, TransferName: 'Nasir Khan ' },
     ]
-
+    async ngOnInit() { }
     BankData: any = [
         {
             Id: 1,
@@ -94,29 +83,33 @@ export class FundsTransferComponent implements OnInit {
             forname: "Supplier and Distributor Payment"
         },
     ]
-    profileForm = new FormGroup({
-        amount: new FormControl('BalanceAMount'),
-    });
+    // profileForm = new FormGroup({
+    //     amount: new FormControl('BalanceAMount'),
+    // });
     CurrentBal = 45000;
     CurrentDisBal: any = 0;
 
     handleAmountChange(enteredAmount: any) {
-        
+
         var NewBal = 0;
         this.CurrentDisBal = this.CurrentBal;
         if (enteredAmount > 0 && enteredAmount != "" && enteredAmount != '') {
             this.CurrentDisBal = NewBal = this.CurrentBal - enteredAmount;
         }
     }
-    async OpenModal() {
-        
-        this.modal.open();
+    // async OpenModal() {
+
+    //     this.modal.open();
+    // }
+    onDropdownChange() {
+        console.log('Selected bank:', this.profileForm.value.TransferName);
+
     }
-    async SuccessPopup() {
-        
-        this.NewModal1.open('xs');
-    }
-    
+    // async SuccessPopup() {
+
+    //     this.NewModal1.open('xs');
+    // }
+
 }
 
 
