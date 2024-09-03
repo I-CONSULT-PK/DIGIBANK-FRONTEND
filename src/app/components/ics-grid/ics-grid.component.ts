@@ -51,6 +51,8 @@ import { type } from "../../@constant/config";
 import { ToolbarEvent } from "app/@core/events/toolbar.event";
 import { AppConstants } from "app/@constant/app.constant";
 import { IcsModalComponent } from "../ics-modal/ics-modal.component";
+import { ActionCellComponent } from "app/components/action-cell/action-cell.component";
+import { GridActionsComponent } from "./controls/action-component/action.component";
 // import { ErrorComponent } from "../error/error.component";
 @Component({
   selector: 'ics-grid',
@@ -83,11 +85,11 @@ export class IcsGridComponent implements AfterViewInit {
   LiftGrid: boolean = false;
   ClickOnMenu: boolean = false;
 
-  // @ViewChild("dcserror") dcserror: ErrorComponent | any;
+  // @ViewChild("icserror") icserror: ErrorComponent | any;
   protected fb: FormBuilder = new FormBuilder();
   public myForm!: FormGroup;
   @Input()
-  paginationTop: boolean = true;
+  paginationTop: boolean = false;
 
   @Input()
   mode: number = Enum.Mode.Default;
@@ -136,7 +138,7 @@ export class IcsGridComponent implements AfterViewInit {
   hideSelection: boolean = true;
 
   @Input()
-  hideAllControlBtn: boolean = true;
+  hideAllControlBtn: boolean = false;
 
   @Input()
   ShowLiftControlBtn: boolean = false;
@@ -344,21 +346,14 @@ export class IcsGridComponent implements AfterViewInit {
   }
   set selectedData(data: any) { }
 
-  // public _columns: ColDef[] = [];
-
-  rowData = [
-    { make: "Tesla", model: "Model Y", price: 64950, electric: true },
-    { make: "Ford", model: "F-Series", price: 33850, electric: false },
-    { make: "Toyota", model: "Corolla", price: 29600, electric: false },
-  ];
-
+  public _columns: ColDef[] = [];
   // Column Definitions: Defines & controls grid columns.
-  public _columns: ColDef[] = [
-    { field: "make" },
-    { field: "model" },
-    { field: "price" },
-    { field: "electric" }
-  ];
+  // public _columns: ColDef[] = [
+  //   { field: "make" },
+  //   { field: "model" },
+  //   { field: "price" },
+  //   { field: "electric" }
+  // ];
 
   @Input()
   get data(): any {
@@ -1174,7 +1169,7 @@ export class IcsGridComponent implements AfterViewInit {
     field: "actionid",
     cellClass: "grid-cell-centered",
     width: 85,
-    // cellRendererFramework: GridActionsComponent,
+    cellRendererFramework: GridActionsComponent,
     pinned: "left",
 
     onCellClicked: async (params: any) => {
@@ -1863,7 +1858,7 @@ export class IcsGridComponent implements AfterViewInit {
   customGridMenuDetails: any = {};
 
   @Input()
-  hidetoolbar: Boolean = true;
+  hidetoolbar: Boolean = false;
 
   Gridmenu: Boolean = false;
 

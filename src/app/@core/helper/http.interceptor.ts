@@ -30,15 +30,30 @@ export class DefaultInterceptor implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-
-        // console.log("Wokring");
-        // const token = localStorage.getItem("token");
-
-
-
-        // if (!token) {
-        //     this.router.navigate(["/authentication/login"]);
-        // }
+        debugger
+        const token = localStorage.getItem("token");
+        if (!token) {
+            this.router.navigate(["/login"]);
+        }
+        const userData = localStorage.getItem('userInfo'); // Retrieve the token from local storage
+        if (userData) {
+            const user = JSON.parse(userData);
+            const token = user.token;
+        if (token) {
+          // Clone the request to add the new header
+          const clonedRequest = req.clone({
+            setHeaders: {
+              Authorization: `Bearer ${token}`
+            }
+          });
+    
+          // Pass the cloned request instead of the original request to the next handler
+          return next.handle(clonedRequest);
+        }
+    }
+    
+        // Pass the original request if there's no token
+        return next.handle(req);
 
         const modified = req.clone({
             // setHeaders: { Authorization: token ? token : "xxx" },

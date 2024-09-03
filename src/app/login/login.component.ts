@@ -28,7 +28,7 @@ export class loginComponent implements OnInit {
 
   @ViewChild('textContent') textContent: ElementRef | any;
 
-  @ViewChild('IcsError') dcserror: IcsErrorComponent | any;
+  @ViewChild('IcsError') icserror: IcsErrorComponent | any;
 
   tittle: any = "Sign in to Your Account";
 
@@ -96,9 +96,14 @@ export class loginComponent implements OnInit {
         selected: false,
       }
     ];
+  async RemoveLoaclSTorage() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userInfo');
+  }
   myForm: FormGroup;
 
   ngOnInit() {
+    this.RemoveLoaclSTorage();
     this.myForm = this.formBuilder.group({
 
       username: [''],
@@ -215,20 +220,23 @@ export class loginComponent implements OnInit {
       imageVerificationId: this.SelectedsecurityImage ? this.SelectedsecurityImage : 0,
     };
     const dto: any = await this.loginService.login(CreationDto);
-    if (dto && dto.success && dto.success == true && dto.data && dto.data.token) {
-      localStorage.setItem("token", dto.data.token);
-      this.router.navigate(["/Admin/maiden"]);
+    if (dto && dto.success && dto.success == true && dto.data) {
+      localStorage.setItem('userInfo', JSON.stringify(dto.data));
+      localStorage.setItem('token', JSON.stringify(dto.data.token ? dto.data.token : 'xxxxxxxxxxxxxxx'));
+
+      
+      this.router.navigate(["/Admin/maiden"])
     }
     else {
       if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
-        this.dcserror.showErrors(dto.data.errors, 'Error', 4);
+        this.icserror.showErrors(dto.data.errors, 'Error', 4);
       }
       else {
         if (dto && dto.message) {
-          this.dcserror.showErrors(dto.message, 'Error', 4);
+          this.icserror.showErrors(dto.message, 'Error', 4);
         }
         else {
-          this.dcserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
+          this.icserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
         }
       }
     }

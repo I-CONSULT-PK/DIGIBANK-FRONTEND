@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
-import "rxjs/add/operator/filter";
-import "rxjs/add/operator/map";
+// import "rxjs/add/operator/filter";
+// import "rxjs/add/operator/map";
 
 @Injectable({ providedIn: "root" })
 export class Broadcast {

@@ -2,8 +2,8 @@
   <div class="sidebar-header">
     <img src="../../assets/img/Logo/Nav_Logo.png" style="width: 175px; padding: 9px;" />
   </div>
-  <hr class="divider">
-  <ul class="list-unstyled">
+  <hr class="divider mb-4 text-1F1F1">
+  <ul class="list-unstyled pt-2">
     <li *ngFor="let menuItem of menuItems" [ngClass]="{'active': isActive(menuItem), 'nav-item': true}">
       <a class="nav-link" (click)="navigate(menuItem)">
         <i [ngClass]="menuItem.icon" class="icon"></i>

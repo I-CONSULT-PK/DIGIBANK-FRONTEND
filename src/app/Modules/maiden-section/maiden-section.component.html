@@ -1,23 +1,23 @@
-<div class="container-fluid " style="background-color: #F9FAFC;">
+<div class="container-fluid">
+  <div class="d-flex align-items-center mb-2">
+  </div>
   <div class="row">
     <!-- Sidebar Column -->
     <!-- <app-sidebar></app-sidebar> -->
     <!-- header -->
     <div class="ml-sm-auto col-lg-10 mt-2">
-      <div class="main-card">
-        <section id="Navbar">
+      <div class="main-card py-2">
+        <!-- <section id="Navbar">
           <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
               <a class="navbar-brand mr-auto" href="#">
                 Manage Internet Banking
                 <p class="manage-text">Manage Your Bank Account</p>
               </a>
-
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-
               <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
@@ -56,97 +56,132 @@
             </div>
           </nav>
           <hr  class="divider">
-        </section>
-
+        </section> -->
         <section id="account-details" class="mt-2">
-          <div class="container">
+          <div class="container py-2">
             <!-- Account details section -->
-            <div class="row">
-              <div class="col-lg-5 mt-4">
-                <div class="account-section">
-                  <div class="account-header d-flex justify-content-between align-items-center">
-                    <h5 class="account-title mt-3">Total Balance</h5>
-                    <div class="dropdown">
-                      <button class="btn fa fa-ellipsis-v" type="button" id="dropdownMenuButton"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                      </button>
-                      <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-share-alt me-2"></i>Share</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center mb-2">
-                    <h3 class="account-amount">Rs. ******</h3>
-                    <i class="far fa-eye fa-lg ml-2"></i>
-                  </div>
-                  <h4 class="account-description">Meezan Bank Savings Foreign Accounts.</h4>
-                  <div class="d-flex align-items-center">
-                    <i class="far fa-arrow-alt-circle-up fa-lg text-success mr-2"></i>
-                    <h6 class="mb-0">Rs. 55,000</h6>
-                    <i class="far fa-arrow-alt-circle-down fa-lg text-danger ml-3"></i>
-                    <h6 class="mb-0 ml-2">Rs. 10,000</h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-7">
-                <div class="row">
-                  <div class="col-7">
-                    <!-- Menu items section -->
-                    <div class="menu-container justify-content-center align-items-center ">
-                      <div class="row gx-2 gy-2">
-                        <div class="col-4 mb-2 ">
-                          <div class="menu d-flex flex-column ">
-                            <img src="../../../assets/img/cards/Money-icon.svg" alt="Send Money">
-                          </div>
-                          <p class="menu-description">Send Money</p>
-                        </div>
-                        <div class="col-4 mb-2 ">
-                          <div class="menu d-flex flex-column align-items-center">
-                            <img src="../../../assets/img/cards/list-icon.svg" alt="History">
-                          </div>
-                          <p class="menu-description">Send Money</p>
-                        </div>
-                        <div class="col-4 mb-2 ">
-                          <div class="menu d-flex flex-column align-items-center">
-                            <img src="../../../assets/img/cards/wallet.svg" alt="Wallet">
-                          </div>
-                          <p class="menu-description">Send Money</p>
+            <div class="row align-items-center">
+              <div class="col-lg-8 px-lg-1">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <div class="account-section ps-lg-3">
+                      <div class="account-header d-flex justify-content-between align-items-center">
+                        <h5 class="account-title mt-3">Total Balance</h5>
+                        <div class="dropdown">
+                          <button class="btn fa fa-ellipsis-v" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-share-alt me-2"></i>Share</a></li>
+                          </ul>
                         </div>
                       </div>
-                      <div class="row gx-2 gy-2">
-                        <div class="col-4 ">
-                          <div class="menu d-flex flex-column align-items-center">
-                            <img src="../../../assets/img/cards/bank-icon.svg" alt="Bank">
+                      <div class="d-flex align-items-center mb-2">
+                        <h3 [ngClass]="{'d-none': isAmounthidden}" class="account-amount">Rs. 2,10,000.00</h3>
+                        <h3 [ngClass]="{'d-none': !isAmounthidden}" class="account-amount">Rs. ******</h3>
+                          <i [ngClass]="{'d-none': !isAmounthidden}" (click)="toggleAmountVisibility()" class="far fa-eye-slash fa-lg ml-2 cursor-pointer" 
+                           ></i>
+                          <i (click)="toggleAmountVisibility()" [ngClass]="{'d-none': isAmounthidden}" class="far fa-eye fa-lg ml-2 cursor-pointer" 
+                           ></i>
+                      </div>
+                      <h4 class="account-description">Savings Accounts.</h4>
+                      <div class="d-flex align-items-center">
+                        <i class="far fa-arrow-alt-circle-up fa-lg text-success mr-2"></i>
+                        <h6 class="mb-0">Rs. 55,000</h6>
+                        <i class="far fa-arrow-alt-circle-down fa-lg text-danger ml-3"></i>
+                        <h6 class="mb-0 ml-2">Rs. 10,000</h6>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="ps-2">
+                      <!-- Menu items section -->
+                      <div class="menu-container justify-content-center align-items-center ps-2">
+                        <div class="d-flex gap-3 gx-2 gy-2 flex-wrap">
+                          <div >
+                            <div class="menu d-flex flex-column align-items-center">
+                              <img src="../../../assets/img/cards/dash-icon-1.svg" alt="Bank">
+                            </div>
+                            <p class="menu-description my-1 text-center mx-0">Transfer</p>
                           </div>
-                          <p class="menu-description">Send Money</p>
+                          <div >
+                            <div class="menu d-flex flex-column align-items-center">
+                              <img src="../../../assets/img/cards/dash-icon-2.svg" alt="Send Money">
+                            </div>
+                            <p class="menu-description my-1 text-center mx-0">Payment</p>
+                          </div>
+                          <div >
+                            <div class="menu d-flex flex-column align-items-center">
+                              <img src="../../../assets/img/cards/dash-icon-3.png" alt="Send Money">
+                            </div>
+                            <p class="menu-description my-1 text-center mx-0">Benificiary</p>
+                          </div>
+                          <div class="mb-2 ">
+                            <div class="menu d-flex flex-column ">
+                              <img src="../../../assets/img/cards/dash-icon-4.png" alt="Send Money">
+                            </div>
+                            <p class="menu-description my-1 text-center mx-0">Cards</p>
+                          </div>
+                          <div class="mb-2 ">
+                            <div class="menu d-flex flex-column ">
+                              <img src="../../../assets/img/cards/dash-icon-5.png" alt="Send Money">
+                            </div>
+                            <p class="menu-description my-1 text-center mx-0">Top up</p>
+                          </div>
                         </div>
-                        <div class="col-4 ">
-                          <div class="menu d-flex flex-column align-items-center">
-                            <img src="../../../assets/img/cards/Money-icon.svg" alt="Send Money">
+                        <div class="d-flex gap-3 gx-2 gy-2 flex-wrap">
+                          <div class="mb-2 ">
+                            <div class="menu d-flex flex-column ">
+                              <img src="../../../assets/img/cards/dash-icon-5.png" alt="Send Money">
+                            </div>
+                            <p class="menu-description my-1 text-center mx-0">Accounts</p>
                           </div>
-                          <p class="menu-description">Send Money</p>
-                        </div>
-                        <div class="col-4 ">
-                          <div class="menu d-flex flex-column align-items-center">
-                            <img src="../../../assets/img/cards/Money-icon.svg" alt="Send Money">
+                          <div class="mb-2 ">
+                            <div class="menu d-flex flex-column align-items-center">
+                              <img src="../../../assets/img/cards/dash-icon-6.svg" alt="History">
+                            </div>
+                            <p class="menu-description my-1 text-center mx-0">QR Payments</p>
                           </div>
-                          <p class="menu-description">Send Money</p>
+                          <div class="mb-2 ">
+                            <div class="menu d-flex flex-column align-items-center">
+                              <img src="../../../assets/img/cards/dash-icon-7.svg" alt="Wallet">
+                            </div>
+                            <p class="menu-description my-1 text-center mx-0">Utility Pay</p>
+                          </div>
+                          <div class="mb-2 ">
+                            <div class="menu d-flex flex-column ">
+                              <img src="../../../assets/img/cards/dash-icon-8.png" alt="Send Money">
+                            </div>
+                            <p class="menu-description my-1 text-center mx-0">Statement</p>
+                          </div>
+                          <div class="mb-2 ">
+                            <div class="menu d-flex flex-column ">
+                              <img src="../../../assets/img/cards/dash-icon-9.svg" alt="Send Money">
+                            </div>
+                            <p class="menu-description my-1 text-center mx-0">Discount</p>
+                          </div>
                         </div>
                       </div>
                     </div>
-
-                  </div>
-                  <div class="col-5 d-flex align-items-center">
-                    <img src="../../../assets/img/cards/illustartion.svg" class="illustration-img" alt="Illustration"
-                      style="width: 17rem;">
-                  </div>
                 </div>
               </div>
+              <!-- <div class="col-lg-4 px-lg-1">
+                  <iframe src="http://192.168.0.73:5051/8" width="100%" height="100%" frameborder="0"></iframe>
+              </div> -->
+              <!-- <div class="col-lg-4 px-lg-1">
+                <img src="../../../assets/img/cards/illustartion.svg" class="illustration-img" alt="Illustration"
+                style="width: 17rem;">
+            </div> -->
+            <div class="col-lg-4 px-lg-1 text-center" *ngIf="!iframeError">
+              <iframe #chartIframe src="http://192.168.0.73:5051/8" width="100%" height="100%" frameborder="0" (load)="onIframeLoad()"></iframe>
+            </div>
+            <div class="col-lg-4 px-lg-1 text-center" *ngIf="iframeError">
+              <img src="../../../assets/img/cards/illustartion.svg" class="illustration-img ms-4" alt="Illustration"
+              style="width: 17rem;">
+            </div>
             </div>
           </div>
         </section>
-
         <div class="d-flex flex-row">
           <div class="flex-column">
             <div class=" col-lg-12 mt-4 p-0">
@@ -164,7 +199,6 @@
                     </div>
                   </button>
                 </div>
-
                 <div class="beneficiary-cards align-items-center">
                   <div class="row">
                     <!-- beneficiary-card 1 starts -->
@@ -265,7 +299,6 @@
                   </div>
                 </div>
               </section>
-
             </div>
             <div class="col-lg-12 mt-4 p-0">
               <section id="quick-transfer">
@@ -352,11 +385,8 @@
                             </div>
                           </div>
                         </div>
-                    
                       </div>
                     </div>
-                    
-                    
                   </div>
                   <!-- Circle box outside of the card -->
                   <div class="circle-container">
@@ -371,7 +401,6 @@
               </section>
             </div>
           </div>
-
           <div class=" col-lg-4 mt-4">
             <div class="container ">
               <div class="card-accordion">
@@ -459,8 +488,6 @@
             </div>
           </div>
         </div>
-
-
         <section id="Transactions-History" class="mt-2">
           <h2 class="account-title p-2">Transactions History</h2>
           <div class="Transactions-History-Card">
@@ -551,10 +578,15 @@
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </div>
               </div>
-            </div>
+              <!-- <div class="dashboard-container">
+                <iframe src="http://192.168.0.145:5051/8" width="100%" height="600px" frameborder="0"></iframe>
+              </div> -->
+              </div>
           </div>
         </section>
       </div>
     </div>
   </div>
 </div>
+
+
