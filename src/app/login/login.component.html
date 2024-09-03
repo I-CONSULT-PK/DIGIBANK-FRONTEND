@@ -2,64 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Background-Primary">
-                <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-                    <div class="row w-100">
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 CNT-LFT">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-4">
-                                    <img src="../../assets/img/Logo/logo.png" />
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Background-Primary">
+        <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+          <div class="row w-100">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 CNT-LFT">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-4">
+                  <img src="../../assets/img/Logo/logo.png" />
+                </div>
+              </div>
+              <div class="row Content-Sec1">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-4">
+                  <p>Join the Future of Banking<br /> Simplify Your <span>Finances</span><br /> Join Us Today!</p>
+                  <p class="mt-4">Join Digi-Bank Today</p>
+                  <p class="">Experience the future of banking with Digi-Bank. Sign up now to manage your finances
+                    anytime, anywhere.</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-lg-6 col-md-6 col-sm-12 col-xs-12 FormModuleDIv d-flex justify-content-center align-items-center">
+              <div class="FormDiv">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="TopUpCnt">
+                      <h4>{{tittle}}</h4>
+                      <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur. Lorem ipsum
+                        dolor sit amet consectetur.</p>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="Fourth-Step" [formGroup]="myForm">
+                          <div class="form-row align-items-center">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 FieldDiv">
+                              <label for="inlineFormInput">User Name *</label>
+                              <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text"><i class="fa fa-solid fa-user"></i></div>
                                 </div>
+                                <input type="text" class="form-control" id="inlineFormInputGroup"
+                                  placeholder="Enter Your User Name" formControlName="username">
+                              </div>
+                              <span class="Fgt" (click)="ForgetNavigate('username');">Forget Username?</span>
                             </div>
-                            <div class="row Content-Sec1">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-4">
-                                    <p>Join the Future of Banking<br /> Simplify Your <span>Finances</span><br /> Join Us Today!</p>
-                                    <p class="mt-4">Join Digi-Bank Today</p>
-                                    <p class="">Experience the future of banking with Digi-Bank. Sign up now to manage your finances anytime, anywhere.</p>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 FieldDiv">
+                              <label for="inlineFormInput">Password *</label>
+                              <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text"><i class="fa fa-solid fa-eye"></i></div>
                                 </div>
+                                <input type="password" class="form-control" id="inlineFormInputGroup"
+                                  formControlName="password" placeholder="Enter Your Password">
+                              </div>
+                              <span class="Fgt" (click)="ForgetNavigate('password');">Forget Password?</span>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 FormModuleDIv d-flex justify-content-center align-items-center">
-                            <div class="FormDiv">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="TopUpCnt">
-                                            <h4>{{tittle}}</h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <form class="Fourth-Step" [formGroup]="myForm">
-                                                    <div class="form-row align-items-center">
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 FieldDiv">
-                                                            <label for="inlineFormInput">User Name *</label>
-                                                            <div class="input-group mb-2">
-                                                                <div class="input-group-prepend">
-                                                                    <div class="input-group-text"><i class="fa fa-solid fa-user"></i></div>
-                                                                </div>
-                                                                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter Your User Name" formControlName="username">
-                                                            </div>
-                                                            <span class="Fgt" (click)="ForgetNavigate();">Forget Username?</span>
-                                                        </div>
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 FieldDiv">
-                                                            <label for="inlineFormInput">Password *</label>
-                                                            <div class="input-group mb-2">
-                                                                <div class="input-group-prepend">
-                                                                    <div class="input-group-text"><i class="fa fa-solid fa-eye"></i></div>
-                                                                </div>
-                                                                <input type="password" class="form-control" id="inlineFormInputGroup" formControlName="password" placeholder="Enter Your Password">
-                                                            </div>
-                                                            <span class="Fgt" (click)="ForgetNavigate();">Forget Password?</span>
-                                                        </div>
-                                                        <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 FieldDiv">
+                            <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 FieldDiv">
                                                             <div class="SecurityImageDiv mt-1">
                                                                 <h3>Select Security Image</h3>
                                                                 <div class="row">
@@ -69,8 +74,8 @@
                                                                 </div>
                                                             </div>
                                                         </div> -->
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 FieldDiv">
-                                                            <!-- <div class="SecurityImageDiv mt-1">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 FieldDiv">
+                              <!-- <div class="SecurityImageDiv mt-1">
                                                                 <h3 style="margin: 0;">
                                                                     Select Security Image
                                                                 </h3>
@@ -82,15 +87,16 @@
                                                                     </div>
                                                                 </div>
                                                             </div> -->
-                                                            <div class="container SecurityImageDiv mt-1">
-                                                                <h3 class="text-white text-center">Select Security Image</h3>
-                                                                <div class="row icon-row">
-                                                                  <div class="icon-item"  [class.selected]="x.selected == true " *ngFor="let x of SecurityImageArray" (click)="SelectSecurityImage(x.name)">
-                                                                    <div class="icon-container">
-                                                                      <i [ngClass]="x.icon"></i>
-                                                                    </div>
-                                                                  </div>
-                                                                  <!-- <div class="icon-item">
+                              <div class="container SecurityImageDiv mt-1">
+                                <h3 class="text-white text-center">Select Security Image</h3>
+                                <div class="row icon-row">
+                                  <div class="icon-item" [class.selected]="x.selected == true "
+                                    *ngFor="let x of SecurityImageArray" (click)="SelectSecurityImage(x.id)">
+                                    <div class="icon-container">
+                                      <i [ngClass]="x.icon"></i>
+                                    </div>
+                                  </div>
+                                  <!-- <div class="icon-item">
                                                                     <div class="icon-container">
                                                                       <i class="fa fa-phone"></i>
                                                                     </div>
@@ -135,26 +141,28 @@
                                                                       <i class="fa fa-tree"></i>
                                                                     </div>
                                                                   </div> -->
-                                                                </div>
-                                                              </div>
-                                                        </div>
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 FieldDiv" style="line-height: 4;">
-                                                            <button type="button" class="col-lg-12 btn btn-primary TrnBtn" (click)="LoginPost()">Login</button>
-                                                            <button type="button" class="col-lg-12 btn btn-primary TrnBtn CrtAcnt" (click)="NavigateToCreate()">Create New Account</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
+                              </div>
                             </div>
-                        </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 FieldDiv" style="line-height: 4;">
+                              <button type="button" class="col-lg-12 btn btn-primary TrnBtn"
+                                (click)="LoginPost()">Login</button>
+                              <button type="button" class="col-lg-12 btn btn-primary TrnBtn CrtAcnt"
+                                (click)="NavigateToCreate()">Create New Account</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>    
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

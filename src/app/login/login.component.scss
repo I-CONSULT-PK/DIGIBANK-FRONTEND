@@ -255,7 +255,7 @@ select:hover {
 
       i {
         border: 2px solid white;
-        font-size: 20px ;
+        font-size: 20px;
         color: white;
         border-radius: 5px;
         padding: 10px;
@@ -268,8 +268,9 @@ select:hover {
       }
     }
   }
-  
+
 }
+
 .icon-container {
   padding: 5px;
   color: white;
@@ -279,23 +280,32 @@ select:hover {
   font-size: 27px;
   width: 50px;
   height: 50px;
+  border-radius: 3px;
+  transition: 0.6s ease;
 }
+
 .icon-item {
-  flex: 0 0 20%; /* Five items per row */
+  flex: 0 0 20%;
+  /* Five items per row */
   max-width: 20%;
   display: flex;
   justify-content: center;
   cursor: pointer;
   transition: 0.6s ease;
 }
-.icon-item.selected .icon-container{
+
+.icon-item.selected .icon-container {
   border: 1px solid $PrimaryColor !important;
+  background-color: $PrimaryColor;
 }
+
 @media (max-width: 768px) {
   .icon-item {
-    flex: 0 0 33.33%; /* Three items per row on small screens */
+    flex: 0 0 33.33%;
+    /* Three items per row on small screens */
     // max-width: 33.33%;
   }
+
   .icon-container {
     padding: 5px;
     margin-bottom: 8px;
@@ -304,24 +314,28 @@ select:hover {
     height: 35px;
   }
 }
+
 @media (max-width: 576px) {
   .icon-item {
-    flex: 0 0 50%; /* Two items per row on extra small screens */
+    flex: 0 0 50%;
+    /* Two items per row on extra small screens */
     max-width: 25%;
   }
 }
 
 
-@media (max-width: 1440px)  {
+@media (max-width: 1440px) {
   .TopUpCnt {
     padding: 5px 66px 0px 55px !important;
     text-align: center;
   }
 }
+
 @media (max-width: 1024px) {
-  .CNT-LFT .Content-Sec1{
+  .CNT-LFT .Content-Sec1 {
     margin-top: 1px !important;
   }
+
   // .SecurityImageDiv .row  i{
   //   font-size: 17px !important;
   //   padding: 5px !important;
@@ -330,98 +344,122 @@ select:hover {
   .FormDiv .row .TopUpCnt {
     padding: 5px 66px 0px 55px !important;
   }
-  .CNT-LFT .Content-Sec1 p:nth-child(1){
+
+  .CNT-LFT .Content-Sec1 p:nth-child(1) {
     font-size: 37px !important;
   }
 
 }
+
 @media (max-width: 768px) {
-  .CNT-LFT .Content-Sec1 p:nth-child(1){
+  .CNT-LFT .Content-Sec1 p:nth-child(1) {
     font-size: 29px !important;
   }
+
   .FormDiv .row .TopUpCnt {
-    padding: 5px 30px 0px 30px !important ;
+    padding: 5px 30px 0px 30px !important;
   }
+
   .form-row .FieldDiv {
-    padding: 5px 30px 0px 30px !important ;
+    padding: 5px 30px 0px 30px !important;
   }
-  .SecurityImageDiv{
+
+  .SecurityImageDiv {
     padding: 8px !important;
   }
+
   // .SecurityImageDiv .row i{
   //   font-size: 16px !important;
   //   padding: 3px !important;
   //   width: 25px !important;
   // }
-  .SecurityImageDiv .row{
+  .SecurityImageDiv .row {
     margin-top: 0px !important;
   }
-  .FormDiv{
+
+  .FormDiv {
     padding-bottom: 6px !important;
   }
 }
+
 @media (min-width: 320px) and (max-width: 642px) {
   .Content-Sec1 p:nth-of-type(1) {
-    display: none ;
-  }
-  .Fourth-Step{
-    width: 18rem;
-  }
-  .Content-Sec1 p:nth-of-type(2) {
-    display: none ;
-  }
-  .Content-Sec1 p:nth-of-type(3) {
-    display: none ;
-  }
-  .TopUpCnt{
     display: none;
   }
+
+  .Fourth-Step {
+    width: 18rem;
+  }
+
+  .Content-Sec1 p:nth-of-type(2) {
+    display: none;
+  }
+
+  .Content-Sec1 p:nth-of-type(3) {
+    display: none;
+  }
+
+  .TopUpCnt {
+    display: none;
+  }
+
   // .Background-Primary {
   //   height: 130vh;
   // }
   .FormDiv .row :nth-child(1) h4[_ngcontent-oat-c68] {
     font-size: 18px !important;
   }
-  .FormDiv p{
+
+  .FormDiv p {
     font-size: 10px !important;
   }
+
   .FormDiv .row .TopUpCnt {
     padding: 5px 20px 0px 20px !important;
   }
-  .form-row .FieldDiv{
+
+  .form-row .FieldDiv {
     padding: 5px 20px 0px 20px !important;
   }
-  .form-control{
+
+  .form-control {
     font-size: 16px !important;
   }
+
   .form-row .FieldDiv input {
     padding: 0px 10px 0px 10px !important;
   }
+
   // .SecurityImageDiv .row i{
   //   font-size: 12px !important;
   //   padding: 5px !important;
   //   width: 25px !important;
   // }
-  .TrnBtn{
-    padding: 8px;  
+  .TrnBtn {
+    padding: 8px;
   }
+
   .CNT-LFT {
     text-align: center;
   }
-  .CNT-LFT img{
+
+  .CNT-LFT img {
     width: 50%;
   }
+
   .icon-container .centered {
     margin-left: auto;
     margin-right: auto;
   }
+
   .icon-row {
     justify-content: center;
   }
- 
+
 }
+
 @media (min-width: 425px) and (max-width: 642px) {
-  .CNT-LFT img{
-      width: 50%;
+  .CNT-LFT img {
+    width: 50%;
   }
 }

@@ -136,16 +136,20 @@ $PrimaryColor: $PrimaryWebOrient;
   align-items: center;
   height: 55px;
 }
+
 .info {
   font-size: 14px;
   color: #a7acb1;
 }
+
 .progress {
   height: 4px;
 }
+
 .blueLable {
   color: $PrimaryColor;
 }
+
 .blueLable-case {
   color: $PrimaryColor;
 
@@ -260,6 +264,8 @@ $PrimaryColor: $PrimaryWebOrient;
     color: white;
     font-size: 8px;
   }
+
+
 }
 /* Add styles for box-shadow */
 input.ng-invalid.ng-touched {
@@ -289,4 +295,48 @@ input.ng-invalid.ng-touched {
   .info {
     color: white;
   }
+}
+
+.SuggestIcon {
+  background: none;
+  position: absolute;
+  right: 0;
+  border: none;
+  top: 9px;
+
+  div {
+    background: none;
+    border: none;
+
+    i.icon.green {
+      color: green;
+    }
+
+    i.icon.red {
+      color: red;
+      cursor: pointer;
+    }
+  }
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.suggestionBox{
+  position: absolute;
+  top: 46px;
+  right: 0;
+  /* padding: 3px; */
+  z-index: 99999999;
+  font-size: 15px;
+  width: 92%;
+  color: black;
+  height: 33px;
+  border: 2px solid #1ebbd7;
+  background: #e6e6e6;
 }

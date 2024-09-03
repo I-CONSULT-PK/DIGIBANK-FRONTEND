@@ -31,9 +31,9 @@ export class DefaultInterceptor implements HttpInterceptor {
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
         debugger
-        const Islogin = localStorage.getItem("IsUserLogin");
+        const Islogin: any = localStorage.getItem("IsUserLogin");
         const token = localStorage.getItem("token");
-        if (!token && Islogin) {
+        if (!token && (Islogin == "true" || Islogin == true)) {
             this.router.navigate(["/login"]);
         }
         const userData = localStorage.getItem('userInfo'); // Retrieve the token from local storage
@@ -54,7 +54,7 @@ export class DefaultInterceptor implements HttpInterceptor {
         }
 
         // Pass the original request if there's no token
-        return next.handle(req);
+        // return next.handle(req);
 
         const modified = req.clone({
             // setHeaders: { Authorization: token ? token : "xxx" },
@@ -65,7 +65,7 @@ export class DefaultInterceptor implements HttpInterceptor {
         else {
             this.loaderService.isLoading.next(false);
         }
-        return next.handle(modified).pipe(
+        return next.handle(req).pipe(
             catchError((err) => {
                 if (err instanceof HttpErrorResponse) {
                     switch ((<HttpErrorResponse>err).status) {

@@ -37,11 +37,11 @@ export class ComplaintManagementComponent {
         }
     ];
     async OpenModal() {
-        debugger
+        
         this.modal.open();
     }
     async SuccessPopup() {
-        debugger
+        
         this.NewModal1.open('xs');
     }
 }

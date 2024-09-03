@@ -15,6 +15,8 @@ import { BenificiaryManagementComponent } from './benificiary-management.compone
 import { IcsModalModule } from 'app/components/ics-modal/ics-modal.module';
 import { SuccessPopupModule } from 'app/components/success-popup/success-popup.module';
 import { IcsGridModule } from 'app/components/ics-grid/ics-grid.module';
+import { IcsDropdownModule } from 'app/components/ics-dropdown/ics-dropdown.module';
+import { BenificiaryManagementService } from './benificiary-management.service';
 import { CommonModule } from '@angular/common';
 import { BenificiaryManagementListingModule } from './benificiary-management-listing/benificiary-management-listing.module';
 import { IcsErrorModule } from 'app/components/ics-error/ics-error.module';
@@ -27,8 +29,9 @@ import { IcsErrorModule } from 'app/components/ics-error/ics-error.module';
         IcsModalModule,
         SuccessPopupModule,
         IcsGridModule,
+        IcsDropdownModule,IcsErrorModule,
+        IcsGridModule,
         BenificiaryManagementListingModule,
-        IcsErrorModule
     ],
     declarations: [
         BenificiaryManagementComponent ,
@@ -36,6 +39,7 @@ import { IcsErrorModule } from 'app/components/ics-error/ics-error.module';
     exports: [
         BenificiaryManagementComponent,
     ],
+    providers:[BenificiaryManagementService]
    
 
 })

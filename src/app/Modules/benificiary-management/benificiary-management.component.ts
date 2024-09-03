@@ -16,9 +16,7 @@
 //     remainingAmountNew: number = 0;
 //     constructor() { }
 //     test: Date = new Date();
-//     ngOnInit() {
-//         this.CurrentDisBal = this.CurrentBal;
-//     }
+
 
 //     accountData: any = [
 //         {
@@ -233,10 +231,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { IcsModalComponent } from 'app/components/ics-modal/ics-modal.component';
-import { BenificiaryManagementService } from './benificiary-management.service';
+import { BenificiaryManagementService } from '../benificiary-management/benificiary-management.service'
+import { IcsErrorComponent } from 'app/components/ics-error/ics-error.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { navbarService } from 'app/components/navbar/navbar.service';
-import { IcsErrorComponent } from 'app/components/ics-error/ics-error.component';
 
 @Component({
   selector: 'app-benificiary-management',
@@ -254,7 +252,6 @@ export class BenificiaryManagementComponent implements OnInit {
   accountNumber: string;
   profileForm: FormGroup;
   isFavouriteData: boolean = false;
-
 
   accountData: any[] = [
     [{ Id: null, bankName: 'No bank available' }]
@@ -276,7 +273,7 @@ export class BenificiaryManagementComponent implements OnInit {
       accountTitle: new FormControl(''),
       nickName: new FormControl('')
     });
-    // this.getAllBeneficiaries();
+    await this.getAllBeneficiaryList(116);
     await this.getBanks();
   }
   openAddBeneficiaryModal() {
@@ -289,14 +286,59 @@ export class BenificiaryManagementComponent implements OnInit {
   }
 
   addBeneficiary() {
-    console.log(this.profileForm.value);
-    this.profileForm.reset();
+    // console.log(this.profileForm.value);
+    // this.profileForm.reset();
+    // var NewBal = 0;
+    // this.CurrentDisBal = this.CurrentBal;
+    // if (enteredAmount > 0 && enteredAmount != "" && enteredAmount != '') {
+    //   this.CurrentDisBal = NewBal = this.CurrentBal - enteredAmount;
+    // }
+  }
+  LableName: any = "Account/IBAN Number:";
+  toggleInput(value: any) {
 
-    this.closeModal();
+    if (value == '1') {
+      this.LableName = "Mobile Number (Easypaisa):";
+    }
+    else if (value == '2') {
+      this.LableName = "Mobile Number (Sadapay):";
+    }
+    else {
+      this.LableName = "Account/IBAN Number:";
+
+      this.closeModal();
+    }
   }
 
   onDropdownChange() {
     console.log('Selected bank:', this.profileForm.value.bankName);
+  }
+  // async OpenBeneficiaryModal() {
+  //   this.BeneficiaryModal.open();
+  // }
+  async SuccessPopup() {
+
+    // this.NewModal1.open('xs');
+  }
+  allBeneficiaryList: any = [];
+  async getAllBeneficiaryList(CreationDto: any) { 
+    const dto: any = await this.benificiaryManagementService.getAllBeneficiaries(CreationDto,true);
+    if (dto && dto.success && dto.success == true && dto.data && dto.data.length > 0) {
+      this.allBeneficiaryList = dto.data;
+    }
+    else {
+      if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
+        this.icserror.showErrors(dto.data.errors, 'Error', 4);
+      }
+      else {
+        if (dto && dto.message) {
+          this.icserror.showErrors(dto.message, 'Error', 4);
+        }
+        else {
+          this.icserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
+        }
+      }
+    }
   }
   async getAllBeneficiaries() {
     const userData = localStorage.getItem('userInfo');

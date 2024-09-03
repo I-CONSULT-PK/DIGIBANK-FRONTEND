@@ -53,6 +53,7 @@ export class IcsErrorComponent implements OnInit {
         type?: number,
         displaymode: number = 1
     ) {
+        this.ErrorArray = [];
         let msg: any;
         let pushList = {} as any;
         var mode = 1;
@@ -108,9 +109,9 @@ export class IcsErrorComponent implements OnInit {
                     backdropClass: "modal-backdrop",
                 });
 
-                setTimeout(() => {
-                    this.drag();
-                }, 0);
+                // setTimeout(() => {
+                //     this.drag();
+                // }, 0);
             } else {
                 if (typeof messages === "string") {
                     msg = messages;
@@ -159,17 +160,17 @@ export class IcsErrorComponent implements OnInit {
         }
     }
 
-    async drag() {
-        $(".modal-dialog").draggable({
-            handle: ".modal-header",
-        });
-        var modal = $("#errorModal");
-        var body = $(window);
-        if (modal[0]) {
-            var dialog: any = modal[0].children[0];
-            var h = modal[0].children[0].clientHeight;
-            var bh: any = body.height();
-            dialog["style"].top = (bh - h) / 2 - 50 + "px";
-        }
-    }
+    // async drag() {
+    //     $(".modal-dialog").draggable({
+    //         handle: ".modal-header",
+    //     });
+    //     var modal = $("#errorModal");
+    //     var body = $(window);
+    //     if (modal[0]) {
+    //         var dialog: any = modal[0].children[0];
+    //         var h = modal[0].children[0].clientHeight;
+    //         var bh: any = body.height();
+    //         dialog["style"].top = (bh - h) / 2 - 50 + "px";
+    //     }
+    // }
 }

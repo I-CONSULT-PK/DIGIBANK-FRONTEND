@@ -9,32 +9,18 @@
             <p class="manage-text">Manage Your Bank Account</p>
           </a>
 
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div
-            class="collapse navbar-collapse justify-content-end"
-            id="navbarNav"
-          >
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <div class="has-search">
                     <span class="fa fa-search form-control-feedback"></span>
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Search"
-                    />
+                    <input type="text" class="form-control" placeholder="Search" />
                   </div>
                 </a>
               </li>
@@ -69,10 +55,8 @@
     </section> -->
     <div class="d-flex justify-content-between align-items-center tittle-div">
       <div class="account-title">Beneficiary Management</div>
-      <button
-        class="btn add-new-container border border-dashed border-info p-2 rounded mb-3"
-        (click)="openAddBeneficiaryModal()"
-      >
+      <button class="btn add-new-container border border-dashed border-info p-2 rounded mb-3"
+        (click)="openAddBeneficiaryModal()">
         <div class="d-flex align-items-center gap-2">
           <div class="add-container"></div>
           <div class="add-new-text">Add New</div>
@@ -103,8 +87,8 @@
                 </div>
               </td>
 
-              <td class="fs-15px">
-                {{benificiary?.beneficiaryBankName}}
+              <td>
+                <img src="../../../assets/img/Logo/askari-bank-logo.png" alt="Askari Bank" class="bank-logo" />
               </td>
               <td>{{benificiary?.accountNumber}}</td>
               <td>28 Jan 2024</td>
@@ -121,6 +105,66 @@
                  <div class="px-2 py-1 border rounded-circle shadow-sm cursor-pointer">
                   <i class="fas fa-trash-alt fav-icon" (click)="openDeleteConfirmationModal(benificiary.data.id)"></i>
                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="description-icon A">A</span>
+                  <div class="text-center mx-2">Amna</div>
+                </div>
+              </td>
+              <td>
+                <img src="../../../assets/img/Logo/hbl-konnect-logo.png" alt="HBL KONNECT" class="bank-logo" />
+              </td>
+              <td>98575463558974</td>
+              <td>28 Jan 2024</td>
+              <td>Rs.2800</td>
+              <td>
+                <div class="d-flex flex-row">
+                  <i class="fas fa-edit edit-icons"></i>
+                  <i class="fas fa-trash-alt edit-icons ml-2"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="description-icon S">S</span>
+                  <div class="text-center mx-2">Sidra</div>
+                </div>
+              </td>
+              <td>
+                <img src="../../../assets/img/Logo/askari-bank-logo.png" alt="Askari Bank" class="bank-logo" />
+              </td>
+              <td>98575463558974</td>
+              <td>28 Jan 2024</td>
+              <td>Rs.2800</td>
+              <td>
+                <div class="d-flex flex-row">
+                  <i class="fas fa-edit edit-icons"></i>
+                  <i class="fas fa-trash-alt edit-icons ml-2"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="description-icon F">F</span>
+                  <div class="text-center mx-2">Fatima</div>
+                </div>
+              </td>
+              <td>
+                <img src="../../../assets/img/Logo/hbl-konnect-logo.png" alt="HBL KONNECT" class="bank-logo" />
+              </td>
+              <td>98575463558974</td>
+              <td>28 Jan 2024</td>
+              <td>Rs.2800</td>
+              <td>
+                <div class="d-flex flex-row">
+                  <i class="fas fa-edit edit-icons"></i>
+                  <i class="fas fa-trash-alt edit-icons ml-2"></i>
                 </div>
               </td>
             </tr>
@@ -153,7 +197,7 @@
           <div class="row">
             <div class="col-md-6">
               <div class="mb-3">
-                <ics-dropdown
+                <!-- <ics-dropdown
                   class="form-label"
                   [(value)]="profileForm.value.bankName"
                   [data]="accountData"
@@ -161,27 +205,14 @@
                   valueMember="Id"
                   displayMember="bankName"
                   (selectionChange)="onDropdownChange()"
-                ></ics-dropdown>
+                ></ics-dropdown> -->
               </div>
             </div>
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="accountNumber" class="form-label"
-                  >Account Number/IBAN*</label
-                >
-                <!-- <ics-input
-                  id="accountNumber"
-                  formControlName="accountNumber"
-                  placeholder="Enter your account number"
-                  (blur)="saveAccountNumber()"
-                  required
-                ></ics-input> -->
-                <input type="text"
-                id="accountNumber"
-                formControlName="accountNumber"
-                placeholder="Enter your account number"
-                (blur)="saveAccountNumber()"
-                required>
+                <label for="accountNumber" class="form-label">Account Number/IBAN*</label>
+                <ics-input id="accountNumber" formControlName="accountNumber" placeholder="Enter your account number"
+                  required></ics-input>
               </div>
               <!-- <div class="mb-3">
                 <div class="fs-11 text-black fw-500">
@@ -199,33 +230,19 @@
           <div class="row">
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="accountTitle" class="form-label"
-                  >Account Title*</label
-                >
-                <!-- <div> -->
-                  <ics-input
-                  id="accountTitle"
-                  formControlName="accountTitle"
-                  placeholder="Enter your account title"
-                  required
-                ></ics-input>
+                <label for="accountTitle" class="form-label">Account Title*</label>
+
+                <ics-input id="accountTitle" formControlName="accountTitle" placeholder="Enter your account title"
+                  required></ics-input>
                 <!-- </div> -->
               </div>
             </div>
             <div class="col-md-6">
               <div class="mb-3">
-               <!-- <div class="fs-11 text-black"> -->
-                <label for="nickName" class="form-label">
-                  Nick Name*
-                </label>
-               <!-- </div> -->
-                <!-- <div class="d-flex"> -->
-                  <ics-input
-                  id="nickName"
-                  formControlName="nickName"
-                  placeholder="Enter your nick name"
-                  required
-                ></ics-input>
+                <label for="nickName" class="form-label">Nick Name*</label>
+
+                <ics-input id="nickName" formControlName="nickName" placeholder="Enter your nick name"
+                  required></ics-input>
                 <!-- <input class="form-control" type="text" formControlName="nickName" placeholder="Enter your nick name">
                 <div class="save-icon border rounded p-1 cursor-pointer" (click)="saveAccountNumber()">
                   <img class="w-100" src="../../../assets/img/cards/save-icon.png" alt="">
