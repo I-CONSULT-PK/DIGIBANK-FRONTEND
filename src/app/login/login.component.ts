@@ -214,6 +214,7 @@ export class loginComponent implements OnInit {
   }
   async LoginPost() {
 
+    localStorage.setItem('IsUserLogin', JSON.stringify(false));
     var CreationDto: any = {
       emailorUsername: this.myForm.controls['username'].value,
       password: this.myForm.controls['password'].value,
@@ -224,19 +225,27 @@ export class loginComponent implements OnInit {
       localStorage.setItem('userInfo', JSON.stringify(dto.data));
       localStorage.setItem('token', JSON.stringify(dto.data.token ? dto.data.token : 'xxxxxxxxxxxxxxx'));
 
-      
+      if (dto.data.token) {
+        localStorage.setItem('IsUserLogin', JSON.stringify(true));
+      }
+      else {
+        localStorage.setItem('IsUserLogin', JSON.stringify(false));
+      }
       this.router.navigate(["/Admin/maiden"])
     }
     else {
       if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
         this.icserror.showErrors(dto.data.errors, 'Error', 4);
+
       }
       else {
         if (dto && dto.message) {
           this.icserror.showErrors(dto.message, 'Error', 4);
+
         }
         else {
           this.icserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
+
         }
       }
     }

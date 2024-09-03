@@ -53,6 +53,7 @@ export class IcsErrorComponent implements OnInit {
         type?: number,
         displaymode: number = 1
     ) {
+        this.ErrorArray = [];
         let msg: any;
         let pushList = {} as any;
         var mode = 1;
