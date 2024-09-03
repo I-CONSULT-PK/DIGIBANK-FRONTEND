@@ -6,7 +6,7 @@ import { AppConstants} from '../../@constant/app.constant'
 })
 export class AppService<T extends any> extends BaseService<T> {
     constructor(@Inject(String) private appController: string) {
-        super(appController, AppConstants.urls.IE);
+        super(appController, AppConstants.urls.SITE);
     }
 }
 
