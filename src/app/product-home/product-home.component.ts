@@ -10,7 +10,7 @@ export class ProductHomeComponent implements OnInit {
     constructor(private router: Router) { }
     ngOnInit() { }
     SignUp() {
-        debugger
+        
         this.router.navigate(["/login"]);
 
     }

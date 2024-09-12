@@ -72,7 +72,7 @@ export class UserProfileComponent implements OnInit {
     this.CutomerInfoupdateModal.open('md');
   }
   async SuccessPopup() {
-    debugger
+    
     this.NewModal1.open('sm');
   }
 
@@ -82,7 +82,7 @@ export class UserProfileComponent implements OnInit {
   }
   LableName: any = "Account/IBAN Number:";
   toggleInput(value: any) {
-    debugger
+    
     if (value == '1') {
       this.LableName = "Mobile Number (Easypaisa):";
     }

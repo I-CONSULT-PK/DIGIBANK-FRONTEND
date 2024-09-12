@@ -3,7 +3,6 @@ import { loginService } from './login.service';
 import { Router } from '@angular/router';
 import { IcsErrorComponent } from 'app/components/ics-error/ics-error.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,52 +36,62 @@ export class loginComponent implements OnInit {
   ImageIconsArray: any[] =
     [
       {
+        id: 1,
         name: 'car',
         icon: 'fa fa-car',
         selected: false,
       },
       {
+        id: 2,
         name: 'phone',
         icon: 'fa fa-phone',
         selected: false,
       },
       {
+        id: 4,
         name: 'umbrella',
         icon: 'fa fa-umbrella',
         selected: false,
       },
       {
+        id: 3,
         name: 'bicycle',
         icon: 'fa fa-bicycle',
         selected: false,
       },
       {
+        id: 5,
         name: 'trophy',
         icon: 'fa fa-trophy',
         selected: false,
       },
       {
+        id: 6,
         name: 'bell',
         icon: 'fa fa-bell',
         selected: false,
       },
       {
+        id: 7,
         name: 'lightbulb',
         icon: 'fa fa-cutlery',
         selected: false,
       },
       {
+        id: 8,
         name: 'plane',
         icon: 'fa fa-plane',
         selected: false,
       },
       {
+        id: 9,
         name: 'paperclip',
         icon: 'fa fa-paperclip',
         selected: false,
       },
       {
-        name: 'cat',
+        id: 10,
+        name: 'tree',
         icon: 'fa fa-tree',
         selected: false,
       }
@@ -195,7 +204,7 @@ export class loginComponent implements OnInit {
     this.SelectedsecurityImage = '';
     this.SelectedsecurityImage = securityImage;
     this.ImageIconsArray.forEach((e: any) => {
-      if (e.name == securityImage) {
+      if (e.id == securityImage) {
         e.selected = true;
       }
       else {
@@ -204,18 +213,24 @@ export class loginComponent implements OnInit {
     });
   }
   async LoginPost() {
-    debugger
+
+    localStorage.setItem('IsUserLogin', JSON.stringify(false));
     var CreationDto: any = {
       emailorUsername: this.myForm.controls['username'].value,
       password: this.myForm.controls['password'].value,
-      securityImage: this.SelectedsecurityImage ? this.SelectedsecurityImage : "cat",
+      imageVerificationId: this.SelectedsecurityImage ? this.SelectedsecurityImage : 0,
     };
     const dto: any = await this.loginService.login(CreationDto);
     if (dto && dto.success && dto.success == true && dto.data) {
       localStorage.setItem('userInfo', JSON.stringify(dto.data));
       localStorage.setItem('token', JSON.stringify(dto.data.token ? dto.data.token : 'xxxxxxxxxxxxxxx'));
 
-      console.log(dto.data, "hello world");
+      if (dto.data.token) {
+        localStorage.setItem('IsUserLogin', JSON.stringify(true));
+      }
+      else {
+        localStorage.setItem('IsUserLogin', JSON.stringify(false));
+      }
       this.router.navigate(["/Admin/maiden"])
     }
     else {
@@ -225,9 +240,11 @@ export class loginComponent implements OnInit {
       else {
         if (dto && dto.message) {
           this.icserror.showErrors(dto.message, 'Error', 4);
+
         }
         else {
           this.icserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
+
         }
       }
     }
@@ -268,11 +285,8 @@ export class loginComponent implements OnInit {
     this.ShowHide = !this.ShowHide;
   }
 
-  async ForgetNavigate() {
-    this.router.navigate(["/ForgetPassword"]);
-  }
-  async forgotPassword() {
-    this.router.navigate(["/ForgetPassword"]);
+  async ForgetNavigate(urlPath: any) {
+    this.router.navigate(["/ForgetPassword/" + urlPath]);
   }
   async AddChildAccount() {
     this.router.navigate(["../add-child-account/add-child-account.component.html"])
