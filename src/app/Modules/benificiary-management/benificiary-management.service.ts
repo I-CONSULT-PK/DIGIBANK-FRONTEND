@@ -26,4 +26,8 @@ export class BenificiaryManagementService extends AppService<any>{
     const result = await this.get(`/getLocalAccountTitle?senderAccountNumber=${accountNumber}`);
     return result;
   }
+  async createBenificiary(dto: any){
+    const result = await this.post(`createBeneficiary`,dto);
+    return result;
+  }
 }

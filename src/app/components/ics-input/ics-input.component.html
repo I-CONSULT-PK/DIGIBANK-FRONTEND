@@ -1,5 +1,13 @@
 <!--component html goes here -->
 <div class="form-group p-0">
-    <label>{{caption}}</label>
-    <input [(ngModel)]="value" type="{{Type}}" class="form-control" placeholder="{{placeholder}}">
+    <label class="form-label">{{caption}}</label>
+    <input #input="ngModel" id="name" [disabled]="disabled" [style.text-align]="textright == true ?'right' : 'left'" [type]="Type == 'password' ? 'password' : 'text'"
+      class="form-control" (blur)="onBlur()" [placeholder]="placeholderValue()" [(ngModel)]="value"
+      [ngModelOptions]="{standalone: true}" pattern="{{patternOfElement}}" [minlength]="minlength" [ngClass]="AdditionalMenu == true ? 'menuspace' : ''"
+      [maxlength]="maxlength" (keypress)="validate_int($event)" (keyup)="masking($event);" autocomplete="off" />
+
+
+    <!-- <input [(ngModel)]="value" type="{{Type}}" class="form-control" placeholder="{{placeholder}}" (blur)="onBlur()"> -->
 </div>
+
+

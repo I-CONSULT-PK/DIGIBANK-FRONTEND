@@ -2,11 +2,10 @@
 $PrimaryColor: $PrimaryWebOrient;
 
 .main-card {
-  background-color: white;
-  border-radius: 12px;
+  background-color: none;
   width: 100%;
   padding: 0;
-  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 .navbar-light .navbar-brand {
@@ -79,9 +78,11 @@ $PrimaryColor: $PrimaryWebOrient;
   background-color: #fff;
   color: #263238;
 }
+
 .tittle-div {
   padding: 1px 2.5rem 0px 1.5rem;
 }
+
 .account-title {
   color: #263238;
   font-weight: 600;
@@ -115,7 +116,7 @@ $PrimaryColor: $PrimaryWebOrient;
   display: block;
 }
 
-.table > :not(caption) > * > * {
+.table> :not(caption)>*>* {
   border-bottom-width: 0px !important;
 }
 
@@ -183,20 +184,24 @@ td {
   max-width: 870px;
   margin: auto;
 }
+
 // .modal-footer {
 //   display: none !important;
 // }
 .form-control {
   background-color: #fbfbfb !important;
 }
+
 .form-select {
   background-color: #fbfbfb !important;
 }
+
 .custom-form-select {
   color: black;
 }
 
-::ng-deep .modal-header {
+// ::ng-deep
+.modal-header {
   background-color: $PrimaryWebOrient !important;
   opacity: 0.7;
 }
@@ -208,18 +213,20 @@ td {
 ::ng-deep .form-control {
   background-color: #fbfbfb;
 }
+
 ::ng-deep .btn-primary {
   background-color: $PrimaryWebOrient !important;
   margin-right: 10px !important;
   color: #fff !important;
   border: 0px;
 }
-::ng-deep .btn-danger{
-  display: none !important; 
+
+::ng-deep .btn-danger {
+  display: none !important;
 }
 
-.modal-content{
-width: 500px !important;
+.modal-content {
+  width: 500px !important;
 }
 
 .save-icon {

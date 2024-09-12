@@ -29,6 +29,10 @@ export class loginService extends AppService<any>{
         const result = await this.post("forgetPassword", dto);
         return result;
     }
+    async fetchUserDetails(userId : number) {
+        const result = await this.get(`fetchUserDetails?userId=${userId}`);
+        return result;
+    }
 
     // These API's Not belong To This Module It will be Move by Customer Module Soon
     // async GetEmployeeById(empid: any) {

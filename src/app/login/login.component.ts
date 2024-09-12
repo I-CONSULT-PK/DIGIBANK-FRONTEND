@@ -215,19 +215,47 @@ export class loginComponent implements OnInit {
       localStorage.setItem('userInfo', JSON.stringify(dto.data));
       localStorage.setItem('token', JSON.stringify(dto.data.token ? dto.data.token : 'xxxxxxxxxxxxxxx'));
 
-      console.log(dto.data, "hello world");
+      if (dto.data.token) {
+        localStorage.setItem('IsUserLogin', JSON.stringify(true));
+      }
+      else {
+        localStorage.setItem('IsUserLogin', JSON.stringify(false));
+      }
+      const userData: any = await this.loginService.fetchUserDetails(dto.data.customerId);
+      if (userData && userData.success && userData.success == true && userData.data) {
+        localStorage.setItem('userDetails', JSON.stringify(userData.data));
+      }
       this.router.navigate(["/Admin/maiden"])
     }
+    // else {
+    //   if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
+    //     this.icserror.showErrors(dto.data.errors, 'Error', 4);
+    //   }
+    //   else {
+    //     if (dto && dto.message) {
+    //       this.icserror.showErrors(dto.message, 'Error', 4);
+    //     }
+    //     else {
+    //       this.icserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
+    //     }
+    //   }
+    // }
     else {
       if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
         this.icserror.showErrors(dto.data.errors, 'Error', 4);
+        localStorage.setItem('IsUserLogin', JSON.stringify(false));
+
       }
       else {
         if (dto && dto.message) {
           this.icserror.showErrors(dto.message, 'Error', 4);
+          localStorage.setItem('IsUserLogin', JSON.stringify(false));
+
         }
         else {
           this.icserror.showErrors('Some Thing Wents Wrong', 'Error', 4);
+          localStorage.setItem('IsUserLogin', JSON.stringify(false));
+
         }
       }
     }

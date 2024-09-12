@@ -31,27 +31,28 @@ export class DefaultInterceptor implements HttpInterceptor {
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
         debugger
+        const Islogin = localStorage.getItem("IsUserLogin");
         const token = localStorage.getItem("token");
-        if (!token) {
+        if (!token && Islogin) {
             this.router.navigate(["/login"]);
         }
         const userData = localStorage.getItem('userInfo'); // Retrieve the token from local storage
         if (userData) {
             const user = JSON.parse(userData);
             const token = user.token;
-        if (token) {
-          // Clone the request to add the new header
-          const clonedRequest = req.clone({
-            setHeaders: {
-              Authorization: `Bearer ${token}`
+            if (token) {
+                // Clone the request to add the new header
+                const clonedRequest = req.clone({
+                    setHeaders: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                // Pass the cloned request instead of the original request to the next handler
+                return next.handle(clonedRequest);
             }
-          });
-    
-          // Pass the cloned request instead of the original request to the next handler
-          return next.handle(clonedRequest);
         }
-    }
-    
+
         // Pass the original request if there's no token
         return next.handle(req);
 
@@ -71,7 +72,7 @@ export class DefaultInterceptor implements HttpInterceptor {
                         case 400:
                             return throwError(err);
                         case 401:
-                             this.goto(``);
+                            this.goto(``);
                         default:
                             return throwError(err);
                     }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, Renderer2, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { signupService } from "./signup.service";
 import { IcsErrorComponent } from "app/components/ics-error/ics-error.component";
@@ -6,7 +6,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { otpService } from "app/components/otp-verification/otp-verification.service";
 import { OtpVerificationComponent } from "app/components/otp-verification/otp-verification.component";
 import { IcsModalComponent } from "app/components/ics-modal/ics-modal.component";
-
+import * as $ from 'jquery';
+import 'jquery-ui/ui/widgets/draggable';
 @Component({
   selector: "app-signup",
   templateUrl: "./signup.component.html",
@@ -15,12 +16,13 @@ import { IcsModalComponent } from "app/components/ics-modal/ics-modal.component"
 export class signupComponent implements OnInit {
   saveAndCloseButtonLabel: string = "Accept";
   closeButtonLabel: string = "Decline";
+
   constructor(
     private router: Router,
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder, // Keep this one
     private signupService: signupService,
-    private formBuilder: FormBuilder,
-    private otpService: otpService
+    private otpService: otpService,
+    private renderer: Renderer2
   ) {}
   myForm: FormGroup;
   // Model Variable For Signup
@@ -34,6 +36,7 @@ export class signupComponent implements OnInit {
   UserPassword: string = "";
   UserRetypepass: string = "";
   // -------------------------
+  // @ViewChild("IcsError") icserror: IcsErrorComponent | any;
   @ViewChild("IcsError") icserror: IcsErrorComponent | any;
   @ViewChild("otpInput") otpInput: OtpVerificationComponent | any;
   @ViewChild("openTermsConditionsModal") opentCModal: IcsModalComponent | any;
@@ -58,7 +61,7 @@ export class signupComponent implements OnInit {
         validator: PasswordMatchValidator("password", "confirmPassword"),
       }
     );
-    this.passwordForm = this.fb.group(
+    this.passwordForm = this.formBuilder.group(
       {
         password: ["", [Validators.required]],
         confirmPassword: ["", [Validators.required]],
@@ -67,6 +70,13 @@ export class signupComponent implements OnInit {
         validator: PasswordMatchValidator("password", "confirmPassword"),
       }
     );
+  }
+  ngAfterViewInit(): void {
+    try {
+      ($('#draggable-element') as any).draggable();
+    } catch (error) {
+      console.error('Error initializing jQuery UI draggable:', error);
+    }
   }
   passwordForm: FormGroup;
   passwordFieldType: string = "password";
@@ -137,87 +147,220 @@ export class signupComponent implements OnInit {
       this.opentCModal.closeModal();
     }
   }
-  async checkStrength(password: any) {
-    debugger;
-    var strength = 0;
+  // async checkStrength(password: any) {
+  //   debugger;
+  //   var strength = 0;
 
-    //If password contains both lower and uppercase characters, increase strength value.
+  //   //If password contains both lower and uppercase characters, increase strength value.
+  //   if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) {
+  //     strength += 2;
+  //     $(".low-upper-case").addClass("text-success");
+  //     $(".low-upper-case i").removeClass("fa-times").addClass("fa-check");
+  //     $("#popover-password-top").addClass("hide");
+  //   } else {
+  //     $(".low-upper-case").removeClass("text-success");
+  //     $(".low-upper-case i").addClass("fa-times").removeClass("fa-check");
+  //     $("#popover-password-top").removeClass("hide");
+  //   }
+
+  //   //If it has numbers and characters, increase strength value.
+  //   if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) {
+  //     strength += 4;
+  //     $(".one-number").addClass("text-success");
+  //     $(".one-number i").removeClass("fa-times").addClass("fa-check");
+  //     $("#popover-password-top").addClass("hide");
+  //   } else {
+  //     $(".one-number").removeClass("text-success");
+  //     $(".one-number i").addClass("fa-times").removeClass("fa-check");
+  //     $("#popover-password-top").removeClass("hide");
+  //   }
+
+  //   //If it has one special character, increase strength value.
+  //   // if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) {
+  //   //   strength += 1;
+  //   //   $('.one-special-char').addClass('text-success');
+  //   //   $('.one-special-char i').removeClass('fa-times').addClass('fa-check');
+  //   //   $('#popover-password-top').addClass('hide');
+
+  //   // } else {
+  //   //   $('.one-special-char').removeClass('text-success');
+  //   //   $('.one-special-char i').addClass('fa-times').removeClass('fa-check');
+  //   //   $('#popover-password-top').removeClass('hide');
+  //   // }
+
+  //   if (password.length > 7) {
+  //     strength += 4;
+  //     $(".eight-character").addClass("text-success");
+  //     $(".eight-character i").removeClass("fa-times").addClass("fa-check");
+  //     $("#popover-password-top").addClass("hide");
+  //   } else {
+  //     $(".eight-character").removeClass("text-success");
+  //     $(".eight-character i").addClass("fa-times").removeClass("fa-check");
+  //     $("#popover-password-top").removeClass("hide");
+  //   }
+
+  //   // If value is less than 2
+
+  //   if (strength < 4) {
+  //     $("#result").removeClass();
+  //     $("#password-strength").addClass("progress-bar-danger");
+
+  //     $("#result").addClass("text-danger").text("Very Week");
+  //     $("#password-strength").css("width", "10%");
+  //   } else if (strength == 8) {
+  //     $("#result").addClass("good");
+  //     $("#password-strength").removeClass("progress-bar-danger");
+  //     $("#password-strength").addClass("progress-bar-warning");
+  //     $("#result").addClass("text-warning").text("Week");
+  //     $("#password-strength").css("width", "60%");
+  //     return "Week";
+  //   } else if (strength == 10) {
+  //     $("#result").removeClass();
+  //     $("#result").addClass("strong");
+  //     $("#password-strength").removeClass("progress-bar-warning");
+  //     $("#password-strength").addClass("progress-bar-success");
+  //     $("#result").addClass("text-success").text("Strength");
+  //     $("#password-strength").css("width", "100%");
+
+  //     return "Strong";
+  //   }
+  // }
+  async checkStrength(password: string) {
+    let strength = 0;
+
+    // If password contains both lower and uppercase characters, increase strength value.
+    const lowUpperCaseElement = document.querySelector('.low-upper-case');
+    const lowUpperCaseIcon = lowUpperCaseElement?.querySelector('i');
     if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) {
       strength += 2;
-      $(".low-upper-case").addClass("text-success");
-      $(".low-upper-case i").removeClass("fa-times").addClass("fa-check");
-      $("#popover-password-top").addClass("hide");
+      if (lowUpperCaseElement) {
+        lowUpperCaseElement.classList.add('text-success');
+        if (lowUpperCaseIcon) {
+          lowUpperCaseIcon.classList.remove('fa-times');
+          lowUpperCaseIcon.classList.add('fa-check');
+        }
+        this.renderer.addClass(lowUpperCaseElement, 'hide');
+      }
     } else {
-      $(".low-upper-case").removeClass("text-success");
-      $(".low-upper-case i").addClass("fa-times").removeClass("fa-check");
-      $("#popover-password-top").removeClass("hide");
+      if (lowUpperCaseElement) {
+        lowUpperCaseElement.classList.remove('text-success');
+        if (lowUpperCaseIcon) {
+          lowUpperCaseIcon.classList.add('fa-times');
+          lowUpperCaseIcon.classList.remove('fa-check');
+        }
+        this.renderer.removeClass(lowUpperCaseElement, 'hide');
+      }
     }
 
-    //If it has numbers and characters, increase strength value.
+    // If it has numbers and characters, increase strength value.
+    const oneNumberElement = document.querySelector('.one-number');
+    const oneNumberIcon = oneNumberElement?.querySelector('i');
     if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) {
       strength += 4;
-      $(".one-number").addClass("text-success");
-      $(".one-number i").removeClass("fa-times").addClass("fa-check");
-      $("#popover-password-top").addClass("hide");
+      if (oneNumberElement) {
+        oneNumberElement.classList.add('text-success');
+        if (oneNumberIcon) {
+          oneNumberIcon.classList.remove('fa-times');
+          oneNumberIcon.classList.add('fa-check');
+        }
+        this.renderer.addClass(oneNumberElement, 'hide');
+      }
     } else {
-      $(".one-number").removeClass("text-success");
-      $(".one-number i").addClass("fa-times").removeClass("fa-check");
-      $("#popover-password-top").removeClass("hide");
+      if (oneNumberElement) {
+        oneNumberElement.classList.remove('text-success');
+        if (oneNumberIcon) {
+          oneNumberIcon.classList.add('fa-times');
+          oneNumberIcon.classList.remove('fa-check');
+        }
+        this.renderer.removeClass(oneNumberElement, 'hide');
+      }
     }
 
-    //If it has one special character, increase strength value.
+    // Uncomment if special character check is needed
+    // const oneSpecialCharElement = document.querySelector('.one-special-char');
+    // const oneSpecialCharIcon = oneSpecialCharElement?.querySelector('i');
     // if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) {
     //   strength += 1;
-    //   $('.one-special-char').addClass('text-success');
-    //   $('.one-special-char i').removeClass('fa-times').addClass('fa-check');
-    //   $('#popover-password-top').addClass('hide');
-
+    //   if (oneSpecialCharElement) {
+    //     oneSpecialCharElement.classList.add('text-success');
+    //     if (oneSpecialCharIcon) {
+    //       oneSpecialCharIcon.classList.remove('fa-times');
+    //       oneSpecialCharIcon.classList.add('fa-check');
+    //     }
+    //     this.renderer.addClass(oneSpecialCharElement, 'hide');
+    //   }
     // } else {
-    //   $('.one-special-char').removeClass('text-success');
-    //   $('.one-special-char i').addClass('fa-times').removeClass('fa-check');
-    //   $('#popover-password-top').removeClass('hide');
+    //   if (oneSpecialCharElement) {
+    //     oneSpecialCharElement.classList.remove('text-success');
+    //     if (oneSpecialCharIcon) {
+    //       oneSpecialCharIcon.classList.add('fa-times');
+    //       oneSpecialCharIcon.classList.remove('fa-check');
+    //     }
+    //     this.renderer.removeClass(oneSpecialCharElement, 'hide');
+    //   }
     // }
 
+    // If length is greater than 7, increase strength value.
+    const eightCharacterElement = document.querySelector('.eight-character');
+    const eightCharacterIcon = eightCharacterElement?.querySelector('i');
     if (password.length > 7) {
       strength += 4;
-      $(".eight-character").addClass("text-success");
-      $(".eight-character i").removeClass("fa-times").addClass("fa-check");
-      $("#popover-password-top").addClass("hide");
+      if (eightCharacterElement) {
+        eightCharacterElement.classList.add('text-success');
+        if (eightCharacterIcon) {
+          eightCharacterIcon.classList.remove('fa-times');
+          eightCharacterIcon.classList.add('fa-check');
+        }
+        this.renderer.addClass(eightCharacterElement, 'hide');
+      }
     } else {
-      $(".eight-character").removeClass("text-success");
-      $(".eight-character i").addClass("fa-times").removeClass("fa-check");
-      $("#popover-password-top").removeClass("hide");
+      if (eightCharacterElement) {
+        eightCharacterElement.classList.remove('text-success');
+        if (eightCharacterIcon) {
+          eightCharacterIcon.classList.add('fa-times');
+          eightCharacterIcon.classList.remove('fa-check');
+        }
+        this.renderer.removeClass(eightCharacterElement, 'hide');
+      }
     }
 
-    // If value is less than 2
+    // Update the password strength indicator based on the strength value.
+    this.updatePasswordStrengthIndicator(strength);
+  }
 
-    if (strength < 4) {
-      $("#result").removeClass();
-      $("#password-strength").addClass("progress-bar-danger");
+  private updatePasswordStrengthIndicator(strength: number) {
+    const result = document.getElementById('result');
+    const passwordStrength = document.getElementById('password-strength');
 
-      $("#result").addClass("text-danger").text("Very Week");
-      $("#password-strength").css("width", "10%");
-    } else if (strength == 8) {
-      $("#result").addClass("good");
-      $("#password-strength").removeClass("progress-bar-danger");
-      $("#password-strength").addClass("progress-bar-warning");
-      $("#result").addClass("text-warning").text("Week");
-      $("#password-strength").css("width", "60%");
-      return "Week";
-    } else if (strength == 10) {
-      $("#result").removeClass();
-      $("#result").addClass("strong");
-      $("#password-strength").removeClass("progress-bar-warning");
-      $("#password-strength").addClass("progress-bar-success");
-      $("#result").addClass("text-success").text("Strength");
-      $("#password-strength").css("width", "100%");
-
-      return "Strong";
+    if (result && passwordStrength) {
+      if (strength < 4) {
+        result.classList.remove('text-warning', 'text-success');
+        result.classList.add('text-danger');
+        result.textContent = 'Very Weak';
+        passwordStrength.classList.add('progress-bar-danger');
+        passwordStrength.classList.remove('progress-bar-warning', 'progress-bar-success');
+        passwordStrength.style.width = '10%';
+      } else if (strength === 8) {
+        result.classList.remove('text-danger', 'text-success');
+        result.classList.add('text-warning');
+        result.textContent = 'Weak';
+        passwordStrength.classList.add('progress-bar-warning');
+        passwordStrength.classList.remove('progress-bar-danger', 'progress-bar-success');
+        passwordStrength.style.width = '60%';
+      } else if (strength === 10) {
+        result.classList.remove('text-danger', 'text-warning');
+        result.classList.add('text-success');
+        result.textContent = 'Strong';
+        passwordStrength.classList.add('progress-bar-success');
+        passwordStrength.classList.remove('progress-bar-danger', 'progress-bar-warning');
+        passwordStrength.style.width = '100%';
+      }
     }
   }
 
   GlobalDto: any = {};
   async VerifyCustomer() {
+    console.log("hello world")
     this.GlobalDto = {};
     debugger;
     var CreationDto: any = {};

@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 
 // This Module's Components
 import { IcsInputComponent } from './ics-input.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     imports: [
-        FormsModule
+        FormsModule,CommonModule,ReactiveFormsModule
     ],
     declarations: [
         IcsInputComponent,
