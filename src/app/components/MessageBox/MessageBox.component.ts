@@ -10,7 +10,7 @@ import { BaseComponent } from "../../@core/base/Base.Component";
 @Component({
   selector: "app-dcsMessageBox",
   templateUrl: "./MessageBox.component.html",
-  styleUrls: ["./MessageBox.component.scss"],
+  // styleUrls: ["./MessageBox.component.scss"],
 })
 export class MessageBoxComponent extends BaseComponent implements OnInit {
   // public setting: MessageBoxSettings = <MessageBoxSettings>{};

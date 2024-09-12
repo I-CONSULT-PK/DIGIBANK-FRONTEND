@@ -2,7 +2,7 @@ import { Injector } from "@angular/core";
 export const AppConstants = {
   urls: {
     SITE: "http://192.168.0.196:8080",
-    IE: "http://192.168.0.153:8080",
+    IE: "http://192.168.0.15:8080",
     ProdE: "http://192.168.0.156:8080",
   },
   settings: {
