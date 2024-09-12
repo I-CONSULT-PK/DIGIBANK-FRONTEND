@@ -6,22 +6,54 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./ics-dropdown.component.scss']
 })
 export class IcsDropdownComponent {
-  @Input() caption: string = '';
-  @Input() value: any;
   @Input() placeholder: any = '';
-  @Input() valueMember: string = '';
-  @Input() displayMember: string = '';
-  @Input() data: any[] = [];
+  @Input() innerValue: string = '';
   @Output() valueChange: EventEmitter<any> = new EventEmitter<any>();
   @Output() selectionChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() ChangeCallback: EventEmitter<any> = new EventEmitter<any>();
 
   changeIcon: boolean = false;
 
-  ChangeEVent() {
-    this.selectionChange.emit(this.value);
-  }
+ set value(v: any) {
+        if (v !== this.innerValue) {
+            this.innerValue = v;
+        }
+    }
+    @Input()
+    valueMember: string = "";
+    @Input()
+    displayMember: string = "";
 
-  ChnagePos() {
-    this.changeIcon = !this.changeIcon;
-  }
+    @Input()
+    caption: string = "";
+
+    @Input()
+    fieldName: string = "";
+
+    @Input()
+    defaultOrderbyIs: boolean = true;
+
+    _data: any[] = [];
+    get data(): any[] {
+        return this._data;
+    }
+
+    @Input()
+    set data(value: any[]) {
+        
+        this._data = value;
+    }
+    constructor() { }
+    async ngOnInit() {
+        
+        this.data
+    }
+
+    async ChangeEVent() {
+        
+        this.ChangeCallback.emit();
+    }
+    async ChnagePos() {
+        this.changeIcon = !this.changeIcon;
+    }
 }

@@ -11,6 +11,7 @@ import { IcsModalModule } from 'app/components/ics-modal/ics-modal.module';
 import { SuccessPopupModule } from 'app/components/success-popup/success-popup.module';
 import { IcsGridModule } from 'app/components/ics-grid/ics-grid.module';
 import { FundsTransferComponent } from './funds-transfer.component';
+import { IcsDropdownModule } from 'app/components/ics-dropdown/ics-dropdown.module';
 
 @NgModule({
     imports: [
@@ -19,7 +20,8 @@ import { FundsTransferComponent } from './funds-transfer.component';
         ComponentsModule,
         IcsModalModule,
         SuccessPopupModule,
-        IcsGridModule
+        IcsGridModule,
+        IcsDropdownModule
     ],
     declarations: [
         FundsTransferComponent,

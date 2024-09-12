@@ -12,12 +12,12 @@ export class otpService extends AppService<any>{
         super('otp');
     }
     async OTPCreation(dto: any) {
-        debugger
+        
         const result = await this.post("createOTP", dto);
         return result;
     }
     async OTPVerify(dto: any) {
-        debugger
+        
         const result = await this.post("verifyOTP", dto);
         return result;
     }

@@ -20,4 +20,8 @@ export class signupService extends AppService<any> {
         const result = await this.post("register", dto);
         return result;
     }
+    async SuggestUserName(username: any) {
+        const result = await this.get("suggest?userName=" + username);
+        return result;
+    }
 }

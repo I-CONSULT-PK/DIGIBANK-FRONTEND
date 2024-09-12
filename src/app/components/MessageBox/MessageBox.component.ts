@@ -12,7 +12,7 @@ import { BaseComponent } from "../../@core/base/Base.Component";
   templateUrl: "./MessageBox.component.html",
   // styleUrls: ["./MessageBox.component.scss"],
 })
-export class MessageBoxComponent extends BaseComponent implements OnInit {
+export class MessageBoxComponent implements OnInit {
   // public setting: MessageBoxSettings = <MessageBoxSettings>{};
 
   @ViewChild("deletemodal")
@@ -20,7 +20,7 @@ export class MessageBoxComponent extends BaseComponent implements OnInit {
   modalRef: any;
 
   constructor(private modalService: ModalManager) {
-    super();
+    // super();
   }
 
   async ngOnInit() {
