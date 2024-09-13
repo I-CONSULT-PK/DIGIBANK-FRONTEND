@@ -30,17 +30,17 @@ export class HttpHelper {
   }
 
   async post<T>(url: string, headers: HttpHeaders, body?: any): Promise<T> {
-    headers = new HttpHeaders();
-    let token = localStorage.getItem("token")?.toString();
-    const httpOptions = {
-      headers: new HttpHeaders()
-        .append("Content-type", "application/json")
-        .set("Authorization", token ? token : ""),
-      body: body,
-    };
+    // headers = new HttpHeaders();
+    // let token = localStorage.getItem("token")?.toString();
+    // const httpOptions = {
+    //   headers: new HttpHeaders()
+    //     .append("Content-type", "application/json")
+    //     .set("Authorization", token ? token : ""),
+    //   body: body,
+    // };
 
     return await this.http
-      .post<T>(url, httpOptions, { headers })
+      .post<T>(url, body, { headers })
       .toPromise()
       .then((res) => {
         return res;
