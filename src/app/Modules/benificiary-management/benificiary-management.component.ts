@@ -231,10 +231,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { IcsModalComponent } from 'app/components/ics-modal/ics-modal.component';
-import { BenificiaryManagementService } from '../benificiary-management/benificiary-management.service'
-import { IcsErrorComponent } from 'app/components/ics-error/ics-error.component';
+import { BenificiaryManagementService } from './benificiary-management.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { navbarService } from 'app/components/navbar/navbar.service';
+import { IcsErrorComponent } from 'app/components/ics-error/ics-error.component';
 
 @Component({
   selector: 'app-benificiary-management',
@@ -286,6 +286,8 @@ export class BenificiaryManagementComponent implements OnInit {
   }
 
   addBeneficiary() {
+    console.log(this.profileForm.value);
+    this.profileForm.reset();
     // console.log(this.profileForm.value);
     // this.profileForm.reset();
     // var NewBal = 0;

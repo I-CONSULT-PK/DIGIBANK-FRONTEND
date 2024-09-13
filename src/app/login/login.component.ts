@@ -236,7 +236,6 @@ export class loginComponent implements OnInit {
     else {
       if (dto && dto.data && dto.data.errors && dto.data.errors.length > 0) {
         this.icserror.showErrors(dto.data.errors, 'Error', 4);
-
       }
       else {
         if (dto && dto.message) {
